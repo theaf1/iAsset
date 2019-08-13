@@ -15,7 +15,8 @@ class Computer extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('Status',[]);
+            $table->string('Type');
+            $table->string('Status');
             $table->string('SAPID');
             $table->string('PID'); 
             $table->string('Brand');
@@ -48,7 +49,7 @@ class Computer extends Migration
             $table->string('Computer_name');
             $table->string('OS');
             $table->string('OS_version');
-            $table->string('MS_office_version');
+            $table->string('MS_Office_Version');
             $table->string('Anti_virus');
             $table->string('PDF_reader');
             $table->string('IE_version');
@@ -64,10 +65,10 @@ class Computer extends Migration
             $table->boolean('admission_notes');
             $table->boolean('SiNet');
             $table->string('Other_application');
-            $table->string('issue'); //ปัญหาในการใช้งาน
-            $table->string('Remarks'); //หมายเหตุ
-            $table->timestamp('date_created');
-            $table->timestamp('date_updated');
+            $table->string('issue')->nullable(); //ปัญหาในการใช้งาน
+            $table->string('Remarks')->nullable(); //หมายเหตุ
+            $table->timestamps();
+
         });
     }
 
