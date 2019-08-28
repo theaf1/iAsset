@@ -7,10 +7,6 @@ class Peripherals extends Model
 {
     protected $fillable = [
         'id',
-        'Status',
-        'SAPID',
-        'PID',
-        'issue',
-        'Remarks',
+        
     ];
 }

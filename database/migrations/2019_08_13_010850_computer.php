@@ -15,8 +15,6 @@ class Computer extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Type');
-            $table->string('Status');
             $table->string('SAPID');
             $table->string('PID'); 
             $table->string('Brand');
@@ -32,16 +30,6 @@ class Computer extends Migration
             $table->string('PID_Display');
             $table->decimal('Screen_size', 3, 2);
             $table->string('Screen_ratio');
-            $table->string('User');
-            $table->string('Function');
-            $table->string('Position');
-            $table->string('Section');
-            $table->string('Tel_No');
-            $table->string('Locate_Building');
-            $table->integer('Locate_floor');
-            $table->string('Locate_room');
-            $table->boolean('Accessibility');
-            $table->string('Owner');
             $table->ipAddress('IP_Address');
             $table->string('LAN_Outlet_No')->nullable();
             $table->macAddress('MAC_Address');
