@@ -53,6 +53,7 @@ class Computer extends Migration
             $table->boolean('admission_notes');
             $table->boolean('SiNet');
             $table->string('Other_application');
+            $table->string('Other_application_Detail');
             $table->string('issue')->nullable(); //ปัญหาในการใช้งาน
             $table->string('Remarks')->nullable(); //หมายเหตุ
             $table->timestamps();
