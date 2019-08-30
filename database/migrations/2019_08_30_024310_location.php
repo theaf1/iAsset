@@ -15,10 +15,9 @@ class Location extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->bigincrements('id');
+            $table->integer('floor');
+            $table->string('wing');
             $table->integer('building_id');
-            $table->integer('floor_id');
-            $table->integer('wing_id');
-            $table->text('name');
             $table->timestamps();
         });
     }

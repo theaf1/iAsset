@@ -8,10 +8,10 @@ class location extends Model
 {
     protected $fillable = [
         'id',
-        'building_id',
-        'floor_id',
+        'floor',
+        'wing',
         'wing_id',
-        'name',
+        'building_id',
     ];
    
 }

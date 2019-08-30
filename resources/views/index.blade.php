@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('header')
-<p>mainmenu</p>
+<p><b>mainmenu</b></p>
 @endsection
 @section('content')
 <p>Test</p>
