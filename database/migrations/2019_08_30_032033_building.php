@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Peripheral extends Migration
+class Building extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class Peripheral extends Migration
      */
     public function up()
     {
-        Schema::create('Peripherals', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Status');
-            $table->string('SAPID');
-            $table->string('PID'); 
-            $table->string('issue'); //ปัญหาในการใช้งาน
-            $table->string('Remarks'); //หมายเหตุ
+        Schema::create('buildings', function (Blueprint $table) {
+            $table->bigincrements('id');
+            $table->text('name');
             $table->timestamps();
         });
     }
