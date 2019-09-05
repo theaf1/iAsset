@@ -13,11 +13,11 @@ class location extends Model
         'wing_id',
         'building_id',
     ];
-   
+    public function getType(){
+        $this->hasMany(Building::class);
+    }
 }
 {
-    public function getType(){
-        $this->hasMany(Building::class)
-    };
+   
 
 }

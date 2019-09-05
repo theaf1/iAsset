@@ -3,28 +3,48 @@
 <p><b>mainmenu</b></p>
 @endsection
 @section('content')
+
+
+
+
+<div class="container">
+
+
+
 <form>
-<p>ชนิด</p>
-<select name="type">
-    <option value="PC">PC</option>
-    <option value="Notebook">Notebook</option>
-    <option value="allinone">All-In-One</option>
-    <option value="workstation">Workstation</option>
-</select>
-<p>รหัส SAP<input name="sapid" type="text"></p>
-<p>รหัสครุภัณฑ์<input name="pid" type="text"></p>
-<p>ตึก</p>
-<select name="location">
+<div class="form-group">
+<label for="type">ชนิด</label>
+    <select class="form-control" id="type">
+        <option value="PC">PC</option>
+        <option value="Notebook">Notebook</option>
+        <option value="allinone">All-In-One</option>
+        <option value="workstation">Workstation</option>
+    </select>
+<label for="sapid">รหัส SAP</label>
+<input type="text" class="form-control" id="sapid" name="sapid">
+<label for="pid">รหัสครุภัณฑ์</label>
+<input type="text" class="form-control" id="pid" name="pid">
+<label for="location">สถานที่ตั้ง</label>
+    <select class="form-control" id="location">
     <option value="location">location</option>
 </select>
-<p>เป็นคอมพิวเตอร์เคลื่อนที่</p>
-<input type="radio" name="is_mobile" value="yes">ใช่<br>
-<input type="radio" name="is_mobile" value="no">ไม่ใช่<br>
+
+<input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="no" checked>
+<label class="form-check-label" for="is_mobile">
+เป็นเครื่องเคลื่อนที่
+</label>
+<input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="yes">
+<label class="form-check-label" for="is_mobile">
+เป็นเครื่องประจำที่
+</label>
+<!-- <input type="radio" name="is_mobile" value="yes">ใช่<br>
+<input type="radio" name="is_mobile" value="no">ไม่ใช่<br> -->
 <p>หน่วยงาน</p>
 <select name="section">
     <option value="section">section</option>
 </select>
 <p>ชื่อผู้ใช้งาน</p><input name="user" type="text">
+<p>ตำแหน่งผู้ใช้งาน</p><input name="position" type="text">
 <p>ประเภทหน่วยงาน</p>
 <select name="section_status">
     <option value="สำนักงาน">สำนักงาน</option>
@@ -105,6 +125,7 @@
 <input type="radio" name="lan_type" value="3">ระบบภายในโรงพยาบาล<br>
 <p>Computer Name<input name="computer_name" type="text"></p>
 <p>ปัญหาในการใช้งาน</p>
-<textarea name="issues" rows="5" columns="180"></textarea>
+<textarea name="issues" rows="5"></textarea>
 </form>
+</div>
 @endsection 

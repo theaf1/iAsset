@@ -1,0 +1,63 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class clients extends Model
+{
+   protected $fillable = [
+       'id',
+       'type',
+       'sapid',
+       'pid',
+       'location',
+       'is_mobile',
+       'section',
+       'user',
+       'position',
+       'section_status',
+       'function',
+       'owner',
+       'accessibility',
+       'asset_status',
+       'remarks',
+       'brand',
+       'model',
+       'serial_no',
+       'cpu_model',
+       'cpu_speed',
+       'cpu_socket_number',
+       'ram_size',
+       'hdd_no',
+       'hdd_type',
+       'hdd_size',
+       'display_no',
+       'display_sapid',
+       'display_pid',
+       'display_size',
+       'display_ratio',
+       'os',
+       'os_arch',
+        'ms_office_version',
+        'antivirus',
+        'pdf_reader',
+        'ie_version',
+        'chrome_version',
+        'spss_version',
+        'ehis',
+        'sipac',
+        'si_iscan',
+        'eclair',
+        'admission_note',
+        'sinet',
+        'other_software',
+        'other_software_detail',
+        'lan_outlet_no',
+        'ip_address',
+        'mac_address',
+        'lan_type',
+        'computer_name',
+        'issues',
+   ];
+}

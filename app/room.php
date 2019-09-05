@@ -11,9 +11,7 @@ class room extends Model
         'name',
         'location_id',   
     ];
-}
-{
     public function gettype() {
-        $this->belongsTo(building::class)
-    };
+        $this->belongsTo(building::class);
+    }
 }
