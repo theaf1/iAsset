@@ -9,6 +9,7 @@
     <option value="PC">PC</option>
     <option value="Notebook">Notebook</option>
     <option value="allinone">All-In-One</option>
+    <option value="workstation">Workstation</option>
 </select>
 <p>รหัส SAP<input name="sapid" type="text"></p>
 <p>รหัสครุภัณฑ์<input name="pid" type="text"></p>
