@@ -28,37 +28,37 @@
     <select class="form-control" id="location">
     <option value="location">location</option>
 </select>
-
-<input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="no" checked>
-<label class="form-check-label" for="is_mobile">
-เป็นเครื่องเคลื่อนที่
-</label>
 <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="yes">
-<label class="form-check-label" for="is_mobile">
-เป็นเครื่องประจำที่
-</label>
-<!-- <input type="radio" name="is_mobile" value="yes">ใช่<br>
-<input type="radio" name="is_mobile" value="no">ไม่ใช่<br> -->
-<p>หน่วยงาน</p>
-<select name="section">
-    <option value="section">section</option>
-</select>
-<p>ชื่อผู้ใช้งาน</p><input name="user" type="text">
-<p>ตำแหน่งผู้ใช้งาน</p><input name="position" type="text">
-<p>ประเภทหน่วยงาน</p>
-<select name="section_status">
+<label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
+<input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="no" checked>
+<label class="form-check-label" for="is_mobile">เป็นเครื่องประจำที่</label><br>
+<label for="section">หน่วยงาน</label>
+    <select class="form-control" id="section">
+        <option value="section">หน่วยงาน</option>
+    </select>
+<label for="user">ชื่อผู้ใช้งาน</label><br>
+<input type="text" class="form-control" id="user" name="user">
+<p>ตำแหน่งผู้ใช้งาน</p><input type="text" class="form-control" name="position">
+<p></p>
+<label for="section_status">ประเภทหน่วยงาน</label>
+<select class="form-control" id="section_status">
     <option value="สำนักงาน">สำนักงาน</option>
     <option value="หอผู้ป่วย">หอผู้ป่วย</option>
     <option value="ห้องประชุม">ห้องประชุม</option>
 </select>
-<p>ระบบงาน</p>
-<select name="function">
+<p></p>
+<label for="function">ระบบงาน</label>
+<select class="form-control" id="function">
     <option value="สำนักงาน">สำนักงาน</option>
     <option value="หอผู้ป่วย">หอผู้ป่วย</option>
 </select>
-<p>เจ้าของ</p>
+<input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1" checked>
+<label class="form-check-label" for="is_mobile">คณะ</label><br>
+<input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="2">
+<label class="form-check-label" for="is_mobile">ภาควิชา</label><br>
+<!-- <p>เจ้าของ</p>
 <input type="radio" name="owner" value="yes">คณะ<br>
-<input type="radio" name="owner" value="no">ภาควิชา<br>
+<input type="radio" name="owner" value="no">ภาควิชา<br> -->
 <p>สิทธิ์ admin</p>
 <input type="checkbox" name="accessibility" value="yes">มีสิทธิ admin<br>
 <p>สถานะของครุภัณฑ์</p>
