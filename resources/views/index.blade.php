@@ -3,19 +3,17 @@
 <p><b>mainmenu</b></p>
 @endsection
 @section('content')
-
-
-
 <!-- test -->
 <div class="container">
     <form>
         <div class="form-group">
+        <h2>ข้อมูลครุภัณฑ์พื้นฐาน</h2>
             <label for="type">ชนิด</label>
                 <select class="form-control" id="type">
-                <option value="PC">PC</option>
-                <option value="Notebook">Notebook</option>
-                <option value="allinone">All-In-One</option>
-                <option value="workstation">Workstation</option>
+                <option value="1">PC</option>
+                <option value="2">Notebook</option>
+                <option value="3">All-In-One</option>
+                <option value="4">Workstation</option>
             </select>
         <label for="sapid">รหัส SAP</label>
         <input type="text" class="form-control" id="sapid" name="sapid">
@@ -39,9 +37,9 @@
             </select>
         <label for="is_mobile">label</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="yes">
+                <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1">
                 <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
-                <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="no" checked>
+                <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
                 <label class="form-check-label" for="is_mobile">เป็นเครื่องประจำที่</label><br>
             </div><br>
         <label for="section">หน่วยงาน</label>
@@ -55,9 +53,9 @@
         <input type="text" class="form-control" name="position" id="position">
         <label for="section_status">ประเภทหน่วยงาน</label>
             <select class="form-control" id="section_status">
-                <option value="สำนักงาน">สำนักงาน</option>
-                <option value="หอผู้ป่วย">หอผู้ป่วย</option>
-                <option value="ห้องประชุม">ห้องประชุม</option>
+                <option value="1">สำนักงาน</option>
+                <option value="2">หอผู้ป่วย</option>
+                <option value="3">ห้องประชุม</option>
             </select>
         <label for="function">ระบบงาน</label>
             <select class="form-control" id="function">
@@ -81,6 +79,7 @@
             </select>
         <label for="remarks">หมายเหตุ</label><br>
         <textarea class="form-control" name="remarks" id="remarks" rows="5"></textarea>
+        <h2>คุณสมบัติของเครื่อง</h2>
         <label for="brand">ยี่ห้อ</label>
         <input class="form-control" name="brand" id="brand" type="text">
         <label for="model">รุ่น</label>
@@ -89,7 +88,7 @@
         <input class="form-control" name="serial_no" id="serial_no" type="text">
         <label for="cpu_model">CPU Model</label>
         <input class="form-control" name="cpu_model" id="cpu_model" type="text">
-        <label for="cpu_speed">CPU Speed
+        <label for="cpu_speed">CPU Speed</label>
         <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0">
         <label for="cpu_socket_no">จำนวน Socket CPU</label>
         <input class="form-control" name="cpu_socket_no" id="cpu_socket_no" type="number" min="1" value="1">
@@ -109,48 +108,49 @@
         <input class="form-control" name="display_size" id="display_size" type="number" min="0">
         <label for="display_ratio">สัดส่วนจอภาพ</label>
         <input class="form-control" name="display_ratio" id="display_ratio" type="text" pattern="{0-9}:{0-9}">
-        <label for="os">OS</label>
-        <input class="form-control" name="os" id="os" type="text">
-        <label for="os_arch">OS architecture</label><br>
+        <h2>ข้อมูลด้าน software</h2>
+            <label for="os">OS</label>
+            <input class="form-control" name="os" id="os" type="text">
+            <label for="os_arch">OS architecture</label><br>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="os_arch" id="os_arch" value="1">
                 <label class="form-check-label" for="os_arch">32 bit<label>
                 <input class="form-check-input" type="radio" name="os_arch" id="os_arch" value="2">
                 <label class="form-check-label" for="os_arch">64 bit</label>
             </div><br>
-        <label for="ms_office_ver">Microsoft Office Version</label>
-        <input type="text" class="form-control" name="ms_office_ver" id="ms_office_ver">
-        <label for="antivirus">Antivirus</label>
-        <input class="form-control" name="antivirus" id="antivirus" type="text">
-        <label for="pdf_reader">PDF reader</label>
-        <input class="form-control" name="pdf_reader" id="pdf_reader" type="text">
-        <label for="ie_version">IE version</label>
-        <input class="form-control" name="ie_version" id="ie_version" type="number" value="6">
-        <label for="chrome_version">Chrome version</label>
-        <input class="form-control" name="chrome_version" id="chrome_version" type="text">
-        <label for="spss_version">SPSS version</label>
-        <input class="form-control" name="spss_version" id="spss_version" type="number" value="17">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="ehis" id="ehis" value="1">
-            <label class="form-check-label" for="ehis">E-HIS</label><br>
-            <input class="form-check-input" type="checkbox" name="sipacs" id="sipacs" value="1">
-            <label class="form-check-label" for="sipacs">SiPACS</label><br>
-            <input class="form-check-input" type="checkbox" name="si_iscan" id="si_iscan" value="1">
-            <label class="form-check-label" for="si_iscan">i-scan</label><br>
-            <input class="form-check-input" type="checkbox" name="eclair" id="eclair" value="1">
-            <label class="form-check-label" for="eclair">ECLAIR</label><br>
-            <input class="form-check-input" type="checkbox" name="admission_note" id="admission_note" value="1">
-            <label class="form-check-label" for="admission_note">Admission Notes</label><br>
-            <input class="form-check-input" type="checkbox" name="sinet" id="sinet" value="1">
-            <label class="form-check-label" for="sinet">SiNet</label><br>
-        </div>
+            <label for="ms_office_ver">Microsoft Office Version</label>
+            <input type="text" class="form-control" name="ms_office_ver" id="ms_office_ver">
+            <label for="antivirus">Antivirus</label>
+            <input class="form-control" name="antivirus" id="antivirus" type="text">
+            <label for="pdf_reader">PDF reader</label>
+            <input class="form-control" name="pdf_reader" id="pdf_reader" type="text">
+            <label for="ie_version">IE version</label>
+            <input class="form-control" name="ie_version" id="ie_version" type="number" value="6">
+            <label for="chrome_version">Chrome version</label>
+            <input class="form-control" name="chrome_version" id="chrome_version" type="text">
+            <label for="spss_version">SPSS version</label>
+            <input class="form-control" name="spss_version" id="spss_version" type="number" value="17">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="ehis" id="ehis" value="1">
+                <label class="form-check-label" for="ehis">E-HIS</label><br>
+                <input class="form-check-input" type="checkbox" name="sipacs" id="sipacs" value="1">
+                <label class="form-check-label" for="sipacs">SiPACS</label><br>
+                <input class="form-check-input" type="checkbox" name="si_iscan" id="si_iscan" value="1">
+                <label class="form-check-label" for="si_iscan">i-scan</label><br>
+                <input class="form-check-input" type="checkbox" name="eclair" id="eclair" value="1">
+                <label class="form-check-label" for="eclair">ECLAIR</label><br>
+                <input class="form-check-input" type="checkbox" name="admission_note" id="admission_note" value="1">
+                <label class="form-check-label" for="admission_note">Admission Notes</label><br>
+                <input class="form-check-input" type="checkbox" name="sinet" id="sinet" value="1">
+                <label class="form-check-label" for="sinet">SiNet</label><br>
+            </div>
         <p>Software อื่นๆ</p>
             <div class="form-check">
                 <input class="form-check" type="checkbox" name="other_software" id="other_software" value="yes">
                 <label class="form-check-label" for="other_software">มี Softwareอื่นๆ</label><br>
             </div>
-        <textarea class="form-control" name="other_software_detail" id="other_software_detail" rows="5"></textarea>
-        <p>ข้อมูลด้านเครือข่าย</p>
+            <textarea class="form-control" name="other_software_detail" id="other_software_detail" rows="5"></textarea>
+        <h2>ข้อมูลด้านเครือข่าย</h2>
         <p>ประเภทเครือข่าย</p>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="lan_type" id="lan_type" value="0">
@@ -162,8 +162,8 @@
                 <input class="form-check-input" type="radio" name="lan_type" id="lan_type" value="3">
                 <label class="form-check-label" for="lan-type">ระบบภายในโรงพยาบาล</label><br>
             </div>
-        <label for="lan_outlet_no">LAN outlet No</label>
-        <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
+            <label for="lan_outlet_no">LAN outlet No</label>
+            <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
             <label for="ip_address">IP Address</label>
             <input class="form-control" name="ip_addresss" id="ip_address" type="text">
             <label for="mac_address">MAC Address</label>

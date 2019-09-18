@@ -12,5 +12,6 @@ class sections extends Model
    ];
    public function gettype(){
        $this->hasMany(clients::class);
+       $this->hasMany(peripherals::class);
    }
 }
