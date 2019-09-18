@@ -46,10 +46,8 @@
             </div><br>
         <label for="section">หน่วยงาน</label>
             <select class="form-control" id="section">
-                <!-- <option value="" hidden></option> -->
-                @foreach ($sections as $sections)
-                <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
-                @endforeach
+                <option value="" hidden></option>
+                <option value="0">test section</option>
             </select>
         <label for="user">ชื่อผู้ใช้งาน</label><br>
         <input type="text" class="form-control" id="user" name="user">
