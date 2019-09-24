@@ -16,7 +16,7 @@
                 <option value="4">Workstation</option>
             </select>
         <label for="sapid">รหัส SAP</label>
-        <input type="text" class="form-control form-control-lg" id="sapid" name="sapid">
+        <input type="text" class="form-control form-control-sm" id="sapid" name="sapid">
         <label for="pid">รหัสครุภัณฑ์</label>
         <input type="text" class="form-control" id="pid" name="pid">
         <label for="location">ตึก</label>
