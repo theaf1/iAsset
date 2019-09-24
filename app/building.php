@@ -13,6 +13,6 @@ class building extends Model
 }
 {
     public function gettype() {
-        $this->hasMany(floor::class)
+        $this->hasMany(floor::class);
     }
 }

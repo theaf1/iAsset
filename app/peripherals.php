@@ -8,8 +8,10 @@ class peripherals extends Model
 {
     protected $fillable =[
         'id',
+        'sapid',
+        'pid',
     ];
-    // public function gettype(){
-    //     $this->hasMany(clients::class);
-    // }
+    public function gettype(){
+        $this->belongsTo(sections::class);
+    }
 }

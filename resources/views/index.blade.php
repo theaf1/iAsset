@@ -9,14 +9,14 @@
         <div class="form-group">
         <h2>ข้อมูลครุภัณฑ์พื้นฐาน</h2>
             <label for="type">ชนิด</label>
-                <select class="form-control" id="type">
+            <select class="form-control form-control-lg" id="type">
                 <option value="1">PC</option>
                 <option value="2">Notebook</option>
                 <option value="3">All-In-One</option>
                 <option value="4">Workstation</option>
             </select>
         <label for="sapid">รหัส SAP</label>
-        <input type="text" class="form-control" id="sapid" name="sapid">
+        <input type="text" class="form-control form-control-lg" id="sapid" name="sapid">
         <label for="pid">รหัสครุภัณฑ์</label>
         <input type="text" class="form-control" id="pid" name="pid">
         <label for="location">ตึก</label>
@@ -45,7 +45,7 @@
         <label for="section">หน่วยงาน</label>
             <select class="form-control" id="section">
                 <option value="" hidden></option>
-                <option value="0">test section</option>
+                <option value="1">ตึกอัษฎางค์</option>
             </select>
         <label for="user">ชื่อผู้ใช้งาน</label><br>
         <input type="text" class="form-control" id="user" name="user">
@@ -96,8 +96,9 @@
         <input class="form-control" name="ram_size" id="ram_size" type="number" min="0">
         <label for="hdd_no">จำนวน Hard Disk ในเครื่อง</label>
         <input class="form-control" name="hdd_no" id="hdd_no" type="number" min="1" value="1">
-    <p>HDD type</p>
-    <p>HDD Size</p>
+    
+        <label for=hdd_total_cap>ความจุรวมของ HDD</label>
+        <input class="form-control" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="1">
         <label for="display_no">จำนวนจอที่ใช้งาน</label>
         <input class="form-control" name="display_no" id="display_no" type="number" min="0" value="1">
         <label for="display_sapid">SAP จอ</label>

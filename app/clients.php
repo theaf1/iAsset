@@ -30,13 +30,8 @@ class clients extends Model
        'cpu_socket_number',
        'ram_size',
        'hdd_no',
-       'hdd_type',
-       'hdd_size',
+       'hdd_total_cap',
        'display_no',
-       'display_sapid',
-       'display_pid',
-       'display_size',
-       'display_ratio',
        'os',
        'os_arch',
         'ms_office_version',
@@ -46,7 +41,7 @@ class clients extends Model
         'chrome_version',
         'spss_version',
         'ehis',
-        'sipac',
+        'sipacs',
         'si_iscan',
         'eclair',
         'admission_note',
@@ -60,4 +55,8 @@ class clients extends Model
         'computer_name',
         'issues',
    ];
+   public function gettype(){
+      $this->belongsTo(Section::class);
+      $this->hasMany(Displays::class);
+   }
 }
