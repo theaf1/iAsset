@@ -10,8 +10,6 @@ class building extends Model
         'id',
         'name',
     ];
-}
-{
     public function gettype() {
         $this->hasMany(floor::class);
     }
