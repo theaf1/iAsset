@@ -14,5 +14,6 @@ class sections extends Model
        $this->hasMany(clients::class);
        $this->hasMany(peripherals::class);
        $this->hasMany(displays::class);
+       $this->hasmany(storageperipherals::class);
    }
 }

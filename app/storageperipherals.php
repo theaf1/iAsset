@@ -20,5 +20,18 @@ class storageperipherals extends Model
         'owner',
         'asset_status',
         'remarks',
+        'brand',
+        'model',
+        'serial_no',
+        'connectivity',
+        'is_hotswap',
+        'total_capacity',
+        'no_of_physical_drive_max',
+        'no_of_physical_drive_populated',
+        'lun_count',
+        'issues',
     ];
+    function getType(){
+        $this->belongsTo(sections::class);
+    }
 }

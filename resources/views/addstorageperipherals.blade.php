@@ -49,8 +49,8 @@
             <input type="text" class="form-control" name="tel_no" id="tel_no">
             <label for="function">ระบบงาน</label>
             <select class="form-control" id="function">
-                <option value="สำนักงาน">สำนักงาน</option>
-                <option value="หอผู้ป่วย">หอผู้ป่วย</option>
+                <option value="1">สำนักงาน</option>
+                <option value="2">หอผู้ป่วย</option>
             </select>
             <label for="owner">เจ้าของเครื่อง</label><br>
             <div class="form-check">

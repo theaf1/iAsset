@@ -20,7 +20,7 @@ class Displays extends Migration
             $table->string('display_pid');
             $table->integer('display_size');
             $table->string('display_ratio');
-            $table-timestamps();
+            $table->timestamps();
         });
     }
 

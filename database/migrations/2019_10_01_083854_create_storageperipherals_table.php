@@ -15,6 +15,28 @@ class CreateStorageperipheralsTable extends Migration
     {
         Schema::create('storageperipherals', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('sap_id');
+            $table->string('pid');
+            $table->string('location');
+            $table->boolean('is_mobile');
+            $table->integer('section');
+            $table->string('user');
+            $table->integer('section_status');
+            $table->string('tel_no');
+            $table->integer('function');
+            $table->integer('owner');
+            $table->integer('asset_status');
+            $table->string('remarks');
+            $table->string('brand');
+            $table->string('model');
+            $table->string('serial_no');
+            $table->integer('connectivity');
+            $table->boolean('is_hotswap');
+            $table->integer('total_capacity');
+            $table->integer('no_of_physical_drive_max');
+            $table->integer('no_of_physical_drive_populated');
+            $table->integer('lun_count');
+            $table->string('issues');
             $table->timestamps();
         });
     }
