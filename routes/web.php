@@ -20,3 +20,9 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('addcomputer');
 // });
+Route::get('/computer', function () {
+    return view('addcomputer');
+});
+Route::get('/storage', function () {
+    return view('addstorageperipherals');
+});
