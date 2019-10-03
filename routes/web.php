@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('addstorageperipherals');
+    return view('addperipherals');
 });
 // Route::get('/', function () {
 //     return view('addcomputer');
