@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <h2>คุณสมบัติของเครื่อง</h2>
+                <h2 class="mt-4">คุณสมบัติของเครื่อง</h2>
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                         <div class="form-group">
@@ -250,7 +250,7 @@
                         </div>
                     </div>
                 </div>
-                <h2>ข้อมูลด้าน software</h2>
+                <h2 class="mt-4">ข้อมูลด้าน software</h2>
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--OS-->
                         <div class="form-group">
@@ -316,18 +316,12 @@
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="ehis" id="ehis" value="1">
-                                <label class="form-check-label" for="ehis">E-HIS</label><br>
-                                <input class="form-check-input" type="checkbox" name="sipacs" id="sipacs" value="1">
-                                <label class="form-check-label" for="sipacs">SiPACS</label><br>
-
-                                <label class="checkbox-inline"><input type="checkbox" name="si_iscan" value="1">Si-iScan</label>
+                                <label class="checkbox-inline"><input type="checkbox" name="ehis" value="1">E-HIS</label>
+                                <!-- <label class="checkbox-inline"><input type="checkbox" name="sipacs" value="1">SiPACS</label> -->
+                                <!-- <label class="checkbox-inline"><input type="checkbox" name="si_iscan" value="1">Si-iScan</label> -->
                                 <label class="checkbox-inline"><input type="checkbox" name="eclair" value="1">
                                 <label class="checkbox-inline"><input type="checkbox" name="admission_note" value="1">Admission Notes</label>
-                                <label class="checkbox-inline"><input type="checkbox" value="1">SiNet</label>
-                                <label class="checkbox-inline"><input type="checkbox" value="1">E-HIS</label>
-                                <label class="checkbox-inline"><input type="checkbox" value="1">SiPACS</label>
-                                <label class="checkbox-inline"><input type="checkbox" value="1">i-scan</label>
+                                <label class="checkbox-inline"><input type="checkbox" name="sinet" value="1">SiNet</label>
                             </div>
                         </div>
                     </div>
@@ -351,7 +345,7 @@
                         </div>
                     </div>
                 </div>
-                <h2>ข้อมูลด้านเครือข่าย</h2>
+                <h2 class="mt-4">ข้อมูลด้านเครือข่าย</h2>
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
