@@ -17,12 +17,12 @@
 Route::get('/', function () {
     return view('addperipherals');
 });
-// Route::get('/', function () {
-//     return view('addcomputer');
-// });
 Route::get('/computer', function () {
     return view('addcomputer');
 });
 Route::get('/storage', function () {
     return view('addstorageperipherals');
+});
+Route::get('/server', function () {
+    return view('addserver');
 });
