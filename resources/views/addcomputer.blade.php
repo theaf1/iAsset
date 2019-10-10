@@ -134,12 +134,12 @@
                             <label for="owner">สิทธิ์ Admin</label><br>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="owner" id="owner1" value="0"><label for="owner1">มีสิทธิ์</label>
+                                    <input type="radio" class="form-check-input" name="permission" id="admin" value="0"><label for="admin">มีสิทธิ์</label>
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="owner" id="owner2" value="1"><label for="owner2">ไม่มีสิทธิ์</label>
+                                    <input type="radio" class="form-check-input" name="permission" id="no_permission" value="1"><label for="no_permission">ไม่มีสิทธิ์</label>
                                 </label>
                             </div>
                         </div>
@@ -262,10 +262,16 @@
                         <div class="form-group">
                             <label for="os_arch">OS architecture</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="os_arch" id="os_arch" value="1">
-                                <label class="form-check-label" for="os_arch">32 bit<label>
-                                <input class="form-check-input" type="radio" name="os_arch" id="os_arch" value="2">
-                                <label class="form-check-label" for="os_arch">64 bit</label>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0"><label for="32_bit"> 32 bit</label>
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1"><label for="64_bit"> 64 bit</label>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -315,6 +321,7 @@
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--program ระบบ รพ-->
                         <div class="form-group">
+                            <label for="is_mobile">Software คณะ</label>
                             <div class="form-check">
                                 <label class="checkbox-inline"><input type="checkbox" name="ehis" value="1">E-HIS</label>
                                 <label class="checkbox-inline"><input type="checkbox" name="sipacs" value="1">SiPACS</label>
@@ -349,16 +356,26 @@
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--lan type-->
                         <div class="form-group">
-                            <label for="lan_type">ประเภทเครือข่าย</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="lan_type" id="lan_type" value="0">
-                                <label class="form-check-label" for="lan_type">ไม่เชื่อมต่อ</label><br>
-                                <input class="form-check-input" type="radio" name="lan_type" id="lan_type" value="1">
-                                <label class="form-check-label" for="lan_type">MUCNET</label><br>
-                                <input class="form-check-input" type="radio" name="lan_type" id="lan_type" value="2">
-                                <label class="form-check-label" for="lan_type">Internet โรงพยาบาล</label><br>
-                                <input class="form-check-input" type="radio" name="lan_type" id="lan_type" value="3">
-                                <label class="form-check-label" for="lan_type">ระบบภายในโรงพยาบาล</label><br>
+                            <label for="owner">ประเภทเครือข่าย</label><br>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0"><label for="no_internet"> ไม่เชื่อมต่อ</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="mucnet" value="1"><label for="mucnet"> MUCNET</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="internet_hospital" value="3"><label for="internet_hospital"> Internet โรงพยาบาล</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="hospital" value="4"><label for="hospital"> ระบบภายในโรงพยาบาล</label>
+                                </label>
                             </div>
                         </div>
                     </div>
