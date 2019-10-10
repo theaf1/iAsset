@@ -13,7 +13,14 @@ class Servers extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('servers', function (Blueprint $table) {
+            $table->bigincrements('id');
+            $table->string('sapid');
+            $table->string('pid');
+            $table->string('location');
+            $table->integer('section');
+            
+        });
     }
 
     /**

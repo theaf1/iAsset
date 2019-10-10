@@ -9,6 +9,7 @@ class clientcontroller extends Controller
 {
     public function index(){
         $sections = \App\Sections::all();
+        $clients = \App\clients::all();
     }
     
 }

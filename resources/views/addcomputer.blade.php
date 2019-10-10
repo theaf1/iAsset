@@ -19,7 +19,7 @@
                     <div class="col-sm-12 col-lg-6"> <!-- รหัส SAP -->
                         <div class="form-group">
                             <label for="sapid">รหัส SAP</label>
-                            <input type="text" class="form-control" id="sapid" name="sapid">
+                            <input type="text" class="form-control" id="sapid" name="sapid" placeholder="131100034567">
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="col-sm-12 col-lg-6"> <!-- รหัสครุภัณฑ์ -->
                         <div class="form-group">
                             <label for="pid">รหัสครุภัณฑ์</label>
-                            <input type="text" class="form-control" id="pid" name="pid">
+                            <input type="text" class="form-control" id="pid" name="pid" placeholder="11006000-I-9999-001-0001/99">
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
@@ -52,9 +52,9 @@
                     </div>
                 </div>
                 <div class="form-row"> 
-                    <div class="col-sm-12 col-lg-6"> <!-- label -->
+                    <div class="col-sm-12 col-lg-6"> <!-- ลักษณะการใช้งาน -->
                         <div class="form-group">
-                            <label for="is_mobile">label</label><br>
+                            <label for="is_mobile">ลักษณะการใช้งาน</label><br>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile"><label for="is_mobile">เป็นเครื่องเคลื่อนที่</label>
@@ -258,7 +258,7 @@
                             <input class="form-control" name="os" id="os" type="text">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--os architecture-->
                         <div class="form-group">
                             <label for="os_arch">OS architecture</label><br>
                             <div class="form-check form-check-inline">
@@ -271,13 +271,13 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--office version-->
                         <div class="form-group">
                             <label for="ms_office_ver">Microsoft Office Version</label>
                             <input type="text" class="form-control" name="ms_office_ver" id="ms_office_ver">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--antivirus-->
                         <div class="form-group">
                             <label for="antivirus">Antivirus</label>
                             <input class="form-control" name="antivirus" id="antivirus" type="text">
@@ -285,13 +285,13 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--pdf reader-->
                         <div class="form-group">
                             <label for="pdf_reader">PDF reader</label>
                             <input class="form-control" name="pdf_reader" id="pdf_reader" type="text">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--ie version-->
                         <div class="form-group">
                             <label for="ie_version">IE version</label>
                             <input class="form-control" name="ie_version" id="ie_version" type="number" value="6">
@@ -299,13 +299,13 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--chrome-version-->
                         <div class="form-group">
                             <label for="chrome_version">Chrome version</label>
                             <input class="form-control" name="chrome_version" id="chrome_version" type="text">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--spss version-->
                         <div class="form-group">
                             <label for="spss_version">SPSS version</label>
                             <input class="form-control" name="spss_version" id="spss_version" type="number" value="17">
@@ -313,13 +313,13 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--program ระบบ รพ-->
                         <div class="form-group">
                             <div class="form-check">
                                 <label class="checkbox-inline"><input type="checkbox" name="ehis" value="1">E-HIS</label>
-                                <!-- <label class="checkbox-inline"><input type="checkbox" name="sipacs" value="1">SiPACS</label> -->
-                                <!-- <label class="checkbox-inline"><input type="checkbox" name="si_iscan" value="1">Si-iScan</label> -->
-                                <label class="checkbox-inline"><input type="checkbox" name="eclair" value="1">
+                                <label class="checkbox-inline"><input type="checkbox" name="sipacs" value="1">SiPACS</label>
+                                <label class="checkbox-inline"><input type="checkbox" name="si_iscan" value="1">Si-iScan</label>
+                                <label class="checkbox-inline"><input type="checkbox" name="eclair" value="1">eclair</label>
                                 <label class="checkbox-inline"><input type="checkbox" name="admission_note" value="1">Admission Notes</label>
                                 <label class="checkbox-inline"><input type="checkbox" name="sinet" value="1">SiNet</label>
                             </div>
@@ -328,7 +328,7 @@
                 </div>
                 <p></p>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--other software-->
                         <div class="form-group">
                             <label for="is_mobile">Software อื่นๆ</label><br>
                             <div class="form-check-inline">
@@ -338,7 +338,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--other software details-->
                         <div class="form-group">
                             <label for="other_software_detail">โปรดกรอกรายชื่อ Software</label>
                             <textarea class="form-control" name="other_software_detail" id="other_software_detail" rows="1"></textarea>
@@ -347,7 +347,7 @@
                 </div>
                 <h2 class="mt-4">ข้อมูลด้านเครือข่าย</h2>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--lan type-->
                         <div class="form-group">
                             <label for="lan_type">ประเภทเครือข่าย</label>
                             <div class="form-check">
@@ -362,7 +362,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
                         <div class="form-group">
                             <label for="lan_outlet_no">LAN outlet No</label>
                             <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
@@ -370,27 +370,27 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--ip address-->
                         <div class="form-group">
                             <label for="ip_address">IP Address</label>
-                            <input class="form-control" name="ip_addresss" id="ip_address" type="text">
+                            <input class="form-control" name="ip_addresss" id="ip_address" type="text" placeholder="127.0.0.1">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--mac address-->
                         <div class="form-group">
                             <label for="mac_address">MAC Address</label>
-                            <input class="form-control" name="mac_addresss" id="mac_address" type="text">
+                            <input class="form-control" name="mac_addresss" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col sm-12 col-lg-6">
+                    <div class="col sm-12 col-lg-6"><!--computer name-->
                         <div class="form-group">
                             <label for="computer_name">Computer Name</label>
                             <input class="form-control" name="computer_name" id="computer_name" type="text">
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6"> <!--issues-->
                         <div class="form-group">
                             <label for="issues">ปัญหาในการใช้งาน</label>
                             <textarea class="form-control" name="issues" id="issues" rows="1"></textarea>

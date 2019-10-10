@@ -26,17 +26,17 @@ class CreateStorageperipheralsTable extends Migration
             $table->integer('function');
             $table->integer('owner');
             $table->integer('asset_status');
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
             $table->string('brand');
             $table->string('model');
             $table->string('serial_no');
             $table->integer('connectivity');
-            $table->boolean('is_hotswap');
+            $table->boolean('is_hotswap')->default(0);
             $table->integer('total_capacity');
             $table->integer('no_of_physical_drive_max');
             $table->integer('no_of_physical_drive_populated');
             $table->integer('lun_count');
-            $table->string('issues');
+            $table->string('issues')->nullable();
             $table->timestamps();
         });
     }
