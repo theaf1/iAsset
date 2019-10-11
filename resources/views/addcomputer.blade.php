@@ -133,14 +133,8 @@
                         <div class="form-group">
                             <label for="owner">สิทธิ์ Admin</label><br>
                             <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="permission" id="admin" value="0"><label for="admin">มีสิทธิ์</label>
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="permission" id="no_permission" value="1"><label for="no_permission">ไม่มีสิทธิ์</label>
-                                </label>
+                                <label class="form-check-label"><input type="radio" class="form-check-input" name="permission" id="admin" value="0"><label for="admin">มีสิทธิ์</label></label>
+                                <label class="form-check-label"><input type="radio" class="form-check-input" name="permission" id="no_permission" value="1"><label for="no_permission">ไม่มีสิทธิ์</label></label>
                             </div>
                         </div>
                     </div>
