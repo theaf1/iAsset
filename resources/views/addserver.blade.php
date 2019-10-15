@@ -209,6 +209,71 @@
                     </div>
                 </div>
                 <h2 class="mt-4">ข้อมูลด้านเครือข่าย</h2>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-6"> <!--lan type-->
+                        <div class="form-group">
+                            <label for="owner">ประเภทเครือข่าย</label><br>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0"><label for="no_internet"> ไม่เชื่อมต่อ</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="mucnet" value="1"><label for="mucnet"> MUCNET</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="internet_hospital" value="3"><label for="internet_hospital"> Internet โรงพยาบาล</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="hospital" value="4"><label for="hospital"> ระบบภายในโรงพยาบาล</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="lan_type" id="more_than_1" value="5"><label for="more_than_1"> เชื่อมต่อมากกว่า 1 เครือข่ายในเวลาเดียวกัน</label>
+                                    </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
+                        <div class="form-group">
+                            <label for="lan_outlet_no">LAN outlet No</label>
+                            <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-6"> <!--ip address-->
+                        <div class="form-group">
+                            <label for="ip_address">IP Address</label>
+                            <input class="form-control" name="ip_addresss" id="ip_address" type="text" placeholder="127.0.0.1">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6"> <!--mac address-->
+                        <div class="form-group">
+                            <label for="mac_address">MAC Address</label>
+                            <input class="form-control" name="mac_addresss" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col sm-12 col-lg-6"><!--computer name-->
+                        <div class="form-group">
+                            <label for="computer_name">Computer Name</label>
+                            <input class="form-control" name="computer_name" id="computer_name" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6"> <!--issues-->
+                        <div class="form-group">
+                            <label for="issues">ปัญหาในการใช้งาน</label>
+                            <textarea class="form-control" name="issues" id="issues" rows="1"></textarea>
+                        </div>
+                    </div>
             </form>
         </div>
     </div>
