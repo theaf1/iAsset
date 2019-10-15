@@ -3,10 +3,15 @@
     <title>ระบบติดตามครุภัณฑ์คอมพิวเตอร์ - @yield('title')</title>
     <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
-    <script src="{{ url('/js/bootstrap.js') }}"></script>
-    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url('/js/jquery.min.js') }}"></script>
   </head>
+  <style>
+  .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+  .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+  .autocomplete-selected { background: #F0F0F0; }
+  .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+  .autocomplete-group { padding: 2px 5px; }
+  .autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+  </style>
   <body>
     @section('header')
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color:ffff00;">
@@ -33,5 +38,7 @@
       </nav>
     @yield('content')
 </body>
+<script src="{{ url('/js/jquery.min.js') }}"></script>
 <script src="{{ url('/js/bootstrap.js') }}"></script>
+@yield('js')
 </html>

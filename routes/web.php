@@ -26,3 +26,11 @@ Route::get('/storage', function () {
 Route::get('/server', function () {
     return view('addserver');
 });
+
+Route::get('/rooms', function() {
+    \Log::info(request()->input('name'));
+    $counties[] = ['value' => 'Abc', 'data' => 'Abc'];
+    $counties[] = ['value' => 'Ant', 'data' => 'Ant'];
+    $counties[] = ['value' => 'Def', 'data' => 'Def'];
+    return $counties;
+});

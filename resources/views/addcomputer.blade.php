@@ -33,7 +33,7 @@
                     <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
                         <div class="form-group">
                             <label for="location">ห้อง</label>
-                            <input type="text" class="form-control" name="room"/>
+                            <input type="text" class="form-control" name="room" id="room_autocomplete"/>
                         </div>
                     </div>
                 </div>
@@ -412,4 +412,29 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.9/jquery.autocomplete.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    $( "#room_autocomplete" ).autocomplete({
+        paramName: 'name',
+        serviceUrl: '/rooms',
+        minChars: 2,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    return {
+                        value: item.value,
+                        data: item.data,
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            alert(suggestion.value);
+        }
+    });
+</script>
 @endsection
