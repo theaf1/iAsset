@@ -107,40 +107,53 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="form-group">
+                            <label for="form-factor">ลักษณะของเครื่อง</label>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="1" checked>
+                                <label class="form-check-label" for="form_factor">Tower</label><br>
+                                <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="2">
+                                <label class="form-check-label" for="owner">Rack Mounted</label><br>
+                            </div>
+                        </div>
+                    </div>              
                     <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                         <div class="form-group">
                             <label for="serial_no">Serial Number จากผู้ผลิต</label>
                             <input class="form-control" name="serial_no" id="serial_no" type="text">
                         </div>
                     </div>
+                </div>
+                <div class="form-row">    
                     <div class="col-sm-12 col-lg-6"> <!--cpu model-->
                         <div class="form-group">
                             <label for="cpu_model">CPU Model</label>
                             <input class="form-control" name="cpu_model" id="cpu_model" type="text">
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="cpu_speed">CPU Speed</label>
                             <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0">
                         </div>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--socket-->
                         <div class="form-group">
                             <label for="cpu_socket_no">จำนวน Socket CPU</label>
                             <input class="form-control" name="cpu_socket_no" id="cpu_socket_no" type="number" min="1" value="1">
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--RAM-->
                         <div class="form-group">
                             <label for="ram_size">RAM Size</label>
                             <input class="form-control" name="ram_size" id="ram_size" type="number" min="0">
                         </div>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="is_raid">RAID</label><br>
@@ -149,42 +162,42 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
                             <input class="form-control" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" min="2" default="2">
                         </div>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk ที่มีอยู่-->
                         <div class="form-group">
                             <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
                             <input class="form-control" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="2" default="2">
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
-                <div class="col-sm-12 col-lg-6"> <!--จำนวน disk จำลองที่มีอยู่-->
+                    <div class="col-sm-12 col-lg-6"> <!--จำนวน disk จำลองที่มีอยู่-->
                         <div class="form-group">
                             <label for="lun_count">จำนวน disk จำลองที่มีอยู่</label>
                             <input class="form-control" name="lun_count" id="lun_count" type="number" min="1" default="1">
                         </div>
                     </div>
+                </div>
+                <div class='form-row'>
                     <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                         <div class="form-group">
                             <label for=hdd_total_cap>ความจุรวมของ HDD</label>
                             <input class="form-control" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="1">
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="display_no">จำนวนจอที่ใช้งาน</label>
                             <input class="form-control" name="display_no" id="display_no" type="number" min="0">
                         </div>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="is_headless">จอภาพ</label><br>
@@ -193,18 +206,33 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-row"> 
                     <div class="col-sm-12 col-lg-6"> <!--sap จอ-->
                         <div class="form-group">
                             <label for="display_sapid">SAP จอ</label>
                             <input class="form-control" name="display_sapid" id="display_sapid" type="text">
                         </div>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--ครุภัณฑ์จอ-->
                         <div class="form-group">
                             <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
                             <input class="form-control" name="display_pid" id="display_pid" type="text">
+                        </div>
+                    </div>
+                </div>
+                <h2 class="mt-4">ข้อมูลด้าน Software</h2>
+                <div class="from-row">
+                    <div class="col-sm-12 col-lg-6">
+                    </div>
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="form-group">
+                            <label for="role_class">กลุ่มของบทบาท</label>
+                            <select class="form-control" id="role_class">
+                                <option value="1" selected>Infrastructure</option>
+                                <option value="2">Application</option>
+                                <option value="3">Monitoring and security</option>
+                            </select>
                         </div>
                     </div>
                 </div>
