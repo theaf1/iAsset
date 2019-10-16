@@ -28,9 +28,9 @@ Route::get('/server', function () {
 });
 
 Route::get('/rooms', function() {
-    \Log::info(request()->input('name'));
-    $counties[] = ['value' => 'Abc', 'data' => 'Abc'];
-    $counties[] = ['value' => 'Ant', 'data' => 'Ant'];
-    $counties[] = ['value' => 'Def', 'data' => 'Def'];
-    return $counties;
+    // \Log::info(request()->input('name'));
+    $list[] = ['value' => 'Abc', 'data' => '1'];
+    $list[] = ['value' => 'Ant', 'data' => 'Ant'];
+    $list[] = ['value' => 'Def', 'data' => 'Def'];
+    return $list;
 });

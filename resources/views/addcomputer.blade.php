@@ -418,10 +418,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.9/jquery.autocomplete.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    $( "#room_autocomplete" ).autocomplete({
+    var room = null;
+    $("#room_autocomplete").autocomplete({
         paramName: 'name',
         serviceUrl: '/rooms',
-        minChars: 2,
+        minChars: 1,
         transformResult: function(response) {
             return {
                 suggestions: $.map($.parseJSON(response), function(item) {
@@ -433,8 +434,13 @@
             };
         },
         onSelect: function (suggestion) {
-            alert(suggestion.value);
-        }
+            $("#room_autocomplete").val(suggestion.value);
+            room = suggestion.value;
+        },
     });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) $(this).val('');
+    });
+
 </script>
 @endsection
