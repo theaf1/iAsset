@@ -103,6 +103,7 @@
                                 <option value="3">Managed Switch</option>
                                 <option value="4">Router</option>
                                 <option value="5">Wireless Accesss Point</option>
+                                <option value="6">other</option>
                             </select>
                         </div>
                     </div>
