@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class Building extends Migration
+use App\Room;
+class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class Building extends Migration
      */
     public function up()
     {
-        Schema::create('buildings', function (Blueprint $table) {
-            $table->bigincrements('id');
-            $table->text('name');
+        Schema::create('rooms', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('location_id');
+            $table->string('name');
             $table->timestamps();
         });
+
+        Room::loadData('rooms');
     }
 
     /**
@@ -27,6 +30,6 @@ class Building extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('rooms');
     }
 }

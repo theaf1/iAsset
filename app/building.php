@@ -4,13 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class building extends Model
+class Building extends Model
 {
     protected $fillable = [
         'id',
-        'name',
+        'name'
     ];
-    public function gettype() {
-        $this->hasMany(floor::class);
+    
+    public static function loadData($fileName){
+        $buildingRecords = loadCSV($fileName);
+        foreach($buildingRecords as $buildingRecord){
+            Building::create($buildingRecord);
+        }
     }
 }

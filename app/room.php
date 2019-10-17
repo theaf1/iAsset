@@ -4,14 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class room extends Model
+class Room extends Model
 {
     protected $fillable = [
         'id',
-        'name',
-        'location_id',   
+        'location_id',
+        'name'
     ];
-    public function gettype() {
-        $this->belongsTo(building::class);
+    
+    public static function loadData($fileName){
+        $roomRecords = loadCSV($fileName);
+        foreach($roomRecords as $roomRecord){
+            Room::create($roomRecord);
+        }
     }
 }
