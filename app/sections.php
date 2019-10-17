@@ -16,5 +16,6 @@ class sections extends Model
        $this->hasMany(displays::class);
        $this->hasMany(storageperipherals::class);
        $this->hasMany(Server::class);
+       $this->hasMany(Networkdevices::class);
    }
 }

@@ -26,3 +26,6 @@ Route::get('/storage', function () {
 Route::get('/server', function () {
     return view('addserver');
 });
+Route::get('/network', function () {
+    return view('addnetworkdevice');
+});
