@@ -7,6 +7,11 @@
     <script src="{{ url('/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('/js/jquery.min.js') }}"></script>
   </head>
+  <style>
+    .card-background {
+        background-color:#6b8e23;
+    }
+  </style>
   <body>
     @section('header')
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color:ffff00;">

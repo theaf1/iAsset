@@ -331,10 +331,10 @@
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!--other software-->
                         <div class="form-group">
-                            <label for="is_mobile">Software อื่นๆ</label><br>
+                            <label for="other_software">Software อื่นๆ</label><br>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="" id=""><label for="">Software อื่นๆ</label>
+                                    <input type="checkbox" class="form-check-input" name="other_software" id="other_software" value="1"><label for="other_software">Software อื่นๆ</label>
                                 </label>
                             </div>
                         </div>
