@@ -88,12 +88,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="remarks">หมายเหตุ</label><br>
-                                <textarea class="form-control" name="remarks" id="remarks" rows="1"></textarea>
-                            </div>
-                        </div>
                     </div>
                     </div>
                 </div>
@@ -233,142 +227,170 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="mt-4">ข้อมูลด้าน Software</h2>
-                <div class="form-row">
-                    <div class="col-sm-12 col-lg-6"> <!--OS-->
-                        <div class="form-group">
-                            <label for="os">OS</label>
-                            <input class="form-control" name="os" id="os" type="text">
-                        </div>
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h4>ข้อมูลด้าน Software</h4>
                     </div>
-                    <div class="col-sm-12 col-lg-6"> <!--os architecture-->
-                        <div class="form-group">
-                            <label for="os_arch">OS architecture</label><br>
-                            <div class="form-check form-check-inline">
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0"><label for="32_bit"> 32 bit</label>
-                                    </label>
-                                </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1"><label for="64_bit"> 64 bit</label>
-                                    </label>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6"> <!--OS-->
+                                <div class="form-group">
+                                    <label for="os">OS</label>
+                                    <input class="form-control" name="os" id="os" type="text">
                                 </div>
                             </div>
+                            <div class="col-sm-12 col-lg-6"> <!--os architecture-->
+                                <div class="form-group">
+                                    <label for="os_arch">OS architecture</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0"><label for="32_bit"> 32 bit</label>
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1"><label for="64_bit"> 64 bit</label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-sm-12 col-lg-6">
-                        <div class="form-group">
-                            <label for="role_class">กลุ่มของบทบาท</label>
-                            <select class="form-control" id="role_class">
-                                <option value="1" selected>Infrastructure</option>
-                                <option value="2">Application</option>
-                                <option value="3">Monitoring and security</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="role_class">กลุ่มของบทบาท</label>
+                                    <select class="form-control" id="role_class">
+                                        <option value="1" selected>Infrastructure</option>
+                                        <option value="2">Application</option>
+                                        <option value="3">Monitoring and security</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="role_subclass">บทบาท</label><br>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="is_ad" id="is_ad" value="1"><label for="is_ad">Active Directory</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_dns" id="is_dns" value="1"><label for="is_dns">DNS</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_dhcp" id="is_dhcp" value="1"><label for="is_dhcp">DHCP</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_fileshare" id="is_fileshare" value="1"><label for="is_fileshare">File Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_web" id="is_web" value="1"><label for="is_web">Web Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_db" id="is_db" value="1"><label for="is_db">Database Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_log" id="is_log" value="1"><label for="is_log">Logging Server</label><br>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-6">
-                        <div class="form-group">
-                            <label for="role_subclass">บทบาท</label><br>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="is_ad" id="is_ad" value="1"><label for="is_ad">Active Directory</label><br>
-                                <input type="checkbox" class="form-check-input" name="is_dns" id="is_dns" value="1"><label for="is_dns">DNS</label><br>
-                                <input type="checkbox" class="form-check-input" name="is_dhcp" id="is_dhcp" value="1"><label for="is_dhcp">DHCP</label><br>
-                                <input type="checkbox" class="form-check-input" name="is_fileshare" id="is_fileshare" value="1"><label for="is_fileshare">File Server</label><br>
-                                <input type="checkbox" class="form-check-input" name="is_web" id="is_web" value="1"><label for="is_web">Web Server</label><br>
-                                <input type="checkbox" class="form-check-input" name="is_db" id="is_db" value="1"><label for="is_db">Database Server</label><br>
-                                <input type="checkbox" class="form-check-input" name="is_log" id="is_log" value="1"><label for="is_log">Logging Server</label><br>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6"> <!--other software-->
+                                <div class="form-group">
+                                    <label for="other_software">Software อื่นๆ</label><br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" name="other_software" id="other_software" value="1"><label for="other_software">มี Software อื่นๆ</label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!--other software details-->
+                                <div class="form-group">
+                                    <label for="other_software_detail">โปรดกรอกรายชื่อ Software</label>
+                                    <textarea class="form-control" name="other_software_detail" id="other_software_detail" rows="1"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col-sm-12 col-lg-6"> <!--other software-->
-                        <div class="form-group">
-                            <label for="other_software">Software อื่นๆ</label><br>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="other_software" id="other_software" value="1"><label for="other_software">มี Software อื่นๆ</label>
-                                </label>
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h4>ข้อมูลด้านเครือข่าย</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6"> <!--lan type-->
+                                <div class="form-group">
+                                    <label for="owner">ประเภทเครือข่าย</label><br>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0"><label for="no_internet"> ไม่เชื่อมต่อ</label>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="lan_type" id="mucnet" value="1"><label for="mucnet"> MUCNET</label>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="lan_type" id="internet_hospital" value="3"><label for="internet_hospital"> Internet โรงพยาบาล</label>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="lan_type" id="hospital" value="4"><label for="hospital"> ระบบภายในโรงพยาบาล</label>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="lan_type" id="more_than_1" value="5"><label for="more_than_1"> เชื่อมต่อมากกว่า 1 เครือข่ายในเวลาเดียวกัน</label>
+                                            </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
+                                <div class="form-group">
+                                    <label for="lan_outlet_no">LAN outlet No</label>
+                                    <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-6"> <!--other software details-->
-                        <div class="form-group">
-                            <label for="other_software_detail">โปรดกรอกรายชื่อ Software</label>
-                            <textarea class="form-control" name="other_software_detail" id="other_software_detail" rows="1"></textarea>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6"> <!--ip address-->
+                                <div class="form-group">
+                                    <label for="ip_address">IP Address</label>
+                                    <input class="form-control" name="ip_addresss" id="ip_address" type="text" placeholder="127.0.0.1">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!--mac address-->
+                                <div class="form-group">
+                                    <label for="mac_address">MAC Address</label>
+                                    <input class="form-control" name="mac_addresss" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col sm-12 col-lg-6"><!--computer name-->
+                                <div class="form-group">
+                                    <label for="computer_name">Computer Name</label>
+                                    <input class="form-control" name="computer_name" id="computer_name" type="text">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <h2 class="mt-4">ข้อมูลด้านเครือข่าย</h2>
-                <div class="form-row">
-                    <div class="col-sm-12 col-lg-6"> <!--lan type-->
-                        <div class="form-group">
-                            <label for="owner">ประเภทเครือข่าย</label><br>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0"><label for="no_internet"> ไม่เชื่อมต่อ</label>
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="lan_type" id="mucnet" value="1"><label for="mucnet"> MUCNET</label>
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="lan_type" id="internet_hospital" value="3"><label for="internet_hospital"> Internet โรงพยาบาล</label>
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="lan_type" id="hospital" value="4"><label for="hospital"> ระบบภายในโรงพยาบาล</label>
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="lan_type" id="more_than_1" value="5"><label for="more_than_1"> เชื่อมต่อมากกว่า 1 เครือข่ายในเวลาเดียวกัน</label>
-                                    </label>
-                            </div>
-                        </div>
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
-                    <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
-                        <div class="form-group">
-                            <label for="lan_outlet_no">LAN outlet No</label>
-                            <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="remarks">หมายเหตุ</label><br>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!--issues-->
+                                <div class="form-group">
+                                    <label for="issues">ปัญหาในการใช้งาน</label>
+                                    <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col-sm-12 col-lg-6"> <!--ip address-->
-                        <div class="form-group">
-                            <label for="ip_address">IP Address</label>
-                            <input class="form-control" name="ip_addresss" id="ip_address" type="text" placeholder="127.0.0.1">
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-6"> <!--mac address-->
-                        <div class="form-group">
-                            <label for="mac_address">MAC Address</label>
-                            <input class="form-control" name="mac_addresss" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col sm-12 col-lg-6"><!--computer name-->
-                        <div class="form-group">
-                            <label for="computer_name">Computer Name</label>
-                            <input class="form-control" name="computer_name" id="computer_name" type="text">
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-6"> <!--issues-->
-                        <div class="form-group">
-                            <label for="issues">ปัญหาในการใช้งาน</label>
-                            <textarea class="form-control" name="issues" id="issues" rows="1"></textarea>
-                        </div>
-                    </div>
             </form>
         </div>
     </div>
