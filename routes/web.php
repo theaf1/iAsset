@@ -28,9 +28,10 @@ Route::get('/server', function () {
 });
 
 Route::get('/rooms', function() {
-    // \Log::info(request()->input('name'));
-    $list[] = ['value' => 'Abc', 'data' => '1'];
-    $list[] = ['value' => 'Ant', 'data' => 'Ant'];
-    $list[] = ['value' => 'Def', 'data' => 'Def'];
-    return $list;
+    $rooms = \App\Room::with(['location' => function($query) {
+                            $query->with('building');
+                        }])
+                        ->where('name', 'like', '%' . request()->input('name') . '%')
+                        ->get();
+    return $rooms;
 });

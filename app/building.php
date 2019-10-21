@@ -17,4 +17,6 @@ class Building extends Model
             Building::create($buildingRecord);
         }
     }
+    
+    
 }

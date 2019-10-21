@@ -19,4 +19,8 @@ class Location extends Model
             Location::create($locationRecord);
         }
     }
+    
+    public function building() {
+        return $this->belongsTo(Building::class);
+    }
 }

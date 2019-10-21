@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
                         <div class="form-group">
-                            <label for="location">ห้อง</label>
+                            <label for="room">ห้อง</label>
                             <input type="text" class="form-control" name="room" id="room_autocomplete"/>
                         </div>
                     </div>
@@ -40,14 +40,14 @@
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                         <div class="form-group">
-                            <label for="location">ตึก</label>
-                            <input type="text" class="form-control" name="building" disabled/>
+                            <label for="building">ตึก</label>
+                            <input type="text" class="form-control" name="building" id="building" disabled/>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
                         <div class="form-group">
                             <label for="location">ชั้น</label>
-                            <input type="text" class="form-control" name="floor" disabled/>
+                            <input type="text" class="form-control" name="location" id="location" disabled/>
                         </div>
                     </div>
                 </div>
@@ -426,20 +426,29 @@
         transformResult: function(response) {
             return {
                 suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
                     return {
-                        value: item.value,
-                        data: item.data,
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
                     };
                 })
             };
         },
         onSelect: function (suggestion) {
             $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
             room = suggestion.value;
+            
         },
     });
     $("#room_autocomplete").change(function() {
-        if($(this).val() !== room) $(this).val('');
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
     });
 
 </script>

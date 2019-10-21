@@ -18,4 +18,8 @@ class Room extends Model
             Room::create($roomRecord);
         }
     }
+
+    public function location() {
+        return $this->belongsTo(Location::class);
+    }
 }
