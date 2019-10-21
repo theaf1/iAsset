@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('Layouts.app')
 @section('content')
 <div class="container-fuild">
     <div class="col-12 mx-auto">
         <form>
+<<<<<<< HEAD
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -25,6 +26,69 @@
                                     <label for="sapid">รหัส SAP</label>
                                     <input type="text" class="form-control" id="sapid" name="sapid" placeholder="131100034567">
                                 </div>
+=======
+                <h2 class="mt-4">ข้อมูลครุภัณฑ์พื้นฐาน</h2>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
+                        <div class="form-group"> 
+                            <label for="type">ชนิด</label>
+                            <select class="form-control" id="type">
+                                <option value="1">PC</option>
+                                <option value="2">Notebook</option>
+                                <option value="3">All-In-One</option>
+                                <option value="4">Workstation</option>
+                            </select>
+                        </div> 
+                    </div>     
+                    <div class="col-sm-12 col-lg-6"> <!-- รหัส SAP -->
+                        <div class="form-group">
+                            <label for="sapid">รหัส SAP</label>
+                            <input type="text" class="form-control" id="sapid" name="sapid" placeholder="131100034567">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-6"> <!-- รหัสครุภัณฑ์ -->
+                        <div class="form-group">
+                            <label for="pid">รหัสครุภัณฑ์</label>
+                            <input type="text" class="form-control" id="pid" name="pid" placeholder="11006000-I-9999-001-0001/99">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
+                        <div class="form-group">
+                            <label for="room">ห้อง</label>
+                            <input type="text" class="form-control" name="room" id="room_autocomplete"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
+                        <div class="form-group">
+                            <label for="building">ตึก</label>
+                            <input type="text" class="form-control" name="building" id="building" disabled/>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
+                        <div class="form-group">
+                            <label for="location">ชั้น</label>
+                            <input type="text" class="form-control" name="location" id="location" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row"> 
+                    <div class="col-sm-12 col-lg-6"> <!-- ลักษณะการใช้งาน -->
+                        <div class="form-group">
+                            <label for="is_mobile">ลักษณะการใช้งาน</label><br>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile"><label for="is_mobile">เป็นเครื่องเคลื่อนที่</label>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile2"><label for="is_mobile2">เป็นเครื่องประจำที่</label>
+                                </label>
+>>>>>>> make-room
                             </div>
                         </div>
                         <div class="form-row">
@@ -435,4 +499,44 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.9/jquery.autocomplete.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var room = null;
+    $("#room_autocomplete").autocomplete({
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
+        minChars: 1,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
+                    return {
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
+            room = suggestion.value;
+            
+        },
+    });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
+    });
+
+</script>
 @endsection

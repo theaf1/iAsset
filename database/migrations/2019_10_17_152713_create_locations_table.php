@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class Location extends Migration
+use App\Location;
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,14 @@ class Location extends Migration
     public function up()
     {
         Schema::create('locations', function (Blueprint $table) {
-            $table->bigincrements('id');
+            $table->bigIncrements('id');
+            $table->integer('building_id');
             $table->integer('floor');
             $table->string('wing');
-            $table->integer('building_id');
             $table->timestamps();
         });
+
+        Location::loadData('locations');
     }
 
     /**
@@ -29,6 +31,6 @@ class Location extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('locations');
     }
 }
