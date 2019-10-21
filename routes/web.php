@@ -28,7 +28,7 @@ Route::get('/server', function () {
 });
 Route::get('/network', function () {
     return view('addnetworkdevice');
-
+});
 Route::get('/rooms', function() {
     $rooms = \App\Room::with(['location' => function($query) {
                             $query->with('building');
@@ -36,5 +36,4 @@ Route::get('/rooms', function() {
                         ->where('name', 'like', '%' . request()->input('name') . '%')
                         ->get();
     return $rooms;
-
 });
