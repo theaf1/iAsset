@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servers extends Model
 {
-    protected $fillable =[
+    protected $fillable = [
         'id',
         'sapid',
         'pid',
