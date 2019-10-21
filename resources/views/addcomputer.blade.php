@@ -420,8 +420,8 @@
 <script>
     var room = null;
     $("#room_autocomplete").autocomplete({
-        paramName: 'name',
-        serviceUrl: '/rooms',
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
         minChars: 1,
         transformResult: function(response) {
             return {
