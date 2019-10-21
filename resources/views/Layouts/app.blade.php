@@ -5,18 +5,15 @@
     <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
   </head>
   <style>
-<<<<<<< HEAD
     .card-background {
         background-color:#6b8e23;
     }
-=======
   .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
   .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
   .autocomplete-selected { background: #F0F0F0; }
   .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
   .autocomplete-group { padding: 2px 5px; }
   .autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
->>>>>>> make-room
   </style>
   <body>
     @section('header')

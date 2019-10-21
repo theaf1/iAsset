@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Layouts.app')
 @section('content')
     <div class="container-fluid">
         <div class="col-11 mx-auto">
