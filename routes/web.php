@@ -40,6 +40,3 @@ Route::get('/rooms', function() {
 Route::get('/ups', function () {
     return view('addups');
 });
-Route::get('/pt', function () {
-    return view('plaything');
-});
