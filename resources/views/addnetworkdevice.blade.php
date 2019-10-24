@@ -180,14 +180,21 @@
                                 <input class="form-control" type="text" name="software_version" id="software_version"> 
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label>
                                 <textarea class="form-control" name="issues" id="issues" rows="1"></textarea>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
@@ -197,6 +204,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </form>
 </div>

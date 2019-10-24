@@ -70,33 +70,21 @@
                                     </div><br>
                                 </div>
                             </div>
+                            <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
+                                <div class="form-group">
+                                    <label for="respose_person">ชื่อผู้รับผิดชอบ</label><br>
+                                    <input type="text" class="form-control" id="response_person" name="respose_person">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
                                     <select class="form-control" id="section">
                                         <option value="" hidden></option>
                                         <option value="1">สำนักงาน</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ชื่อผู้ใช้งาน-->
-                                <div class="form-group">
-                                    <label for="user">ชื่อผู้รับผิดชอบ</label><br>
-                                    <input type="text" class="form-control" id="user" name="user">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ประเภทหน่วยงาน-->
-                                <div class="form-group">
-                                    <label for="section_status">ประเภทหน่วยงาน</label>
-                                    <select class="form-control" id="section_status">
-                                        <option value="1">สำนักงาน</option>
-                                        <option value="2">หอผู้ป่วย</option>
-                                        <option value="3">ห้องประชุม</option>
-                                    </select>
+                                    </select>   
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
@@ -107,15 +95,6 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
-                                <div class="form-group">
-                                    <label for="function">ระบบงาน</label>
-                                    <select class="form-control" id="function">
-                                        <option value="1">สำนักงาน</option>
-                                        <option value="2">หอผู้ป่วย</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                                 <div class="form-group">
                                     <label for="owner">เจ้าของเครื่อง</label><br>
@@ -133,16 +112,27 @@
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
                                     <select class="form-control" id="asset_status">
-                                        <option value="status">ใช้งาน</option>
-                                        <option value="status2">ไม่ได้ใช้งาน</option>
-                                        <option value="status3">ส่งคืนแล้ว</option>
+                                        <option value="" hidden></option>
+                                        <option value="0">รอการขึ้นทะเบียน</option>
+                                        <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
+                                        <option value="2">มีรหัสทรัพย์สินแล้ว</option>
+                                        <option value="3">รอการส่งคืน</option>
+                                        <option value="4">ส่งคืนแล้วโดยไม่ได้รับทดแทน</option>
+                                        <option value="5">ส่งคืนแล้วโดยได้รับทดแทน</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="remarks">หมายเหตุ</label><br>
-                                    <textarea class="form-control" name="remarks" id="remarks" rows="1"></textarea>
+                                    <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
+                                    <select class="form-control" id="asset_use_status">
+                                        <option value="" hidden></option>
+                                        <option value="0">รอการติดตั้ง</option>
+                                        <option value="1">ใช้งาน</option>
+                                        <option value="2">ไม่ได้ใช้งาน</option>
+                                        <option value="3">ส่งซ่อม</option>
+                                        <option value="4">ส่งคืนแล้ว</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +166,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                <label for="form-factor">ลักษณะของตัวเครื่อง</label>
+                                <label for="form_factor">ลักษณะของตัวเครื่อง</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="1" checked>
                                         <label class="form-check-label" for="form_factor">Tower</label><br>
@@ -235,9 +225,9 @@
                                 <div class="form-group">
                                     <label for="has_external_battery">แบตเตอรี่ภายนอก</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="1">
+                                        <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="0">
                                         <label class="form-check-label" for="has_external_battery">ไม่มี</label><br>
-                                        <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="2">
+                                        <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="1">
                                         <label class="form-check-label" for="has_external_battery">มี</label><br>
                                     </div>
                                 </div>

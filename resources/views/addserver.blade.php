@@ -82,9 +82,26 @@
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
                                 <select class="form-control" id="asset_status">
-                                    <option value="status">ใช้งาน</option>
-                                    <option value="status2">ไม่ได้ใช้งาน</option>
-                                    <option value="status3">ส่งคืนแล้ว</option>
+                                <option value="" hidden></option>
+                                    <option value="0">รอการขึ้นทะเบียน</option>
+                                    <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
+                                    <option value="2">มีรหัสทรัพย์สินแล้ว</option>
+                                    <option value="3">รอการส่งคืน</option>
+                                    <option value="4">ส่งคืนแล้วโดยไม่ได้รับทดแทน</option>
+                                    <option value="5">ส่งคืนแล้วโดยได้รับทดแทน</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="colsm-12 col-lg-6">
+                            <div class="form-group">
+                            <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
+                                <select class="form-control" id="asset_status">
+                                    <option value="" hidden></option>
+                                    <option value="0">รอการติดตั้ง</option>
+                                    <option value="1">ใช้งาน</option>
+                                    <option value="2">ไม่ได้ใช้งาน</option>
+                                    <option value="3">ส่งซ่อม</option>
+                                    <option value="4">ส่งคืนแล้ว</option>
                                 </select>
                             </div>
                         </div>
