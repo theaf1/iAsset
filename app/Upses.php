@@ -8,6 +8,7 @@ class Upses extends Model
 {
     protected $fillable = [
         'id',
+        'issues'
     ];
     
 }
