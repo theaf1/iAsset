@@ -37,3 +37,6 @@ Route::get('/rooms', function() {
                         ->get();
     return $rooms;
 });
+Route::get('/ups', function () {
+    return view('addups');
+});
