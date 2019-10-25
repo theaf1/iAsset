@@ -40,3 +40,9 @@ Route::get('/rooms', function() {
 Route::get('/ups', function () {
     return view('addups');
 });
+Route::get('/ns', function () {
+    return view('addnetworkedstorage');
+});
+Route::get('/ac', function () {
+    return view('addairconditioner');
+});
