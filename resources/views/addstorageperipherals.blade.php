@@ -1,13 +1,14 @@
 @extends('Layouts.app')
 @section('content')
     <div class="container-fluid">
-        <div class="col-11 mx-auto">
+        <div class="col-12 mx-auto">
             <form>
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
                     </div>
                     <div class="card-body">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
@@ -139,16 +140,27 @@
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
                                     <select class="form-control" id="asset_status">
-                                        <option value="status">ใช้งาน</option>
-                                        <option value="status2">ไม่ได้ใช้งาน</option>
-                                        <option value="status3">ส่งคืนแล้ว</option>
+                                        <option value="" hidden></option>
+                                        <option value="0">รอการขึ้นทะเบียน</option>
+                                        <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
+                                        <option value="2">มีรหัสทรัพย์สินแล้ว</option>
+                                        <option value="3">รอการส่งคืน</option>
+                                        <option value="4">ส่งคืนแล้วโดยไม่ได้รับทดแทน</option>
+                                        <option value="5">ส่งคืนแล้วโดยได้รับทดแทน</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
-                                    <label for="remarks">หมายเหตุ</label><br>
-                                    <textarea class="form-control" name="remarks" id="remarks" rows="1"></textarea>
+                                    <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
+                                    <select class="form-control" id="asset_use_status">
+                                        <option value="" hidden></option>
+                                        <option value="0">รอการติดตั้ง</option>
+                                        <option value="1">ใช้งาน</option>
+                                        <option value="2">ไม่ได้ใช้งาน</option>
+                                        <option value="3">ส่งซ่อม</option>
+                                        <option value="4">ส่งคืนแล้ว</option>
+                                    </select>   
                                 </div>
                             </div>
                         </div>
@@ -228,10 +240,25 @@
                                     <input class="form-control" name="lun_count" id="lun_count" type="number" min="1" default="1">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="remarks">หมายเหตุ</label><br>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                </div>
+                            </div>
                             <div class="col-sm-12 col-lg-6"> <!--ปัญหาในการใช้งาน-->
                                 <div class="form-group">
                                     <label for="issues">ปัญหาในการใช้งาน</label>
-                                    <textarea class="form-control" name="issues" id="issues" rows="1"></textarea>
+                                    <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
                                 </div>
                             </div>
                         </div>

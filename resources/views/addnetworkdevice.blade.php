@@ -8,6 +8,7 @@
                     <h4>ข้อมูลพื้นฐานของครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
@@ -95,7 +96,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" id="asset_status">
+                                <select class="form-control" id="asset_use_status">
                                     <option value="" hidden></option>
                                     <option value="0">รอการติดตั้ง</option>
                                     <option value="1">ใช้งาน</option>

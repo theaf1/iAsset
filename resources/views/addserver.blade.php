@@ -8,6 +8,7 @@
                         <h4>ข้อมูลทั่วไปของครุภัณฑ์</h4>
                     </div>
                     <div class="card-body">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
