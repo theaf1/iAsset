@@ -142,6 +142,47 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="refrigerant_charge">ปริมาณสารทำความเย็น</label>
+                                    <input type="number" class="form-control" name="refrigerant_charge" id="refrigerant_charge" min="0">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="cooling_capacity">กำลังในการทำความเย็น</label>
+                                    <input type="number" name="cooling_capacity" id="cooling_capacity" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="device_management_address">IP Address ที่ใช้ควบคุมเครื่อง</label>
+                                    <input type="text" name="device_management_addres" id="device_management_addres" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-heder card-background text-white">
+                        <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="remarks">หมายเหตุ</label>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="issues">ปัญหาในการใช้งาน</label><br>
+                                    <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
