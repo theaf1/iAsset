@@ -50,6 +50,6 @@ class Peripherals extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropifexists('peripherals');
     }
 }

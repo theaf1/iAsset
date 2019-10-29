@@ -71,6 +71,6 @@ class Clients extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropifexists('clients');
     }
 }

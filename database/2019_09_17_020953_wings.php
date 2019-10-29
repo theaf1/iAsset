@@ -27,6 +27,6 @@ class Wings extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('wings');
     }
 }

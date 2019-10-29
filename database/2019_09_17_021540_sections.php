@@ -27,6 +27,6 @@ class Sections extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropifexists('sections');
     }
 }

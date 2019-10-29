@@ -31,6 +31,6 @@ class Displays extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropifexists('displays');
     }
 }
