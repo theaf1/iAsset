@@ -216,7 +216,20 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <p>test</p>
+                    <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="remarks">หมายเหตุ</label><br>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!--issues-->
+                                <div class="form-group">
+                                    <label for="issues">ปัญหาในการใช้งาน</label>
+                                    <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
