@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form>
+            <form action="/store" method="post">
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
@@ -73,8 +73,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
-                                    <label for="respose_person">ชื่อผู้รับผิดชอบ</label><br>
-                                    <input type="text" class="form-control" id="response_person" name="respose_person">
+                                    <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
+                                    <input type="text" class="form-control" id="response_person" name="response_person">
                                 </div>
                             </div>
                         </div>
@@ -264,6 +264,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </form>
         </div>

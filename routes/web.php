@@ -46,3 +46,6 @@ Route::get('/ns', function () {
 Route::get('/ac', function () {
     return view('addairconditioner');
 });
+Route::post('/store',function(Illuminate\Http\Request $request){
+    return $request->all();
+});
