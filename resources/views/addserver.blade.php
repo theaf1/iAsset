@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form>
+            <form action="/store" method="post">
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลทั่วไปของครุภัณฑ์</h4>
@@ -408,6 +408,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-lg btn-success">Submit</button>
                 </div>
             </form>
         </div>

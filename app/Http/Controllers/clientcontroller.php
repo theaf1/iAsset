@@ -11,5 +11,7 @@ class clientcontroller extends Controller
         $sections = \App\Sections::all();
         $clients = \App\clients::all();
     }
-    
+    public function store(Request $request){
+        return $request->all();
+    }
 }
