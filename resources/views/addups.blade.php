@@ -265,8 +265,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-lg btn-success">Submit</button>
                 </div>
             </form>
         </div>

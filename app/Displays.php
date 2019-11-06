@@ -17,5 +17,6 @@ class Displays extends Model
     public function gettype(){
         $this->belongsTo(Section::class);
         $this->belongsTo(clients::class);
+        $this->belongsTo(Servers::class);
     }
 }

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fuild">
     <div class="col-12 mx-auto">
-        <form>
+        <form action="store" method="post">
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -62,12 +62,12 @@
                                     <label for="is_mobile">ลักษณะการใช้งาน</label><br>
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile"><label for="is_mobile">เป็นเครื่องเคลื่อนที่</label>
+                                            <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile" value="1" checked><label for="is_mobile">เป็นเครื่องเคลื่อนที่</label>
                                         </label>
                                     </div>
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile2"><label for="is_mobile2">เป็นเครื่องประจำที่</label>
+                                            <input type="radio" class="form-check-input" name="is_mobile" id="is_mobile2" value="0"><label for="is_mobile2">เป็นเครื่องประจำที่</label>
                                         </label>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- สถานะของครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label><br>
-                                    <select class="form-control" id="asset_status">
+                                    <select class="form-control" name="asset_status" id="asset_status">
                                         <option value="" hidden></option>
                                         <option value="0">รอการขึ้นทะเบียน</option>
                                         <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
@@ -91,7 +91,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_use_status">
+                                    <select class="form-control" name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         <option value="0">รอการติดตั้ง</option>
                                         <option value="1">ใช้งาน</option>
@@ -120,7 +120,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- หน่วยงาน -->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" id="section">
+                                    <select class="form-control" name="section" id="section">
                                         <option value="" hidden></option>
                                         <option value="1">ตึกอัษฎางค์</option>
                                     </select>
@@ -145,10 +145,10 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 pt-2"> <!-- สิทธิ์ Admin -->
                                 <div class="form-group">
-                                    <label for="owner">สิทธิ์ Admin</label><br>
+                                    <label for="permission">สิทธิ์ Admin</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="radio" class="form-check-input" name="permission" id="admin" value="0"><label for="admin">มีสิทธิ์</label></label>
-                                        <label class="form-check-label"><input type="radio" class="form-check-input" name="permission" id="no_permission" value="1"><label for="no_permission">ไม่มีสิทธิ์</label></label>
+                                        <label class="form-check-label"><input type="radio" class="form-check-input" name="permission" id="admin" value="1"><label for="admin">มีสิทธิ์</label></label>
+                                        <label class="form-check-label"><input type="radio" class="form-check-input" name="permission" id="no_permission" value="0" checked><label for="no_permission">ไม่มีสิทธิ์</label></label>
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="cpu_speed">CPU Speed</label>
-                                    <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0">
+                                    <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--socket-->
@@ -206,7 +206,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
                                     <label for="ram_size">RAM Size</label>
-                                    <input class="form-control" name="ram_size" id="ram_size" type="number" min="0">
+                                    <input class="form-control" name="ram_size" id="ram_size" type="number" min="0" step="0.1">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--HDD-->
@@ -450,6 +450,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-lg btn-success">Submit</button>
             </div>
         </form>
     </div>

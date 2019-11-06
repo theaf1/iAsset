@@ -1,7 +1,7 @@
 @extends('Layouts.app')
 @section('content')
 <div class="container-fluid">
-    <form>
+    <form action="/store" method="post">
         <div class="col-12 mx-auto">
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
@@ -283,6 +283,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-lg btn-success">Submit</button>
         </div>
     </form>
 </div>

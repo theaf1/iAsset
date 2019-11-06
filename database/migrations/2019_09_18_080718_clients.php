@@ -25,8 +25,9 @@ class Clients extends Migration
             $table->integer('section_status');
             $table->integer('function');
             $table->integer('owner');
-            $table->boolean('accessibility');
+            $table->boolean('permission');
             $table->integer('asset_status');
+            $table->integer('asset_use_status');
             $table->string('remarks')->nullable();
             $table->string('brand')->nullable();
             $table->string('model')->nullable();
