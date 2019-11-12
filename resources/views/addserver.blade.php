@@ -46,7 +46,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                 <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" id="section">
+                                    <select class="form-control" name="section" id="section">
                                         <option value="" hidden></option>
                                         <option value="1">สำนักงาน</option>
                                     </select>
@@ -82,7 +82,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" id="asset_status">
+                                <select class="form-control" name="asset_status" id="asset_status">
                                 <option value="" hidden></option>
                                     <option value="0">รอการขึ้นทะเบียน</option>
                                     <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
@@ -96,7 +96,7 @@
                         <div class="colsm-12 col-lg-6">
                             <div class="form-group">
                             <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" id="asset_status">
+                                <select class="form-control" name="asset_use_status" id="asset_status">
                                     <option value="" hidden></option>
                                     <option value="0">รอการติดตั้ง</option>
                                     <option value="1">ใช้งาน</option>
@@ -279,7 +279,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="role_class">กลุ่มของบทบาท</label>
-                                    <select class="form-control" id="role_class">
+                                    <select class="form-control" name="role_class" id="role_class">
                                         <option value="1" selected>Infrastructure</option>
                                         <option value="2">Application</option>
                                         <option value="3">Monitoring and security</option>
@@ -368,13 +368,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address">IP Address</label>
-                                    <input class="form-control" name="ip_addresss" id="ip_address" type="text" placeholder="127.0.0.1">
+                                    <input class="form-control" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--mac address-->
                                 <div class="form-group">
                                     <label for="mac_address">MAC Address</label>
-                                    <input class="form-control" name="mac_addresss" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
+                                    <input class="form-control" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
                                 </div>
                             </div>
                         </div>
