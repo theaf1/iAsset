@@ -280,7 +280,8 @@
                                 <div class="form-group">
                                     <label for="role_class">กลุ่มของบทบาท</label>
                                     <select class="form-control" name="role_class" id="role_class">
-                                        <option value="1" selected>Infrastructure</option>
+                                        <option value="" hidden selected></option>
+                                        <option value="1">Infrastructure</option>
                                         <option value="2">Application</option>
                                         <option value="3">Monitoring and security</option>
                                     </select>

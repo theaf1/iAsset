@@ -34,7 +34,34 @@ class Servers extends Migration
             $table->integer('cpu_socket_no');
             $table->float('ram_size', 4, 2);
             $table->boolean('is_raid')->default(0);
-            
+            $table->integer('no_of_physical_drive_max');
+            $table->integer('no_of_physical_drive_populated');
+            $table->integer('lun_count');
+            $table->integer('hdd_total_cap');
+            $table->integer('display_no');
+            $table->boolean('is_headless')->default(0);
+            $table->string('display_sapid')->nullable();
+            $table->string('display_pid')->nullable();
+            $table->string('os');
+            $table->integer('os_arch');
+            $table->integer('role_class');
+            $table->boolean('is_ad')->default(0);
+            $table->boolean('is_dns')->default(0);
+            $table->boolean('is_dhcp')->default(0);
+            $table->boolean('is_fileshare')->default(0);
+            $table->boolean('is_web')->default(0);
+            $table->boolean('is_db')->default(0);
+            $table->boolean('is_log')->default(0);
+            $table->boolean('other_software')->default(0);
+            $table->string('other_software_detail')->nullable();
+            $table->integer('lan_type');
+            $table->string('lan_outlet_no')->nullable();
+            $table->ipAddress('ip_address');
+            $table->macAddress('mac_address');
+            $table->string('computer_name');
+            $table->string('remarks')->nullable();
+            $table->string('issues')->nullable();
+            $table->timestamps();
         });
     }
 
