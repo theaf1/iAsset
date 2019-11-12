@@ -19,6 +19,21 @@ class Servers extends Migration
             $table->string('pid');
             $table->string('location');
             $table->integer('section');
+            $table->boolean('is_mobile')->default(0);
+            $table->string('tel_no');
+            $table->string('response_person');
+            $table->integer('owner');
+            $table->integer('asset_status');
+            $table->integer('asset_use_status');
+            $table->string('brand');
+            $table->string('model');
+            $table->integer('form_factor');
+            $table->string('serial_no');
+            $table->string('cpu_model');
+            $table->float('cpu_speed', 4, 2);
+            $table->integer('cpu_socket_no');
+            $table->float('ram_size', 4, 2);
+            $table->boolean('is_raid')->default(0);
             
         });
     }
