@@ -145,13 +145,13 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="refrigerant_charge">ปริมาณสารทำความเย็น</label>
-                                    <input type="number" class="form-control" name="refrigerant_charge" id="refrigerant_charge" min="0">
+                                    <label for="refrigerant_charge">ปริมาณสารทำความเย็น (กิโลกรัม)</label>
+                                    <input type="number" class="form-control" name="refrigerant_charge" id="refrigerant_charge" min="0" step="0.01">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="cooling_capacity">กำลังในการทำความเย็น</label>
+                                    <label for="cooling_capacity">กำลังในการทำความเย็น (ฺBTU)</label>
                                     <input type="number" name="cooling_capacity" id="cooling_capacity" class="form-control">
                                 </div>
                             </div>

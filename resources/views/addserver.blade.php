@@ -156,7 +156,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="cpu_speed">CPU Speed</label>
+                                    <label for="cpu_speed">CPU Speed (GHz)</label>
                                     <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0">
                                 </div>
                             </div>
@@ -170,8 +170,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
-                                    <label for="ram_size">RAM Size</label>
-                                    <input class="form-control" name="ram_size" id="ram_size" type="number" min="0">
+                                    <label for="ram_size">RAM Size (GB)</label>
+                                    <input class="form-control" name="ram_size" id="ram_size" type="number" min="0" step="0.1">
                                 </div>
                             </div>
                         </div>

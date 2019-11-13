@@ -32,7 +32,7 @@ class Servers extends Migration
             $table->string('cpu_model');
             $table->float('cpu_speed', 4, 2);
             $table->integer('cpu_socket_no');
-            $table->float('ram_size', 4, 2);
+            $table->float('ram_size', 5, 3);
             $table->boolean('is_raid')->default(0);
             $table->integer('no_of_physical_drive_max');
             $table->integer('no_of_physical_drive_populated');
