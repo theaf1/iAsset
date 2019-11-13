@@ -460,8 +460,8 @@
 @endsection
 
 @section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.9/jquery.autocomplete.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
 <script>
     var room = null;
     $("#room_autocomplete").autocomplete({
