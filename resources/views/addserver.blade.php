@@ -83,13 +83,10 @@
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
                                 <select class="form-control" name="asset_status" id="asset_status">
-                                <option value="" hidden></option>
-                                    <option value="0">รอการขึ้นทะเบียน</option>
-                                    <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
-                                    <option value="2">มีรหัสทรัพย์สินแล้ว</option>
-                                    <option value="3">รอการส่งคืน</option>
-                                    <option value="4">ส่งคืนแล้วโดยไม่ได้รับทดแทน</option>
-                                    <option value="5">ส่งคืนแล้วโดยได้รับทดแทน</option>
+                                    <option value="" hidden></option>
+                                    @foreach($asset_statuses as $asset_status)
+                                        <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -98,11 +95,9 @@
                             <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                 <select class="form-control" name="asset_use_status" id="asset_status">
                                     <option value="" hidden></option>
-                                    <option value="0">รอการติดตั้ง</option>
-                                    <option value="1">ใช้งาน</option>
-                                    <option value="2">ไม่ได้ใช้งาน</option>
-                                    <option value="3">ส่งซ่อม</option>
-                                    <option value="4">ส่งคืนแล้ว</option>
+                                    @foreach($asset_use_statuses as $asset_use_status)
+                                        <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

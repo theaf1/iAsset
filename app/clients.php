@@ -59,5 +59,7 @@ class clients extends Model
    public function gettype(){
       $this->belongsTo(Section::class);
       $this->hasMany(Displays::class);
+      $this->hasOne(Asset_statuses::class);
+      $this->hasOne(Asset_use_statuses::class);
    }
 }

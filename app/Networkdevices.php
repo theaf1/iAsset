@@ -31,5 +31,7 @@ class Networkdevices extends Model
     function gettype(){
         $this->belongsTo(location::class);
         $this->belongsTo(section::class);
+        $this->hasOne(Asset_statuses::class);
+        $this->hasOne(Asset_use_statuses::class);
     }
 }

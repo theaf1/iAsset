@@ -82,7 +82,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_status">
+                                    <select class="form-control" name="asset_status" id="asset_status">
                                         <option value="" hidden></option>
                                         <option value="0">รอการขึ้นทะเบียน</option>
                                         <option value="1">ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</option>
@@ -96,7 +96,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_status">
+                                    <select class="form-control" name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         <option value="0">รอการติดตั้ง</option>
                                         <option value="1">ใช้งาน</option>

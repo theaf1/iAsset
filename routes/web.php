@@ -23,9 +23,9 @@ Route::get('/computer', function () {
 Route::get('/storage', function () {
     return view('addstorageperipherals');
 });
-Route::get('/server', function () {
-    return view('addserver');
-});
+// Route::get('/server', function () {
+//     return view('addserver');
+// });
 Route::get('/network', function () {
     return view('addnetworkdevice');
 });
@@ -49,3 +49,4 @@ Route::get('/ac', function () {
 Route::post('/store',function(Illuminate\Http\Request $request){
     return $request->all();
 });
+Route::get('/server','Servercontroller@index');
