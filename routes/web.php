@@ -43,9 +43,7 @@ Route::get('/ups', function () {
 Route::get('/ns', function () {
     return view('addnetworkedstorage');
 });
-Route::get('/ac', function () {
-    return view('addairconditioner');
-});
+Route::get('/ac', 'Airconditionercontroller@index');
 Route::post('/store',function(Illuminate\Http\Request $request){
     return $request->all();
 });

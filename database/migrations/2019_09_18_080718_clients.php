@@ -20,6 +20,7 @@ class Clients extends Migration
             $table->string('pid');
             $table->integer('section');
             $table->boolean('is_mobile')->default(0);
+            $table->integer('location_id');
             $table->string('user');
             $table->string('position');
             $table->integer('section_status');

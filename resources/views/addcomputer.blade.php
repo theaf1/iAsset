@@ -56,6 +56,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input hidden type="number" name="location_id"><!--ค่า location_id-->
                         <div class="form-row"> 
                             <div class="col-sm-12 col-lg-6"> <!-- ลักษณะการใช้งาน -->
                                 <div class="form-group">
@@ -473,6 +474,7 @@
                 suggestions: $.map($.parseJSON(response), function(item) {
                     console.log(item.location)
                     return {
+                        id: item.id,
                         value: item.name,
                         building: item.location.building.name,
                         location: item.location.floor + ' ' + item.location.wing
@@ -484,6 +486,7 @@
             $("#room_autocomplete").val(suggestion.value);
             $("#building").val(suggestion.building);
             $("#location").val(suggestion.location);
+            $("input[name=location_id]").val(suggestion.id);
             room = suggestion.value;
             
         },
