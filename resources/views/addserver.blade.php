@@ -48,7 +48,9 @@
                                 <label for="section">หน่วยงาน</label>
                                     <select class="form-control" name="section" id="section">
                                         <option value="" hidden></option>
-                                        <option value="1">สำนักงาน</option>
+                                        @foreach($sections as $section)
+                                            <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

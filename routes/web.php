@@ -17,18 +17,14 @@
 Route::get('/', function () {
     return view('addperipherals');
 });
-Route::get('/computer', function () {
-    return view('addcomputer');
-});
+Route::get('/computer', 'clientcontroller@index');
 Route::get('/storage', function () {
     return view('addstorageperipherals');
 });
 // Route::get('/server', function () {
 //     return view('addserver');
 // });
-Route::get('/network', function () {
-    return view('addnetworkdevice');
-});
+Route::get('/network', 'Networkdevicecontroller@index');
 Route::get('/rooms', function() {
     $rooms = \App\Room::with(['location' => function($query) {
                             $query->with('building');
