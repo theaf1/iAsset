@@ -36,3 +36,7 @@ Route::get('/rooms', function() {
 Route::post('/store',function(Illuminate\Http\Request $request){
     return $request->all();
 });
+//under development
+Route::get('/admin', function () {
+    return view('admin');
+});
