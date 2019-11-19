@@ -14,17 +14,16 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('addperipherals');
-});
+// route to  system views
 Route::get('/computer', 'clientcontroller@index');
-Route::get('/storage', function () {
-    return view('addstorageperipherals');
-});
-// Route::get('/server', function () {
-//     return view('addserver');
-// });
+Route::get('/peripherals','Peripheralcontroller@index');
+Route::get('/storage', 'Storageperipherals@index');
+Route::get('/server','Servercontroller@index');
 Route::get('/network', 'Networkdevicecontroller@index');
+Route::get('/ns', 'Networkstoragecontroller@index');
+Route::get('/ups', 'Upscontroller@index');
+Route::get('/ac', 'Airconditionercontroller@index');
+// room automation script by Nongnapat
 Route::get('/rooms', function() {
     $rooms = \App\Room::with(['location' => function($query) {
                             $query->with('building');
@@ -33,14 +32,7 @@ Route::get('/rooms', function() {
                         ->get();
     return $rooms;
 });
-Route::get('/ups', function () {
-    return view('addups');
-});
-Route::get('/ns', function () {
-    return view('addnetworkedstorage');
-});
-Route::get('/ac', 'Airconditionercontroller@index');
+//database operations
 Route::post('/store',function(Illuminate\Http\Request $request){
     return $request->all();
 });
-Route::get('/server','Servercontroller@index');

@@ -32,6 +32,6 @@ class storageperipherals extends Model
         'issues',
     ];
     function getType(){
-        $this->belongsTo(sections::class);
+        $this->belongsTo(Sections::class);
     }
 }
