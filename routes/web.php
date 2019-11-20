@@ -33,10 +33,7 @@ Route::get('/rooms', function() {
     return $rooms;
 });
 //database operations
-Route::post('/store',function(Illuminate\Http\Request $request){
-    return $request->all();
-});
+Route::post('/store', 'SectionController@store');
 //under development
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', 'SectionController@index');
+Route::post('/addcom', 'ClientController@store');

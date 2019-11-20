@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fuild">
     <div class="col-12 mx-auto">
-        <form action="store" method="post">
+        <form action="/addcom" method="post">
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>

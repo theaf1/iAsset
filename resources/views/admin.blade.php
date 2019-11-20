@@ -2,6 +2,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
+        @if ( $message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ $message }}
+        </div>
+        @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>เพิ่มหน่วยงาน</h4>
