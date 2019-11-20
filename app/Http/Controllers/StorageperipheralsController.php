@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Asset_statuses;
+use App\Asset_use_statuses;
+use App\Sections;
 
-class LocationController extends Controller
+class StorageperipheralsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,15 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $Asset_statuses=Asset_statuses::all();
+        $Asset_use_statuses=Asset_use_statuses::all();
+        $Sections=Sections::all();
+
+        return view('addstorageperipherals')->with([
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+        ]);
     }
 
     /**
@@ -34,7 +45,7 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**

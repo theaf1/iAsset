@@ -15,14 +15,14 @@
 //     return view('welcome');
 // });
 // route to  system views
-Route::get('/computer', 'clientcontroller@index');
-Route::get('/peripherals','Peripheralcontroller@index');
-Route::get('/storage', 'Storageperipherals@index');
-Route::get('/server','Servercontroller@index');
-Route::get('/network', 'Networkdevicecontroller@index');
-Route::get('/ns', 'Networkstoragecontroller@index');
-Route::get('/ups', 'Upscontroller@index');
-Route::get('/ac', 'Airconditionercontroller@index');
+Route::get('/computer', 'ClientController@index');
+Route::get('/peripherals','PeripheralsController@index');
+Route::get('/storage', 'StorageperipheralsController@index');
+Route::get('/server','ServerController@index');
+Route::get('/network', 'NetworkdeviceController@index');
+Route::get('/ns', 'NetworkedstorageController@index');
+Route::get('/ups', 'UpsController@index');
+Route::get('/ac', 'AirconditionerController@index');
 // room automation script by Nongnapat
 Route::get('/rooms', function() {
     $rooms = \App\Room::with(['location' => function($query) {
