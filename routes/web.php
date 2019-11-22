@@ -22,7 +22,6 @@ Route::get('/server','ServerController@index');
 Route::get('/network', 'NetworkdeviceController@index');
 Route::get('/ns', 'NetworkedstorageController@index');
 Route::get('/ups', 'UpsController@index');
-Route::get('/ac', 'AirconditionerController@index');
 // room automation script by Nongnapat
 Route::get('/rooms', function() {
     $rooms = \App\Room::with(['location' => function($query) {

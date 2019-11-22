@@ -18,7 +18,6 @@ class Section extends Model
        $this->hasMany(Server::class);
        $this->hasMany(Networkdevices::class);
        $this->hasMany(Upses::class);
-       $this->hasMany(Airconditioners::class);
    }
 
    public static function loadData($fileName){
