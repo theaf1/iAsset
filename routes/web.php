@@ -37,12 +37,3 @@ Route::post('/add-networkdev','Networkdevicecontroller@store');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
-<<<<<<< HEAD
-
-Route::get('/add-display', function () {
-    $displayCount = request()->input('display_count');
-    return redirect()->back()->with('displayCount', $displayCount)->withInput();
-});
-=======
-Route::post('add-ups', 'UpsController@store');
->>>>>>> 1b0d7faad227569de16e52bc89b107d8a197b5c7
