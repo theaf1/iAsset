@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Sections;
+use App\Section;
 use Illuminate\Support\Facades\DB;
 
 class SectionController extends Controller
@@ -36,7 +36,7 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
-        $Sections = Sections::create($request->all());
+        $Sections = Section::create($request->all());
         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 

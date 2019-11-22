@@ -22,7 +22,6 @@ Route::get('/server','ServerController@index');
 Route::get('/network', 'NetworkdeviceController@index');
 Route::get('/ns', 'NetworkedstorageController@index');
 Route::get('/ups', 'UpsController@index');
-Route::get('/ac', 'AirconditionerController@index');
 // room automation script by Nongnapat
 Route::get('/rooms', function() {
     $rooms = \App\Room::with(['location' => function($query) {
@@ -34,11 +33,16 @@ Route::get('/rooms', function() {
 });
 //database operations
 Route::post('/store', 'SectionController@store');
+Route::post('/add-networkdev','Networkdevicecontroller@store');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
+<<<<<<< HEAD
 
 Route::get('/add-display', function () {
     $displayCount = request()->input('display_count');
     return redirect()->back()->with('displayCount', $displayCount)->withInput();
 });
+=======
+Route::post('add-ups', 'UpsController@store');
+>>>>>>> 1b0d7faad227569de16e52bc89b107d8a197b5c7

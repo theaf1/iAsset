@@ -1,8 +1,14 @@
 @extends('Layouts.app')
 @section('content')
 <div class="container-fluid">
-    <form action="/store" method="post">
+    <form action="/add-networkdev" method="post">
         <div class="col-12 mx-auto">
+        @if ( $message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ $message }}
+        </div>
+        @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>ข้อมูลพื้นฐานของครุภัณฑ์</h4>
@@ -26,13 +32,28 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <label for="location">สถานที่ตั้ง</label>
-                                <input type="text" class="form-control" id="location" name="location" disabled> 
+                                <label for="room">ห้อง</label>
+                                <input type="text" class="form-control" name="room" id="room_autocomplete"/> 
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
+                            <div class="form-group">
+                                <label for="building">ตึก</label>
+                                <input type="text" class="form-control" name="building" id="building" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                    <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
+                            <div class="form-group">
+                                    <label for="location">ชั้น</label>
+                                    <input type="text" class="form-control" name="location" id="location" disabled/>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                            <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
+                                <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1">
                                     <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
@@ -209,4 +230,46 @@
         </div>
     </form>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
+<script>
+    var room = null;
+    $("#room_autocomplete").autocomplete({
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
+        minChars: 1,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
+                    return {
+                        id: item.id,
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
+            $("input[name=location_id]").val(suggestion.id);
+            room = suggestion.value;
+            
+        },
+    });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
+    });
+
+</script>
 @endsection

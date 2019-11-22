@@ -10,7 +10,7 @@ class Networkdevices extends Model
         'id',
         'sapid',
         'pid',
-        'location',
+        'location_id',
         'is_mobile',
         'section',
         'tel_no',

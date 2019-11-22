@@ -18,17 +18,21 @@ class CreateNetworkdevicesTable extends Migration
             $table->string('sapid')->nullable();
             $table->string('pid')->nullable();
             $table->boolean('is_mobile')->default(0);
+            $table->integer('location_id');
             $table->integer('asset_status');
+            $table->string('tel_no');
+            $table->string('response_person');
+            $table->integer('owner');
             $table->integer('asset_use_status');
             $table->integer('device_subtype');
             $table->string('brand');
             $table->string('model');
             $table->integer('port_count');
             $table->integer('psu_count');
-            $table->ipAddress('device_management_address');
-            $table->string('software_version');
-            $table->string('issues');
-            $table->string('remarks');
+            $table->ipAddress('device_management_address')->nullable();
+            $table->string('software_version')->nullable();
+            $table->string('issues')->nullable();
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
