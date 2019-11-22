@@ -2,7 +2,13 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="/store" method="post">
+            <form action="/add-ups" method="post">
+            @if ( $message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ $message }}
+            </div>
+            @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
@@ -24,42 +30,27 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> 
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="location">ตึก</label>
-                                    <select class="form-control" id="location" disabled>
-                                        <option value="location">location</option>
-                                    </select>
+                                    <label for="room">ห้อง</label>
+                                    <input type="text" class="form-control" name="room" id="room_autocomplete"/> 
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
+                                <div class="form-group">
+                                    <label for="building">ตึก</label>
+                                    <input type="text" class="form-control" name="building" id="building" disabled/>
+                                </div>
+                            </div>
+                        </div>
+                        <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location">ชั้น</label>
-                                    <select class="form-control" id="location" disabled>
-                                        <option value="location">location</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="form-group">
-                                    <label for="location">ปีก</label>
-                                    <select class="form-control" id="location" disabled>
-                                        <option value="location">location</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="form-group">
-                                    <label for="location">ห้อง</label>
-                                    <select class="form-control" id="location">
-                                        <option value="location">location</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                                 <div class="form-group">
                                     <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
@@ -71,14 +62,14 @@
                                     </div><br>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
                                     <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
                                     <input type="text" class="form-control" id="response_person" name="response_person">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
@@ -90,14 +81,14 @@
                                     </select>   
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
                                     <input type="text" class="form-control" name="tel_no" id="tel_no">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                                 <div class="form-group">
                                     <label for="owner">เจ้าของเครื่อง</label><br>
@@ -114,7 +105,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_status">
+                                    <select class="form-control" name="asset_status" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
                                             <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
@@ -125,7 +116,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_use_status">
+                                    <select class="form-control"name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
                                             <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
@@ -178,7 +169,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="topology">หลักการทำงาน</label>
-                                    <select class="form-control" id="topology">
+                                    <select class="form-control" name="topology" id="topology">
                                         <option value="" hidden></option>
                                         <option value="0">Dynamic</option>
                                         <option value="1">stand-by</option>
@@ -210,7 +201,7 @@
                                 <div class="form-group">
                                     <label for="battery_type">ชนิดของแบตเตอรี่</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="1">
+                                        <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="1" checked>
                                         <label class="form-check-label" for="battery_type">ตะกั่ว-กรด (ปิดผนึก)</label><br>
                                         <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="2">
                                         <label class="form-check-label" for="battery_type">ตะกั่ว-กรด (เติมน้ำกลั่น)</label><br>
@@ -223,7 +214,7 @@
                                 <div class="form-group">
                                     <label for="has_external_battery">แบตเตอรี่ภายนอก</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="0">
+                                        <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="0" checked>
                                         <label class="form-check-label" for="has_external_battery">ไม่มี</label><br>
                                         <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="1">
                                         <label class="form-check-label" for="has_external_battery">มี</label><br>
@@ -268,4 +259,46 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('js')
+<script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
+<script>
+    var room = null;
+    $("#room_autocomplete").autocomplete({
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
+        minChars: 1,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
+                    return {
+                        id: item.id,
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
+            $("input[name=location_id]").val(suggestion.id);
+            room = suggestion.value;
+            
+        },
+    });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
+    });
+
+</script>
 @endsection

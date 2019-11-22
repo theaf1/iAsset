@@ -10,7 +10,7 @@ class Upses extends Model
         'id',
         'sapid',
         'pid',
-        'location',
+        'location_id',
         'is_mobile',
         'response_person',
         'section',

@@ -16,9 +16,9 @@ class ServerController extends Controller
      */
     public function index()
     {
-        $Asset_statuses=Asset_statuses::all();
-        $Asset_use_statuses=Asset_use_statuses::all();
-        $Sections=Sections::all();
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
 
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,

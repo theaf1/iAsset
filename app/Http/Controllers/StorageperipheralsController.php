@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
-use App\Sections;
+use App\Section;
 
 class StorageperipheralsController extends Controller
 {
@@ -17,8 +17,8 @@ class StorageperipheralsController extends Controller
     public function index()
     {
         $Asset_statuses=Asset_statuses::all();
-        $Asset_use_statuses=Asset_use_statuses::all();
-        $Sections=Sections::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
 
         return view('addstorageperipherals')->with([
             'asset_statuses'=>$Asset_statuses,

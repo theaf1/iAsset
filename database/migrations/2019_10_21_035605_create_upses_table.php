@@ -17,7 +17,7 @@ class CreateUpsesTable extends Migration
             $table->bigIncrements('id');
             $table->string('sapid')->nullable();
             $table->string('pid')->nullable();
-            $table->integer('location');
+            $table->integer('location_id');
             $table->boolean('is_mobile')->default(0);
             $table->string('response_person');
             $table->integer('section');
