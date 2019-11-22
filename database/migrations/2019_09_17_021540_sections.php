@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use App\Section;
 class Sections extends Migration
 {
     /**
@@ -17,7 +17,8 @@ class Sections extends Migration
             $table->bigincrements('id');
             $table->string('name');
             $table->timestamps();  
-          });
+        });
+        Section::loadData('sections');
     }
 
     /**

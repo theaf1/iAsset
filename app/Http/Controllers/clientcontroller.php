@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
-use App\Sections;
+use App\Section;
+use App\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -15,9 +16,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $Asset_statuses=Asset_statuses::all();
-        $Asset_use_statuses=Asset_use_statuses::all();
-        $Sections=Sections::all();
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -43,7 +44,9 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        Client::create($request->all());
         return $request->all();
+        // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**

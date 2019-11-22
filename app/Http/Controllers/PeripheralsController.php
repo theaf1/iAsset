@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
-use App\Sections;
+use App\Section;
 
 class PeripheralsController extends Controller
 {
@@ -16,9 +16,9 @@ class PeripheralsController extends Controller
      */
     public function index()
     {
-        $Asset_statuses=Asset_statuses::all();
-        $Asset_use_statuses=Asset_use_statuses::all();
-        $Sections=Sections::all();
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
 
         return view('addperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -46,6 +46,8 @@ class PeripheralsController extends Controller
     public function store(Request $request)
     {
         return $request->all();
+        // $ = Sections::create($request->all());
+        // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**

@@ -18,7 +18,7 @@ class Peripherals extends Migration
             $table->integer('type');
             $table->string('sapid');
             $table->string('pid');
-            $table->integer('location');
+            $table->integer('location_id');
             $table->boolean('is_mobile')->default(0);
             $table->string('user');
             $table->string('position');

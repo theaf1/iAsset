@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class clients extends Model
+class Client extends Model
 {
    protected $fillable = [
       'id',
@@ -56,10 +56,15 @@ class clients extends Model
       'computer_name',
       'issues',
    ];
-   public function gettype(){
-      $this->belongsTo(Section::class);
-      $this->hasMany(Displays::class);
-      $this->hasOne(Asset_statuses::class);
-      $this->hasOne(Asset_use_statuses::class);
+   // public function gettype(){
+   //    $this->belongsTo(Section::class);
+   //    $this->hasMany(Displays::class);
+   //    $this->hasOne(Asset_statuses::class);
+   //    $this->hasOne(Asset_use_statuses::class);
+   // }
+
+   public function section ()
+   {
+      return $this->hasOne(Section::class);
    }
 }

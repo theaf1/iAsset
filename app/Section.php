@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sections extends Model
+class Section extends Model
 {
    protected $fillable =[
        'id',
@@ -20,4 +20,11 @@ class Sections extends Model
        $this->hasMany(Upses::class);
        $this->hasMany(Airconditioners::class);
    }
+
+   public static function loadData($fileName){
+    $sectionRecords = loadCSV($fileName);
+    foreach($sectionRecords as $sectionRecord){
+        Section::create($sectionRecord);
+    }
+}
 }

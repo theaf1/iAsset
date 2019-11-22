@@ -13,8 +13,8 @@
                         <div class="col-sm-12 col-lg-6"> <!--ชนิดครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="type">ชนิด</label>
-                                <select class="form-control" id="type">
-                                    <option value="1">Printer</option>
+                                <select class="form-control" id="type" name="type">
+                                    <option value="1" selected>Printer</option>
                                     <option value="2">Scanner</option>
                                     <option value="3">Barcode Printer</option>
                                     <option value="4">Barcode Scanner</option>
@@ -38,40 +38,27 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <label for="location">ตึก</label>
-                                <select class="form-control" id="location">
-                                    <option value="location">location</option>
-                                <select>
+                                <label for="room">ห้อง</label>
+                                <input type="text" class="form-control" name="room" id="room_autocomplete"/>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="building">ตึก</label>
+                                <input type="text" class="form-control" name="building" id="building" disabled/>
+                            </div>
+                        </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="location">ชั้น</label>
-                                <select class="form-control" id="location" disabled>
-                                    <option value="location">location</option>
-                                </select>
+                                <input type="text" class="form-control" name="location" id="location" disabled/>   
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="location">ปีก</label>
-                                <select class="form-control" id="location" disabled>
-                                    <option value="location">location</option>
-                                </select>
-                            </div>
-                        </div>
+                        <input hidden type="number" name="location_id"><!--ค่า location_id-->
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="location">ห้อง</label>
-                                <select class="form-control" id="location" disabled>
-                                    <option value="location">location</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                             <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
@@ -286,4 +273,46 @@
         </div>
     </form>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
+<script>
+    var room = null;
+    $("#room_autocomplete").autocomplete({
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
+        minChars: 1,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
+                    return {
+                        id: item.id,
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
+            $("input[name=location_id]").val(suggestion.id);
+            room = suggestion.value;
+            
+        },
+    });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
+    });
+
+</script>
 @endsection

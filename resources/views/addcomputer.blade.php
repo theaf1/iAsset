@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fuild">
     <div class="col-12 mx-auto">
-        <form action="/addcom" method="post">
+        <form action="{{ url('/add-computer') }}" method="post">
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -13,7 +13,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
                                     <label for="type">ชนิด</label>
-                                    <select class="form-control" id="type">
+                                    <select class="form-control" id="type" name="type">
                                         <option value="1">PC</option>
                                         <option value="2">Notebook</option>
                                         <option value="3">All-In-One</option>
@@ -24,7 +24,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- รหัส SAP -->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control" id="sapid" name="sapid" placeholder="131100034567">
+                                    <input type="text" class="form-control" id="sapid" name="sapid" placeholder="กรอกรหัส SAP" required/>
                                 </div>
                             </div>
                         </div>

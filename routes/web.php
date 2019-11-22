@@ -36,4 +36,4 @@ Route::get('/rooms', function() {
 Route::post('/store', 'SectionController@store');
 //under development
 Route::get('/admin', 'SectionController@index');
-Route::post('/addcom', 'ClientController@store');
+Route::post('/add-computer', 'ClientController@store');
