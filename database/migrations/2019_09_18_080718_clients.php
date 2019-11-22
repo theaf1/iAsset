@@ -23,7 +23,7 @@ class Clients extends Migration
             $table->integer('location_id');
             $table->string('user');
             $table->string('position');
-            $table->integer('section_status');
+            // $table->integer('section_status');
             $table->integer('function');
             $table->integer('owner');
             $table->boolean('permission');
@@ -39,7 +39,7 @@ class Clients extends Migration
             $table->float('ram_size',5,3);
             $table->integer('hdd_no');
             $table->float('hdd_total_cap',9,7);
-            $table->integer('display_no');
+            // $table->integer('display_no');
             $table->string('os');
             $table->integer('os_arch');
             $table->string('ms_office_version');
@@ -54,7 +54,7 @@ class Clients extends Migration
             $table->boolean('eclair')->default(0);
             $table->boolean('admission_note')->default(0);
             $table->boolean('sinet')->default(0);
-            $table->boolean('other_software')->default(0);
+            // $table->boolean('other_software')->default(0);
             $table->string('other_software_detail')->nullable();
             $table->integer('lan_type');
             $table->string('lan_outlet_no')->nullable();

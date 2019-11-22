@@ -5,6 +5,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\Client;
+use App\Display;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -19,6 +20,7 @@ class ClientController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
+
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -44,8 +46,29 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create($request->all());
-        return $request->all();
+        if (request()->has('displayCount')) {
+            $displayCount = request()->input('displayCount');
+            return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        }
+
+        $client = Client::create($request->all());
+
+        $displayCount = request()->input('display_count');
+        for ($i = 0; $i < $displayCount; $i++)
+        {
+            $display =  [ 
+                            'client_id' => $client->id, 
+                            'display_sapid' => request()->input('display_sapid')[$i],
+                            'display_pid' => request()->input('display_pid')[$i],
+                            'display_size' => request()->input('display_size')[$i],
+                            'display_ratio' => request()->input('display_ratio')[$i],
+                        ];
+            Display::create($display);
+        } 
+
+        return redirect()->back()->with('displayCount', $displayCount)->withInput();
+
+
         // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 

@@ -37,3 +37,8 @@ Route::post('/store', 'SectionController@store');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
+
+Route::get('/add-display', function () {
+    $displayCount = request()->input('display_count');
+    return redirect()->back()->with('displayCount', $displayCount)->withInput();
+});

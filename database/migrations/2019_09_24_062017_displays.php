@@ -15,7 +15,7 @@ class Displays extends Migration
     {
         Schema::create('displays', function (blueprint $table) {
             $table->bigincrements('id');
-            $table->string('client_sapid');
+            $table->string('client_id');
             $table->string('display_sapid');
             $table->string('display_pid');
             $table->integer('display_size');

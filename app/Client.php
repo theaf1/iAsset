@@ -11,12 +11,12 @@ class Client extends Model
       'type',
       'sapid',
       'pid',
-      'location',
+      'location_id',
       'is_mobile',
       'section',
       'user',
       'position',
-      'section_status',
+      // 'section_status',
       'function',
       'owner',
       'permission',
@@ -32,7 +32,7 @@ class Client extends Model
       'ram_size',
       'hdd_no',
       'hdd_total_cap',
-      'display_no',
+      // 'display_no',
       'os',
       'os_arch',
       'ms_office_version',
@@ -47,7 +47,7 @@ class Client extends Model
       'eclair',
       'admission_note',
       'sinet',
-      'other_software',
+      // 'other_software',
       'other_software_detail',
       'lan_outlet_no',
       'ip_address',
@@ -63,8 +63,14 @@ class Client extends Model
    //    $this->hasOne(Asset_use_statuses::class);
    // }
 
+   public function displays () 
+   {
+      return $this->hasMany(Display::class);
+   }
+
    public function section ()
    {
       return $this->hasOne(Section::class);
    }
+   
 }
