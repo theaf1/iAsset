@@ -73,7 +73,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" id="section">
+                                    <select class="form-control" id="section" name="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -180,8 +180,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="capacity">กำลังไฟรองรับได้สูงสุด</label>
-                                    <input class="form-control" type="number" name="capacity" id="capacity" min="0">
+                                    <label for="capacity">กำลังไฟรองรับได้สูงสุด(KVA)</label>
+                                    <input class="form-control" type="number" name="capacity" id="capacity" min="0" step="0.001">
                                 </div>
                             </div>
                         </div>

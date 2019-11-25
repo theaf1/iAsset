@@ -437,7 +437,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address">IP Address</label>
-                                    <input class="form-control" name="ip_addresss" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_addresss') }}">
+                                    <input class="form-control" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_addresss') }}">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--mac address-->

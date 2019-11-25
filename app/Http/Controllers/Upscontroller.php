@@ -46,7 +46,9 @@ class UpsController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // return $request->all();
+        $Upses = Upses::create($request->all());
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**

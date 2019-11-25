@@ -1,8 +1,14 @@
 @extends('Layouts.app')
 @section('content')
 <div class="container-fluid">
-    <form action="/store" method="post">
+    <form action="/add-peripheral" method="post">
         <div class="col-12 mx-auto">
+        @if ( $message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ $message }}
+        </div>
+        @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -13,8 +19,9 @@
                         <div class="col-sm-12 col-lg-6"> <!--ชนิดครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="type">ชนิด</label>
-                                <select class="form-control" id="type" name="type">
-                                    <option value="1" selected>Printer</option>
+                                <select class="form-control" id="type" name="type" required>
+                                    <option value="" selected></option>
+                                    <option value="1">Printer</option>
                                     <option value="2">Scanner</option>
                                     <option value="3">Barcode Printer</option>
                                     <option value="4">Barcode Scanner</option>
@@ -25,7 +32,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control" id="sapid" name="sapid">
+                                <input type="text" class="form-control" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP">
                             </div>
                         </div>
                     </div>
@@ -33,13 +40,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="pid">รหัสครุภัณฑ์</label>
-                                <input type="text" class="form-control" id="pid" name="pid">
+                                <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
-                                <input type="text" class="form-control" name="room" id="room_autocomplete"/>
+                                <input type="text" class="form-control" name="room" placeholder="กรุณาระบุห้อง" id="room_autocomplete"/>
                             </div>
                         </div>
                     </div>
@@ -75,7 +82,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                         <div class="form-group"> 
                             <label for="section">หน่วยงาน</label>
-                                <select class="form-control" id="section">
+                                <select class="form-control" name="section" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
                                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -100,7 +107,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ประเภทหน่วยงาน-->
                             <div class="form-group">
                                 <label for="section_status">ประเภทหน่วยงาน</label>
-                                <select class="form-control" id="section_status">
+                                <select class="form-control" name="section_status" id="section_status">
                                     <option value="1">สำนักงาน</option>
                                     <option value="2">หอผู้ป่วย</option>
                                     <option value="3">ห้องประชุม</option>
@@ -118,9 +125,9 @@
                         <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
                             <div class="form-group">
                                 <label for="function">ระบบงาน</label>
-                                <select class="form-control" id="function">
-                                    <option value="สำนักงาน">สำนักงาน</option>
-                                    <option value="หอผู้ป่วย">หอผู้ป่วย</option>
+                                <select class="form-control" name="function" id="function">
+                                    <option value="1">สำนักงาน</option>
+                                    <option value="2">หอผู้ป่วย</option>
                                 </select>
                             </div>
                         </div>                
@@ -142,7 +149,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" id="asset_status">
+                                <select class="form-control" name="asset_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
@@ -152,8 +159,8 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                            <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" id="asset_status">
+                                <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
+                                <select class="form-control" name="asset_use_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
@@ -208,7 +215,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                             <div class="form-group">
                                 <label for="connectivity">วิธีการเชื่อมต่อ</label>
-                                <select class="form-control" id="connectivity">
+                                <select class="form-control" name="connectivity" id="connectivity">
                                     <option value="1">USB</option>
                                     <option value="2">Paralell Port</option>
                                     <option value="3">LAN</option>
@@ -232,7 +239,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="is_shared">สถานะการใช้งานร่วมกัน</label><br>
-                                <input type="checkbox" name="is_shared" value="yes">เป็นเครื่องใช้งานร่วมกัน<br>
+                                <input type="checkbox" name="is_shared" value="1">เป็นเครื่องใช้งานร่วมกัน<br>
                             </div>
                         </div>
                     </div>

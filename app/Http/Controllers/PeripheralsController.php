@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\Peripherals;
 
 class PeripheralsController extends Controller
 {
@@ -45,9 +46,9 @@ class PeripheralsController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
-        // $ = Sections::create($request->all());
-        // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        // return $request->all();
+        $peripherals = Peripherals::create($request->all());
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**

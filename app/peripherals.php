@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class peripherals extends Model
+class Peripherals extends Model
 {
     protected $fillable =[
         'type',
         'id',
         'sapid',
         'pid',
-        'location',
+        'location_id',
         'is_mobile',
         'user',
         'position',
@@ -21,6 +21,7 @@ class peripherals extends Model
         'function',
         'owner',
         'asset_status',
+        'asset_use_status',
         'remarks',
         'brand',
         'model',

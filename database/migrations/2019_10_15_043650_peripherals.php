@@ -28,6 +28,7 @@ class Peripherals extends Migration
             $table->integer('function');
             $table->integer('owner');
             $table->integer('asset_status');
+            $table->integer('asset_use_status');
             $table->string('remarks')->nullable();
             $table->string('brand');
             $table->string('model');

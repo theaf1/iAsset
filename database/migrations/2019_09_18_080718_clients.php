@@ -38,7 +38,7 @@ class Clients extends Migration
             $table->integer('cpu_socket_number');
             $table->float('ram_size',5,3);
             $table->integer('hdd_no');
-            $table->float('hdd_total_cap',9,7);
+            $table->float('hdd_total_cap',6,3);
             // $table->integer('display_no');
             $table->string('os');
             $table->integer('os_arch');

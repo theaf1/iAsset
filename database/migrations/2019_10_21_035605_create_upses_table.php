@@ -28,6 +28,7 @@ class CreateUpsesTable extends Migration
             $table->string('brand');
             $table->string('model');
             $table->string('serial_no');
+            $table->integer('form_factor');
             $table->integer('topology');
             $table->float('capacity', 7, 5);
             $table->boolean('is_modular')->default(0);
