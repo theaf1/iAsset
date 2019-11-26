@@ -82,7 +82,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                         <div class="form-group"> 
                             <label for="section">หน่วยงาน</label>
-                                <select class="form-control" name="section" id="section">
+                                <select class="form-control" name="section" id="section" required>
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
                                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -149,8 +149,8 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_status" id="asset_status">
-                                    <option value="" hidden></option>
+                                <select class="form-control" name="asset_status" id="asset_status" required>
+                                    <option value="" hidden selected></option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                     @endforeach
@@ -160,8 +160,8 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_use_status" id="asset_status">
-                                    <option value="" hidden></option>
+                                <select class="form-control" name="asset_use_status" id="asset_status" required>
+                                    <option value="" hidden selected></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
                                     @endforeach
@@ -180,13 +180,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand">ยี่ห้อ</label>
-                                <input class="form-control" name="brand" id="brand" type="text">
+                                <input class="form-control" name="brand" id="brand" type="text" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="model">รุ่น</label>
-                                <input class="form-control" name="model" id="model" type="text">
+                                <input class="form-control" name="model" id="model" type="text" required>
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--serial number-->
                             <div class="form-group">
                                 <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                <input class="form-control" name="serial_no" id="serial_no" type="text">
+                                <input class="form-control" name="serial_no" id="serial_no" type="text" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--วัสดุสึกหรอสิ้นเปลือง-->
@@ -215,7 +215,8 @@
                         <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                             <div class="form-group">
                                 <label for="connectivity">วิธีการเชื่อมต่อ</label>
-                                <select class="form-control" name="connectivity" id="connectivity">
+                                <select class="form-control" name="connectivity" id="connectivity" required>
+                                    <option value="" hidden selected></option>
                                     <option value="1">USB</option>
                                     <option value="2">Paralell Port</option>
                                     <option value="3">LAN</option>
@@ -262,13 +263,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
-                                <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                <textarea class="form-control" name="remarks" id="remarks" rows="2" placeholder="หมายเหตุ"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"><!--issues-->
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label>
-                                <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                <textarea class="form-control" name="issues" id="issues" rows="2" placeholder="ปัญหาในการใช้งาน"></textarea>
                             </div>
                         </div>
                     </div>
