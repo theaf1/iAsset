@@ -19,13 +19,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control" id="sapid" name="sapid">
+                                    <input type="text" class="form-control" id="sapid" name="sapid" maxlength="12" pattern="[0-9]{12}" placeholder="กรุณาใส่รหัส SAP">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="pid">รหัสครุภัณฑ์</label>
-                                    <input type="text" class="form-control" id="pid" name="pid">
+                                    <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์">
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
-                                    <input type="text" required class="form-control" name="room" id="room_autocomplete"/> 
+                                    <input type="text" required class="form-control" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" required/> 
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
