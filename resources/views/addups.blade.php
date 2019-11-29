@@ -9,6 +9,12 @@
             {{ $message }}
             </div>
             @endif
+            @error('sapid')
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ $message }}
+                </div>
+            @enderror
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
@@ -19,7 +25,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control" id="sapid" name="sapid" maxlength="12" pattern="[0-9]{12}" placeholder="กรุณาใส่รหัส SAP">
+                                    <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP">
+                                    @error('sapid')
+                                    <div class="invalid-feedback">
+                                       {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
@@ -33,7 +44,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
-                                    <input type="text" required class="form-control" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" required/> 
+                                    <input type="text" class="form-control" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่"/> 
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
@@ -73,8 +84,8 @@
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" id="section" name="section" required>
-                                        <option value="" hidden selected></option>
+                                    <select class="form-control" id="section" name="section">
+                                        <option value="" hidden selected>กรุณาเลือก</option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                                         @endforeach
@@ -86,7 +97,8 @@
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                    <input type="text" class="form-control" name="tel_no" id="tel_no">
+                                    <input type="tel" class="form-control" name="tel_no" id="tel_no" placeholder="9-7043#107">
+                                    <small id="tel_no" class="form-text">กรุณาระบุหมายเลขโทรศัพท์ภายในและหมายเลขต่อในรูปแบบ *-****#***</small>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
@@ -106,7 +118,7 @@
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
                                     <select class="form-control" name="asset_status" id="asset_status">
-                                        <option value="" hidden></option>
+                                        <option value="" hidden>กรุณาเลือก</option>
                                         @foreach($asset_statuses as $asset_status)
                                             <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                         @endforeach
@@ -117,7 +129,7 @@
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                     <select class="form-control"name="asset_use_status" id="asset_use_status">
-                                        <option value="" hidden></option>
+                                        <option value="" hidden>กรุณาเลือก</option>
                                         @foreach($asset_use_statuses as $asset_use_status)
                                             <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
                                         @endforeach
@@ -136,13 +148,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand">ยี่ห้อ</label>
-                                    <input class="form-control" name="brand" id="brand" type="text" required>
+                                    <input class="form-control" name="brand" id="brand" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                                 <div class="form-group">
                                     <label for="model">รุ่น</label>
-                                    <input class="form-control" name="model" id="model" type="text" required>
+                                    <input class="form-control" name="model" id="model" type="text">
                                 </div>
                             </div>
                         </div>
@@ -150,7 +162,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                    <input class="form-control" name="serial_no" id="serial_no" type="text" required>
+                                    <input class="form-control" name="serial_no" id="serial_no" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
@@ -170,7 +182,7 @@
                                 <div class="form-group">
                                     <label for="topology">หลักการทำงาน</label>
                                     <select class="form-control" name="topology" id="topology">
-                                        <option value="" hidden></option>
+                                        <option value="" hidden>กรุณาเลือก</option>
                                         <option value="0">Dynamic</option>
                                         <option value="1">stand-by</option>
                                         <option value="2">line interactive</option>
@@ -227,6 +239,7 @@
                                 <div class="form-group">
                                     <label for="device_management_address">IP address ที่ใช้ควบคุมเครื่อง</label>
                                     <input class="form-control" name="device_management_address" id="device_management_address" type="text" placeholder="127.0.0.1">
+                                    <small id="device_management_address" class="form-text">กรุณาระบุหมายเลข IP address ที่ใช้ควบคุมเครื่องในรูปแบบ ***.***.***.***</small>
                                 </div>
                             </div>
                         </div>

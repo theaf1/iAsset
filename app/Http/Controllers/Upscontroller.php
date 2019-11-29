@@ -46,7 +46,8 @@ class UpsController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        $this->validateData($request);
+
         $Upses = Upses::create($request->all());
         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
@@ -94,5 +95,23 @@ class UpsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function validateData($data)
+    {
+        $rules = [
+            'sapid'=>'nullable|size:12|numeric',
+            'pid'=>'nullable',
+            'brand'=>'required',
+            'model'=>'required',
+            'serial_no'=>'required',
+        ];
+
+        $messages = [
+            'sapid.numeric' => 'รหัสสสสส',
+            'sapid.size' => "ยาวไป"
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }
