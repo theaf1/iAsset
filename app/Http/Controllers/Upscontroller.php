@@ -100,16 +100,25 @@ class UpsController extends Controller
     private function validateData($data)
     {
         $rules = [
-            'sapid'=>'nullable|size:12|numeric',
+            'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
+            'location_id' => 'required',
+            'response_person' => 'required',
+            'section' => 'required',
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
+            
         ];
 
         $messages = [
-            'sapid.numeric' => 'รหัสสสสส',
-            'sapid.size' => "ยาวไป"
+            'sapid.regex' => 'ผิด',
+            'location_id.required' => 'กรุณาระบุที่ตั้ง',
+            'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
+            'section.required' => 'กรุณาเลือกสาขา',
+            'brand.required' => 'กรุณาใส่ยี่ห้อ',
+            'model.required' => 'กรุณาใส่รุ่น',
+            'serial_no.required' => 'กรุณาใส่ serial number',
         ];
 
         return $this->validate($data, $rules, $messages);
