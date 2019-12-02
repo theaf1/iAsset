@@ -19,7 +19,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" autofocus>
+                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" autofocus value="{{ old('sapid') }}">
                                 @error('sapid')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -94,6 +94,7 @@
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
                                 <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999">
+                                <small id="tel_no" class="form-text">กรุณาระบุหมายเลขโทรศัพท์ภายในและหมายเลขต่อในรูปแบบ *-****#***</small>
                             </div>
                         </div>
                     </div>
@@ -156,12 +157,17 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="device_subtype">ชนิดของอุปกรณ์</label>
-                                <select class="form-control" name="device_subtype" id="device_subtype">
+                                <select class="form-control @error('device_subtype') is-invalid @enderror" name="device_subtype" id="device_subtype">
                                     <option value="" hidden></option>
                                     @foreach($netsubtypes as $netsubtype)
                                         <option value="{{ $netsubtype['id'] }}">{{ $netsubtype['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('device_subtype')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -249,13 +255,13 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label>
-                                <textarea class="form-control" name="issues" id="issues" rows="1"></textarea>
+                                <textarea class="form-control" name="issues" id="issues" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
-                                <textarea class="form-control" name="remarks" id="remarks" rows="1"></textarea>
+                                <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>
                             </div>
                         </div>
                     </div>

@@ -107,6 +107,7 @@ class NetworkdeviceController extends Controller
             'location_id' => 'required',
             'response_person' => 'required',
             'section' => 'required',
+            'device_subtype' => 'required',
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
@@ -114,10 +115,11 @@ class NetworkdeviceController extends Controller
         ];
 
         $messages = [
-            'sapid.regex' => 'ผิด',
+            'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
+            'device_subtype.required' => 'กรุณาเลือกชนิดของอุปกรณ์',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
