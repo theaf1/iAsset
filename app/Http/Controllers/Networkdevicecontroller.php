@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\NetSubtype;
 use App\Networkdevices;
 
 class NetworkdeviceController extends Controller
@@ -20,11 +21,13 @@ class NetworkdeviceController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
+        $NetSubtypes = NetSubtype::all();
 
         return view('addnetworkdevice')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
+            'netsubtypes'=>$NetSubtypes,
         ]);
     }
 
@@ -47,6 +50,7 @@ class NetworkdeviceController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
+        $this->validateData($request);
         $Networkdevices = Networkdevices::create($request->all());
         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
@@ -94,5 +98,31 @@ class NetworkdeviceController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
+            'pid'=>'nullable',
+            'location_id' => 'required',
+            'response_person' => 'required',
+            'section' => 'required',
+            'brand'=>'required',
+            'model'=>'required',
+            'serial_no'=>'required',
+            
+        ];
+
+        $messages = [
+            'sapid.regex' => 'ผิด',
+            'location_id.required' => 'กรุณาระบุที่ตั้ง',
+            'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
+            'section.required' => 'กรุณาเลือกสาขา',
+            'brand.required' => 'กรุณาใส่ยี่ห้อ',
+            'model.required' => 'กรุณาใส่รุ่น',
+            'serial_no.required' => 'กรุณาใส่ serial number',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }

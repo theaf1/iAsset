@@ -3,12 +3,12 @@
 <div class="container-fluid">
     <form action="/add-networkdev" method="post">
         <div class="col-12 mx-auto">
-        @if ( $message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ $message }}
-        </div>
-        @endif
+            @if ( $message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ $message }}
+                </div>
+            @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>ข้อมูลพื้นฐานของครุภัณฑ์</h4>
@@ -19,7 +19,12 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" autofocus>
+                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" autofocus>
+                                @error('sapid')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
@@ -33,7 +38,12 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
-                                <input type="text" class="form-control" name="room" id="room_autocomplete"/> 
+                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/>
+                                @error('location_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
@@ -67,12 +77,17 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                             <label for="section">หน่วยงาน</label>
-                                <select class="form-control" id="section">
+                                <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
                                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('section')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
@@ -86,7 +101,12 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                <input type="text" class="form-control" id="response_person" name="response_person">
+                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person">
+                                @error('response_person')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
@@ -138,12 +158,9 @@
                                 <label for="device_subtype">ชนิดของอุปกรณ์</label>
                                 <select class="form-control" name="device_subtype" id="device_subtype">
                                     <option value="" hidden></option>
-                                    <option value="1">HUB</option>
-                                    <option value="2">Unmanaged Switch</option>
-                                    <option value="3">Managed Switch</option>
-                                    <option value="4">Router</option>
-                                    <option value="5">Wireless Accesss Point</option>
-                                    <option value="6">other</option>
+                                    @foreach($netsubtypes as $netsubtype)
+                                        <option value="{{ $netsubtype['id'] }}">{{ $netsubtype['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -152,17 +169,38 @@
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand">ยี่ห้อ</label>
-                                <input class="form-control" name="brand" id="brand" type="text">
+                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text">
+                                @error('brand')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="model">รุ่น</label>
-                                <input class="form-control" name="model" id="model" type="text">
+                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text">
+                                @error('model')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
+                            <div class="form-group">
+                                <label for="serial_no">Serial Number ของเครื่อง</label>
+                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                @error('serial_no')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="is_modular">ความสามารถในการขยายขนาด</label>
@@ -171,28 +209,28 @@
                                 </div> 
                             </div>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="port_count">จำนวน port</label>
                                 <input type="number" class="form-control" name="port_count" id="port_count" min="0">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="port_count">จำนวน power supply</label>
                                 <input type="number" class="form-control" name="psu_count" id="psu_count" min="1" default="1">
                             </div>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="device_management_address">IP address ที่ใช้ตั้งค่า</label>
                                 <input class="form-control" type="text" name="device_management_address" id="device_management_address" placeholder="127.0.0.1">   
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="software_version">Software Version</label>

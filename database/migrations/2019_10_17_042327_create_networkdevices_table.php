@@ -22,11 +22,13 @@ class CreateNetworkdevicesTable extends Migration
             $table->integer('asset_status');
             $table->string('tel_no');
             $table->string('response_person');
+            $table->integer('section');
             $table->integer('owner');
             $table->integer('asset_use_status');
             $table->integer('device_subtype');
             $table->string('brand');
             $table->string('model');
+            $table->string('serial_no');
             $table->integer('port_count');
             $table->integer('psu_count');
             $table->ipAddress('device_management_address')->nullable();
