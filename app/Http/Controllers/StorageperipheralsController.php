@@ -45,6 +45,7 @@ class StorageperipheralsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         return $request->all();
     }
 
@@ -91,5 +92,31 @@ class StorageperipheralsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function validateData($data)
+    {
+        $rules = [
+            'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
+            'pid'=>'nullable',
+            'location_id' => 'required',
+            'response_person' => 'required',
+            'section' => 'required',
+            'brand'=>'required',
+            'model'=>'required',
+            'serial_no'=>'required',
+            
+        ];
+
+        $messages = [
+            'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
+            'location_id.required' => 'กรุณาระบุที่ตั้ง',
+            'section.required' => 'กรุณาเลือกสาขา',
+            'brand.required' => 'กรุณาใส่ยี่ห้อ',
+            'model.required' => 'กรุณาใส่รุ่น',
+            'serial_no.required' => 'กรุณาใส่ serial number',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }

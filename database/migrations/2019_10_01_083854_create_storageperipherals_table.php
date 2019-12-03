@@ -17,7 +17,7 @@ class CreateStorageperipheralsTable extends Migration
             $table->bigIncrements('id');
             $table->string('sap_id');
             $table->string('pid');
-            $table->string('location');
+            $table->string('location_id');
             $table->boolean('is_mobile');
             $table->integer('section');
             $table->string('user');
@@ -26,13 +26,14 @@ class CreateStorageperipheralsTable extends Migration
             $table->integer('function');
             $table->integer('owner');
             $table->integer('asset_status');
+            $table->integer('asset_use_status');
             $table->string('remarks')->nullable();
             $table->string('brand');
             $table->string('model');
             $table->string('serial_no');
             $table->integer('connectivity');
             $table->boolean('is_hotswap')->default(0);
-            $table->integer('total_capacity');
+            $table->float('total_capacity');
             $table->integer('no_of_physical_drive_max');
             $table->integer('no_of_physical_drive_populated');
             $table->integer('lun_count');

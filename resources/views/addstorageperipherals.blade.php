@@ -13,7 +13,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control" id="sapid" name="sapid">
+                                    <input type="text" class="form-control  @error('sapid') is-invalid @enderror" id="sapid" name="sapid">
+                                    @error('sapid')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
@@ -24,38 +29,30 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> 
-                                <div class="form-group">
-                                    <label for="location">ตึก</label>
-                                    <select class="form-control" id="location" disabled>
-                                        <option value="location">location</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="location">ชั้น</label>
-                                    <select class="form-control" id="location" disabled>
-                                        <option value="location">location</option>
-                                    </select>
+                                    <label for="room">ห้อง</label>
+                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/>
+                                    @error('location_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                     @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
+                                <div class="form-group">
+                                    <label for="building">ตึก</label>
+                                    <input type="text" class="form-control" name="building" id="building" disabled/>
                                 </div>
                             </div>
                         </div>
+                        <input hidden type="number" name="location_id"><!--ค่า location_id-->    
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
-                                    <label for="location">ปีก</label>
-                                    <select class="form-control" id="location" disabled>
-                                        <option value="location">location</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <div class="form-group">
-                                    <label for="location">ห้อง</label>
-                                    <select class="form-control" id="location">
-                                        <option value="location">location</option>
-                                    </select>
+                                    <label for="location">ชั้น</label>
+                                    <input type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +71,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" id="section">
+                                    <select class="form-control" name="section" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -101,7 +98,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ประเภทหน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section_status">ประเภทหน่วยงาน</label>
-                                    <select class="form-control" id="section_status">
+                                    <select class="form-control" name="section_status" id="section_status">
                                         <option value="1">สำนักงาน</option>
                                         <option value="2">หอผู้ป่วย</option>
                                         <option value="3">ห้องประชุม</option>
@@ -119,7 +116,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
                                 <div class="form-group">
                                     <label for="function">ระบบงาน</label>
-                                    <select class="form-control" id="function">
+                                    <select class="form-control" name="function" id="function">
                                         <option value="1">สำนักงาน</option>
                                         <option value="2">หอผู้ป่วย</option>
                                     </select>
@@ -141,7 +138,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_status">
+                                    <select class="form-control" name="asset_status" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
                                             <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
@@ -152,7 +149,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control" id="asset_use_status">
+                                    <select class="form-control" name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
                                             <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
@@ -204,13 +201,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--ความจุข้อมูล-->
                                 <div class="form-group">
                                     <label for="total_capacity">ความจุข้อมูล</label>
-                                    <input class="form-control" name="total_capacity" id="total_capacity" type="number" min="0">
+                                    <input class="form-control" name="total_capacity" id="total_capacity" type="number" min="0" step="0.01">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เป็นอุปกรณ์ hotswap-->
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check" type="checkbox" name="is_hotswap" id="is_hotswap" value="yes">
+                                        <input class="form-check" type="checkbox" name="is_hotswap" id="is_hotswap" value="1">
                                         <label class="form-check-label" for="is_hotswap">เป็นอุปกรณ์ hotswap</label>
                                     </div>
                                 </div>
@@ -267,4 +264,55 @@
             </form>
         </div>
     </div>
+@endsection
+@section('js')
+<script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
+<script>
+    let hasDisplay = "<?php echo session()->get('displayCount'); ?>";
+    if (hasDisplay > 0) {
+        $('#display_count').focus();
+    }
+    
+    var room = null;
+    $("#room_autocomplete").autocomplete({
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
+        minChars: 1,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
+                    return {
+                        id: item.id,
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
+            $("input[name=location_id]").val(suggestion.id);
+            room = suggestion.value;
+            
+        },
+    });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
+    });
+
+    function displayCountSelected(select) {
+        let displayCount = select.options[select.selectedIndex].value;
+        document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
+        document.getElementById("computer_form").submit();
+    }
+</script>
 @endsection
