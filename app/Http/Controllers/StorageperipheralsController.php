@@ -105,7 +105,10 @@ class StorageperipheralsController extends Controller
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            
+            'total_capacity' => 'required',
+            'no_of_physical_drive_max' => 'required_if:is_hotswap,1',
+            'no_of_physical_drive_populated' => 'required_if:is_hotswap,1',
+            'lun_count' => 'required_if:is_hotswap,1',
         ];
 
         $messages = [
@@ -115,6 +118,7 @@ class StorageperipheralsController extends Controller
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
+            'total_capacity' => 'กรุณาระบุความจุข้อมูล',
         ];
 
         return $this->validate($data, $rules, $messages);
