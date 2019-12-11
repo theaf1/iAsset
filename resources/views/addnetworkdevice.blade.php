@@ -30,7 +30,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="pid">รหัสครุภัณฑ์</label>
-                                <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์">
+                                <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์" value="{{ old('pid') }}">
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999">
+                                <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
                                 <small id="tel_no" class="form-text">กรุณาระบุหมายเลขโทรศัพท์ภายในและหมายเลขต่อในรูปแบบ *-****#***</small>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person">
+                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person"{{ old('response_person') }}>
                                 @error('response_person')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -126,23 +126,33 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_status" id="asset_status">
+                                <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_use_status" id="asset_use_status">
+                                <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_use_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -175,7 +185,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand">ยี่ห้อ</label>
-                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text">
+                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand') }}">
                                 @error('brand')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -186,7 +196,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="model">รุ่น</label>
-                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text">
+                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model') }}">
                                 @error('model')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -199,7 +209,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="serial_no">Serial Number ของเครื่อง</label>
-                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                 @error('serial_no')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -220,13 +230,13 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="port_count">จำนวน port</label>
-                                <input type="number" class="form-control" name="port_count" id="port_count" min="0">
+                                <input type="number" class="form-control" name="port_count" id="port_count" min="0" value="{{ old('port_count') }}">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="port_count">จำนวน power supply</label>
-                                <input type="number" class="form-control" name="psu_count" id="psu_count" min="1" default="1">
+                                <input type="number" class="form-control" name="psu_count" id="psu_count" min="1" default="1" value="{{ old('psu_count') }}">
                             </div>
                         </div>
                     </div>
@@ -234,13 +244,18 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="device_management_address">IP address ที่ใช้ตั้งค่า</label>
-                                <input class="form-control" type="text" name="device_management_address" id="device_management_address" placeholder="127.0.0.1">   
+                                <input class="form-control @error('device_management_address') is-invalid @enderror" type="text" name="device_management_address" id="device_management_address" placeholder="127.0.0.1" value="{{ old('device_management_address') }}">   
+                                @error('device_management_address')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="software_version">Software Version</label>
-                                <input class="form-control" type="text" name="software_version" id="software_version"> 
+                                <input class="form-control" type="text" name="software_version" id="software_version" value="{{ old('software_version') }}"> 
                             </div>
                         </div>
                     </div>
@@ -255,13 +270,13 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label>
-                                <textarea class="form-control" name="issues" id="issues" rows="3"></textarea>
+                                <textarea class="form-control" name="issues" id="issues" rows="3">{{ old('issues') }}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
-                                <textarea class="form-control" name="remarks" id="remarks" rows="3"></textarea>
+                                <textarea class="form-control" name="remarks" id="remarks" rows="3">{{ old('remarks') }}</textarea>
                             </div>
                         </div>
                     </div>

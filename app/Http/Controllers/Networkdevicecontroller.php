@@ -106,12 +106,14 @@ class NetworkdeviceController extends Controller
             'pid'=>'nullable',
             'location_id' => 'required',
             'response_person' => 'required',
+            'asset_status' => 'required',
+            'asset_use_status' => 'required',
             'section' => 'required',
             'device_subtype' => 'required',
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            
+            'device_management_address' => 'nullable|ipv4',
         ];
 
         $messages = [
@@ -119,10 +121,13 @@ class NetworkdeviceController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
+            'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
+            'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'device_subtype.required' => 'กรุณาเลือกชนิดของอุปกรณ์',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
+            'device_management_address.ipv4' => 'กรุณาตรวจสอบ IP Address'
         ];
 
         return $this->validate($data, $rules, $messages);
