@@ -45,7 +45,7 @@ class StorageperipheralsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
+        $this->validateData($request); 
         return $request->all();
     }
 
@@ -100,14 +100,14 @@ class StorageperipheralsController extends Controller
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
             'location_id' => 'required',
-            'response_person' => 'required',
+            'user' => 'required',
             'section' => 'required',
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            'total_capacity' => 'required',
+            'total_capacity' => 'min:1',
             'no_of_physical_drive_max' => 'required_if:is_hotswap,1',
-            'no_of_physical_drive_populated' => 'required_if:is_hotswap,1',
+            'no_of_physical_drive_populated' => 'required_if:is_hotswap,1|lte:no_of_physical_drive_max',
             'lun_count' => 'required_if:is_hotswap,1',
         ];
 
@@ -115,10 +115,16 @@ class StorageperipheralsController extends Controller
             'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกสาขา',
+            'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
-            'total_capacity' => 'กรุณาระบุความจุข้อมูล',
+            'total_capacity.min' => 'กรุณาระบุความจุข้อมูล',
+            'no_of_physical_drive_max.required_if'=> 'test',
+            'no_of_physical_drive_populated.required_if'=>'test2',
+            'no_of_physical_drive_populated.lte'=>'test2.1',
+            'lun_count.required_if'=>'test3'
+
         ];
 
         return $this->validate($data, $rules, $messages);
