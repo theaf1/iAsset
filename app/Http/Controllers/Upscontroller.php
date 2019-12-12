@@ -105,20 +105,27 @@ class UpsController extends Controller
             'location_id' => 'required',
             'response_person' => 'required',
             'section' => 'required',
+            'asset_status' => 'required',
+            'asset_use_status' => 'required',
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            
+            'capacity'=>'required',
+            'device_management_address'=>'nullable|ipv4',
         ];
 
         $messages = [
-            'sapid.regex' => 'ผิด',
+            'sapid.regex' => 'กรุณากรอกรหัส SAP ให้ถูกต้อง (เลข 12 หลัก)',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
+            'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
+            'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งาน',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
+            'capacity.required' => 'กรุณาระบุกำลังไฟ',
+            'device_management_address.ipv4' => 'โปรดตรวจสอบ IP Address',
         ];
 
         return $this->validate($data, $rules, $messages);

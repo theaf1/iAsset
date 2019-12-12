@@ -20,12 +20,10 @@
                             <div class="form-group">
                                 <label for="type">ชนิด</label>
                                 <select class="form-control" id="type" name="type" required>
-                                    <option value="" selected></option>
-                                    <option value="1">Printer</option>
-                                    <option value="2">Scanner</option>
-                                    <option value="3">Barcode Printer</option>
-                                    <option value="4">Barcode Scanner</option>
-                                    <option value="5">Multifunction Machine</option>
+                                    <option value="" hidden selected></option>
+                                    @foreach($peripheraltypes as $peripheraltype)
+                                        <option value="{{ $peripheraltype['id'] }}">{{ $peripheraltype['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

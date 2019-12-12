@@ -6,6 +6,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\Client;
 use App\Display;
+use App\Clienttype;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -20,11 +21,13 @@ class ClientController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
+        $Clienttypes = Clienttype::all();
 
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
+            'clienttypes'=>$Clienttypes,
         ]);
     }
 

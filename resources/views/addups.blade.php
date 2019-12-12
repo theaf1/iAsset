@@ -19,7 +19,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP">
+                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" value="{{ old('sapid') }}">
                                 @error('sapid')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -38,11 +38,11 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
-                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่"/>
+                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
                                 @error('location_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
                                 @enderror 
                             </div>
                         </div>
@@ -126,23 +126,33 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_status" id="asset_status">
+                                <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden>กรุณาเลือก</option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control"name="asset_use_status" id="asset_use_status">
+                                <select class="form-control @error('asset_use_status') is-invalid @enderror"name="asset_use_status" id="asset_use_status">
                                     <option value="" hidden>กรุณาเลือก</option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_use_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -217,7 +227,12 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="capacity">กำลังไฟรองรับได้สูงสุด(KVA)</label>
-                                <input class="form-control" type="number" name="capacity" id="capacity" min="0" step="0.001">
+                                <input class="form-control @error('capacity') is-invalid @enderror" type="number" name="capacity" id="capacity" value="{{ old('capacity') }}" step="0.001">
+                                @error('capacity')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -262,8 +277,13 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="device_management_address">IP address ที่ใช้ควบคุมเครื่อง</label>
-                                <input class="form-control" name="device_management_address" id="device_management_address" type="text" placeholder="127.0.0.1">
+                                <input class="form-control @error('device_management_address') is-invalid @enderror" name="device_management_address" id="device_management_address" type="text" value="{{ old('device_management_address') }}" placeholder="127.0.0.1">
                                 <small id="device_management_address" class="form-text">กรุณาระบุหมายเลข IP address ที่ใช้ควบคุมเครื่องในรูปแบบ ***.***.***.***</small>
+                                @error('device_management_address')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>

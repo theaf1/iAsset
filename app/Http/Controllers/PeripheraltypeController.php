@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Section;
-use App\Peripherals;
-use App\Peripheraltype;
 
-class PeripheralsController extends Controller
+class PeripheraltypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,17 +13,7 @@ class PeripheralsController extends Controller
      */
     public function index()
     {
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $Peripheraltypes = Peripheraltype::all();
-
-        return view('addperipherals')->with([
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'peripheraltypes'=>$Peripheraltypes,
-        ]);
+        //
     }
 
     /**
@@ -49,9 +34,7 @@ class PeripheralsController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        $peripherals = Peripherals::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        //
     }
 
     /**
