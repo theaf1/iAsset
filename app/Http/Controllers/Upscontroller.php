@@ -105,6 +105,7 @@ class UpsController extends Controller
             'location_id' => 'required',
             'response_person' => 'required',
             'section' => 'required',
+            'tel_no' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'brand'=>'required',
@@ -119,13 +120,14 @@ class UpsController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
+            'tel_no.required' => 'กรุณาใส่หมายเลขโทรศัพท์',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งาน',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
             'capacity.required' => 'กรุณาระบุกำลังไฟ',
-            'device_management_address.ipv4' => 'โปรดตรวจสอบ IP Address',
+            'device_management_address.ipv4' => 'โปรดใส่ IP Address ให้ถูกต้อง',
         ];
 
         return $this->validate($data, $rules, $messages);

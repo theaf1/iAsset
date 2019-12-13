@@ -19,7 +19,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" value="{{ old('sapid') }}">
+                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" value="{{ old('sapid') }}" autofocus>
                                 @error('sapid')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -30,7 +30,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="pid">รหัสครุภัณฑ์</label>
-                                <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์">
+                                <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์" value="{{ old('pid') }}">
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                             <div class="form-group">
                                 <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person">
+                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
                                 @error('response_person')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -106,8 +106,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                <input type="tel" class="form-control" name="tel_no" id="tel_no" placeholder="9-7043#107">
+                                <input type="tel" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-7043#107" value="{{ old('tel_no')}}">
                                 <small id="tel_no" class="form-text">กรุณาระบุหมายเลขโทรศัพท์ภายในและหมายเลขต่อในรูปแบบ *-****#***</small>
+                                @error('tel_no')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
@@ -167,7 +172,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand">ยี่ห้อ</label>
-                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text">
+                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand') }}">
                                 @error('brand')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -178,7 +183,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="model">รุ่น</label>
-                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text">
+                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model') }}">
                                 @error('model')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -191,7 +196,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                 @error('serial_no')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -298,20 +303,21 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
-                                <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                <textarea class="form-control" name="remarks" id="remarks" rows="3">{{ old('remarks') }}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">    
                                 <label for="issues">ปัญหาในการใช้งาน</label><br>
-                                <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                <textarea class="form-control" name="issues" id="issues" rows="3">{{ old('issues') }}</textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-4">
-                <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                <button type="submit" class="btn btn-lg btn-success">บันทึกข้อมูล</button>
+                <button type="reset" class="btn btn-lg btn-danger">ยกเลิก</button>
             </div>
             </form>
         </div>

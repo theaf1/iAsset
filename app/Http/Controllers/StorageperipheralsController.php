@@ -102,11 +102,13 @@ class StorageperipheralsController extends Controller
             'location_id' => 'required',
             'user' => 'required',
             'section' => 'required',
+            'asset_status' => 'required',
+            'asset_use_status' => 'required',
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            'total_capacity' => 'min:1',
-            'no_of_physical_drive_max' => 'required_if:is_hotswap,1',
+            'total_capacity' => 'required',
+            'no_of_physical_drive_max' => 'required_if:is_hotswap,1|gte:2',
             'no_of_physical_drive_populated' => 'required_if:is_hotswap,1|lte:no_of_physical_drive_max',
             'lun_count' => 'required_if:is_hotswap,1',
         ];
@@ -116,14 +118,17 @@ class StorageperipheralsController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกสาขา',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
+            'asset_status.required'=>'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
+            'asset_use_status.required'=>'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
-            'total_capacity.min' => 'กรุณาระบุความจุข้อมูล',
-            'no_of_physical_drive_max.required_if'=> 'test',
-            'no_of_physical_drive_populated.required_if'=>'test2',
-            'no_of_physical_drive_populated.lte'=>'test2.1',
-            'lun_count.required_if'=>'test3'
+            'total_capacity.required' => 'กรุณาระบุความจุข้อมูล',
+            'no_of_physical_drive_max.required_if'=> 'กรุณาระบุจำนวน disk ที่สามารถใส่ได้',
+            'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
+            'no_of_physical_drive_populated.required_if'=>'ใส่จำนวน disk ในเครื่อง',
+            'no_of_physical_drive_populated.lte'=>'จำนวน disk ในเครื่องไม่ถูกต้อง',
+            'lun_count.required_if'=>'ใส่จำนวน disk จำลอง',
 
         ];
 

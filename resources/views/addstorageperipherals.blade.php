@@ -43,7 +43,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building">ตึก</label>
-                                    <input type="text" class="form-control" name="building" id="building" disabled/>
+                                    <output type="text" class="form-control" name="building" id="building" />
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location">ชั้น</label>
-                                    <input type="text" class="form-control" name="location" id="location" disabled/>
+                                    <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                         </div>
@@ -148,23 +148,33 @@
                             <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                    <select class="form-control" name="asset_status" id="asset_status">
+                                    <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
                                             <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('asset_status')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control" name="asset_use_status" id="asset_use_status">
+                                    <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
                                             <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
                                         @endforeach
-                                    </select>   
+                                    </select>
+                                    @error('asset_use_status')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -225,8 +235,8 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ความจุข้อมูล-->
                                 <div class="form-group">
-                                    <label for="total_capacity @error('total_capacity') is-invalid @enderror">ความจุข้อมูล</label>
-                                    <input class="form-control" name="total_capacity" id="total_capacity" type="number" step="0.01">
+                                    <label for="total_capacity">ความจุข้อมูล</label>
+                                    <input class="form-control @error('total_capacity') is-invalid @enderror" name="total_capacity" id="total_capacity" type="number" min="0" step="0.01">
                                     @error('total_capacity')
                                         <div class="invalid-feedback">
                                             {{ $message }}
