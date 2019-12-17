@@ -10,4 +10,5 @@ class NetSubtype extends Model
         'id',
         'name',
     ];
+
 }

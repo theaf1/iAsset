@@ -30,7 +30,7 @@ class Networkdevices extends Model
         'issues',
         'remarks',
     ];
-    function gettype(){
+    public function gettype(){
         $this->belongsTo(location::class);
         $this->belongsTo(section::class);
         $this->hasOne(Asset_statuses::class);

@@ -72,5 +72,9 @@ class Client extends Model
    {
       return $this->hasOne(Section::class);
    }
-   
+
+   public function Clienttype ()
+   {
+      return $this->hasOne(Clienttype::class);
+   }
 }

@@ -10,4 +10,8 @@ class Clienttype extends Model
         'id',
         'name',
     ];
+    public function client ()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

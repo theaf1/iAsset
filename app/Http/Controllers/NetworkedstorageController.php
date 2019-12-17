@@ -45,6 +45,7 @@ class NetworkedstorageController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         return $request->all();
     }
 
@@ -91,5 +92,17 @@ class NetworkedstorageController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
+        ];
+
+        $messages = [
+            'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }
