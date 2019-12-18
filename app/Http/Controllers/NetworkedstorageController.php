@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\NetworkedStorage;
 
 class NetworkedstorageController extends Controller
 {
@@ -47,6 +48,8 @@ class NetworkedstorageController extends Controller
     {
         $this->validateData($request);
         return $request->all();
+        // $NetworkedStorage = NetworkedStorage::create($request->all());
+        // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -97,10 +100,21 @@ class NetworkedstorageController extends Controller
     {
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
+            'pid' =>'nullable',
+            'location_id' => 'required',
+            'section' => 'required',
+            'response_person' => 'required',
+            'asset_status' => 'required',
+            'asset_use_status' => 'required',
         ];
 
         $messages = [
             'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
+            'location_id.required' => 'กรุณาระบุที่ตั้ง',
+            'section.required' => 'กรุณาเลือกหน่วยงาน',
+            'response_person.required' => 'กรุณาระบุผู้รับผิดชอบ',
+            'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
+            'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
         ];
 
         return $this->validate($data, $rules, $messages);

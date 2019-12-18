@@ -26,8 +26,28 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="location">สถานที่ตั้ง</label>
-                                    <input type="text" class="form-control" id="location" name="location" disabled> 
+                                    <label for="room">ห้อง</label>
+                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
+                                    @error('location_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror 
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
+                                <div class="form-group">
+                                    <label for="building">ตึก</label>
+                                    <output type="text" class="form-control" name="building" id="building" disabled/>
+                                </div>
+                            </div>
+                        </div>
+                        <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
+                                <div class="form-group">
+                                    <label for="location">ชั้น</label>
+                                    <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
@@ -46,7 +66,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" id="section">
+                                    <select class="form-control" name="section" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -57,7 +77,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                    <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999">
+                                    <input type="tel" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999">
                                 </div>
                             </div>
                         </div>
@@ -117,9 +137,9 @@
                                     <label for="type">ชนิดของอุปกรณ์</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="type" id="type" value="1">
-                                        <label class="form-check-label" for="owner">NAS</label><br>
+                                        <label class="form-check-label" for="type">NAS</label><br>
                                         <input class="form-check-input" type="radio" name="type" id="type" value="2">
-                                        <label class="form-check-label" for="owner">SAN</label><br>
+                                        <label class="form-check-label" for="type">SAN</label><br>
                                     </div>                            
                                 </div>
                             </div>
@@ -235,4 +255,46 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('js')
+<script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
+<script>
+    var room = null;
+    $("#room_autocomplete").autocomplete({
+        paramName: "name",
+        serviceUrl: "{{ url('rooms') }}",
+        minChars: 1,
+        transformResult: function(response) {
+            return {
+                suggestions: $.map($.parseJSON(response), function(item) {
+                    console.log(item.location)
+                    return {
+                        id: item.id,
+                        value: item.name,
+                        building: item.location.building.name,
+                        location: item.location.floor + ' ' + item.location.wing
+                    };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            $("#room_autocomplete").val(suggestion.value);
+            $("#building").val(suggestion.building);
+            $("#location").val(suggestion.location);
+            $("input[name=location_id]").val(suggestion.id);
+            room = suggestion.value;
+            
+        },
+    });
+    $("#room_autocomplete").change(function() {
+        if($(this).val() !== room) {
+            $(this).val('');
+            $("#building").val('');
+            $("#location").val('');
+        }
+    });
+
+</script>
 @endsection
