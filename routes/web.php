@@ -35,7 +35,7 @@ Route::get('/rooms', function() {
 Route::post('/store', 'SectionController@store');
 Route::post('/add-networkdev','Networkdevicecontroller@store');
 Route::post('/add-ups',"UpsController@store");
-Route::post('/add-peripheral','PeripheralsController@store');
+Route::post('/add-ns','NetworkedstorageController@store');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');

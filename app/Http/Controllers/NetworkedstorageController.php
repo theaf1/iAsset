@@ -106,6 +106,14 @@ class NetworkedstorageController extends Controller
             'response_person' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
+            'type' => 'required',
+            'brand' => 'required',
+            'model' => 'required',
+            'serial_no' => 'required',
+            'hdd_total_cap' => 'required',
+            'no_of_physical_drive_max' => 'required|gte:2',
+            'no_of_physical_drive_populated' => 'required|lte:no_of_physical_drive_max',
+            'lun_count' => 'required',
         ];
 
         $messages = [
@@ -115,6 +123,17 @@ class NetworkedstorageController extends Controller
             'response_person.required' => 'กรุณาระบุผู้รับผิดชอบ',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
+            'type.required' => 'กรุณาระบุชนิดของอุปกรณ์',
+            'brand.required' => 'กรุณาระบุยี่ห้อ',
+            'model.required' => 'กรุณาระบุรุ่น',
+            'serial_no.required' => 'กรุณาระบุ Serial Number ของเครื่อง',
+            'hdd_total_cap.required' => 'test 0',
+            'no_of_physical_drive_max.required' => 'test1',
+            'no_of_physical_drive_max.gte' => 'test1.1',
+            'no_of_physical_drive_populated.required' => 'test2',
+            'no_of_physical_drive_populated.lte' => 'test2.1',
+            'lun_count.required' => 'กรุณาระบุจำนวน disk จำลอง',
+
         ];
 
         return $this->validate($data, $rules, $messages);
