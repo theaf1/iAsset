@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
-                            <div class="form-group">
+                            <div class="form-group"><!--ห้อง-->
                                 <label for="room">ห้อง</label>
                                 <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
                                 @error('location_id')
@@ -49,7 +49,7 @@
                         <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                             <div class="form-group">
                                 <label for="building">ตึก</label>
-                                <input type="text" class="form-control" name="building" id="building" disabled/>
+                                <output type="text" class="form-control" name="building" id="building" disabled/>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                         <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                             <div class="form-group">
                                 <label for="location">ชั้น</label>
-                                <input type="text" class="form-control" name="location" id="location" disabled/>
+                                <output type="text" class="form-control" name="location" id="location" disabled/>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
@@ -144,7 +144,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--สถานะการใช้งานของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror"name="asset_use_status" id="asset_use_status">
@@ -193,7 +193,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--Serial Number จากผู้ผลิต-->
                             <div class="form-group">
                                 <label for="serial_no">Serial Number จากผู้ผลิต</label>
                                 <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
@@ -204,7 +204,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--ลักษณะของตัวเครื่อง-->
                             <div class="form-group">
                             <label for="form_factor">ลักษณะของตัวเครื่อง</label>
                                 <div class="form-check">
@@ -217,7 +217,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--หลักการทำงาน-->
                             <div class="form-group">
                                 <label for="topology">หลักการทำงาน</label>
                                 <select class="form-control" name="topology" id="topology">
@@ -229,7 +229,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--กำลังไฟรองรับได้สูงสุด(KVA)-->
                             <div class="form-group">
                                 <label for="capacity">กำลังไฟรองรับได้สูงสุด(KVA)</label>
                                 <input class="form-control @error('capacity') is-invalid @enderror" type="number" name="capacity" id="capacity" value="{{ old('capacity') }}" step="0.001">
