@@ -127,11 +127,11 @@ class NetworkedstorageController extends Controller
             'brand.required' => 'กรุณาระบุยี่ห้อ',
             'model.required' => 'กรุณาระบุรุ่น',
             'serial_no.required' => 'กรุณาระบุ Serial Number ของเครื่อง',
-            'hdd_total_cap.required' => 'test 0',
-            'no_of_physical_drive_max.required' => 'test1',
+            'hdd_total_cap.required' => 'กรุณาระบุความจุข้อมูล',
+            'no_of_physical_drive_max.required' => 'กรุนาระบุจำนวน disk สูงสุดของเครื่อง',
             'no_of_physical_drive_max.gte' => 'test1.1',
-            'no_of_physical_drive_populated.required' => 'test2',
-            'no_of_physical_drive_populated.lte' => 'test2.1',
+            'no_of_physical_drive_populated.required' => 'กรุนาระบุจำนวน disk ในเครื่อง',
+            'no_of_physical_drive_populated.lte' => 'จำนวน disk ในเครื่องไม่ถูกต้อง',
             'lun_count.required' => 'กรุณาระบุจำนวน disk จำลอง',
 
         ];
