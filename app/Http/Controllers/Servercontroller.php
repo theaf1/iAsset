@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
-use App\Sections;
+use App\Section;
 
 class ServerController extends Controller
 {
@@ -91,5 +91,18 @@ class ServerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function validateData($data)
+    {
+        $rules = [
+            //
+        ];
+
+        $messages = [
+            //
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }

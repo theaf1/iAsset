@@ -17,7 +17,7 @@ class Servers extends Migration
             $table->bigincrements('id');
             $table->string('sapid');
             $table->string('pid');
-            $table->string('location');
+            $table->integer('location_id');
             $table->integer('section');
             $table->boolean('is_mobile')->default(0);
             $table->string('tel_no');

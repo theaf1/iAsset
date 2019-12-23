@@ -10,7 +10,7 @@ class Servers extends Model
         'id',
         'sapid',
         'pid',
-        'location',
+        'location_id',
         'section',
         'is_mobile',
         'tel_no',
