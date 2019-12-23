@@ -197,7 +197,7 @@
                                 <div class="form-group">
                                     <label for="is_raid">RAID</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="is_raid"><label for="is_raid">RAID</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="1"><label for="is_raid">RAID</label></label>
                                     </div>
                                 </div>
                             </div>
