@@ -13,13 +13,18 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control" id="sapid" name="sapid" autofocus>
+                                    <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" autofocus value="{{ old('sapid') }}">
+                                    @error('sapid')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="pid">รหัสครุภัณฑ์</label>
-                                    <input type="text" class="form-control" id="pid" name="pid" placeholder="11060000-I-9999-001-0001/99">
+                                    <input type="text" class="form-control" id="pid" name="pid">
                                 </div>
                             </div>
                         </div>
