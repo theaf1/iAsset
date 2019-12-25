@@ -14,10 +14,9 @@
                                 <div class="form-group"> 
                                     <label for="type">ชนิด</label>
                                     <select class="form-control" id="type" name="type">
-                                        <option value="1" {{ old('type') == 1 ? 'selected' : ''}}>PC</option>
-                                        <option value="2" {{ old('type') == 2 ? 'selected' : ''}}>Notebook</option>
-                                        <option value="3" {{ old('type') == 3 ? 'selected' : ''}}>All-In-One</option>
-                                        <option value="4" {{ old('type') == 4 ? 'selected' : ''}}>Workstation</option>
+                                        @foreach($clienttypes as $clienttype)
+                                            <option value="{{ $clienttype['id'] }}" {{ old('type') == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
+                                        @endforeach
                                     </select>
                                 </div> 
                             </div>     
@@ -466,13 +465,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- หมายเหตุ -->
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
-                                    <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="3">{{ old('remarks') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--issues-->
                                 <div class="form-group">
                                     <label for="issues">ปัญหาในการใช้งาน</label>
-                                    <textarea class="form-control" name="issues" id="issues" rows="2">{{ old('issues') }}</textarea>
+                                    <textarea class="form-control" name="issues" id="issues" rows="3">{{ old('issues') }}</textarea>
                                 </div>
                             </div>
                         </div>
