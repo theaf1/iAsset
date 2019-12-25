@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\ServerOS;
 
 class ServerController extends Controller
 {
@@ -19,11 +20,13 @@ class ServerController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
+        $ServerOSes = ServerOS::all();
 
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
+            'server_oses'=>$ServerOSes,
         ]);
     }
 
@@ -96,7 +99,26 @@ class ServerController extends Controller
     private function validateData($data)
     {
         $rules = [
-            //
+            'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
+            'pid' => 'nulllable',
+            'location_id' => 'required',
+            'section' => 'required',
+            'tel_no' => 'required',
+            'response_person' => 'required',
+            'asset_status' => 'required',
+            'asset_use_status' => 'required',
+            'brand' => 'required',
+            'model' => 'required',
+            'serial_no' => 'required',
+            'cpu_model' => 'required',
+            'cpu_speed' => 'required',
+            'no_of_physical_drive_max' => 'required_if:is_raid,1',
+            'no_of_physical_drive_populated' => 'required_if:is_raid,1|lte:no_of_physical_drive_max',
+            'lun_count' => 'required_if:is_raid,1',
+            'hdd_total_cap' => 'required',
+            'display_sapid' => 'nullable',
+            'display_pid' => 'nullable',
+
         ];
 
         $messages = [

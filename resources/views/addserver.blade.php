@@ -276,7 +276,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
                                     <label for="os">OS</label>
-                                    <input class="form-control" name="os" id="os" type="text">
+                                    <select class="form-control" name="os" id="os">
+                                        <option value="" hidden></option>
+                                        @foreach($server_oses as $server_os)
+                                            <option value="{{ $server_os['id'] }}">{{ $server_os['name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--os architecture-->
