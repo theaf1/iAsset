@@ -122,7 +122,21 @@ class ServerController extends Controller
         ];
 
         $messages = [
-            //
+            'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
+            'location_id.required' => 'กรุณาระบุสถานที่ตั้งเครื่อง',
+            'section.required' => 'กรุณาเลือกหน่วยงาน',
+            'tel_no.required' => 'กรุณาใส่หมาเลขโทรศัพท์',
+            'response_person.required' => 'กรุณาใส่ชื่อผู้รับผิดชอบ',
+            'asset_status.required' => 'กรุณาเลือกสถานะทางทะเบียนครุภัณฑ์',
+            'asset_use_status.required' => 'กรุณาเลือกสถานะการใช้งานครุภัณฑ์',
+            'brand.required' => 'กรุณาใส่ยี่ห้อ',
+            'model.required' =>'กรุณใส่รุ่น',
+            'serial_no.required' =>'กรุณาใส่ Serial No.',
+            'cpu_model.required' => 'กรุณาระบุรุ่น CPU',
+            'cpu_speed.required' => 'กรุณาระบุความเร็ว CPU',
+            'no_of_physical_drive_max.required_if' => '',
+            'no_of_physical_drive_populated.required_if' => '',            
+
         ];
 
         return $this->validate($data, $rules, $messages);
