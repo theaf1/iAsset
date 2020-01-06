@@ -135,7 +135,8 @@ class ServerController extends Controller
             'cpu_model.required' => 'กรุณาระบุรุ่น CPU',
             'cpu_speed.required' => 'กรุณาระบุความเร็ว CPU',
             'no_of_physical_drive_max.required_if' => '',
-            'no_of_physical_drive_populated.required_if' => '',            
+            'no_of_physical_drive_populated.required_if' => '',
+            'lun_count.required_if' =>'',           
 
         ];
 
