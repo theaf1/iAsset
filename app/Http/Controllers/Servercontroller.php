@@ -48,6 +48,7 @@ class ServerController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         return $request->all();
     }
 
@@ -100,7 +101,7 @@ class ServerController extends Controller
     {
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
-            'pid' => 'nulllable',
+            'pid' => 'nullable',
             'location_id' => 'required',
             'section' => 'required',
             'tel_no' => 'required',
@@ -118,7 +119,6 @@ class ServerController extends Controller
             'hdd_total_cap' => 'required',
             'display_sapid' => 'nullable',
             'display_pid' => 'nullable',
-
         ];
 
         $messages = [
@@ -134,10 +134,10 @@ class ServerController extends Controller
             'serial_no.required' =>'กรุณาใส่ Serial No.',
             'cpu_model.required' => 'กรุณาระบุรุ่น CPU',
             'cpu_speed.required' => 'กรุณาระบุความเร็ว CPU',
-            'no_of_physical_drive_max.required_if' => '',
-            'no_of_physical_drive_populated.required_if' => '',
-            'lun_count.required_if' =>'',           
-
+            'no_of_physical_drive_max.required_if' => 'กรุณาระบุจำนวน disk สูงสุด',
+            'no_of_physical_drive_populated.required_if' => 'กรุณาระบุจำนวน disk ที่มีอยู่',
+            'no_of_physical_drive_populated.lte' => 'โปรดตรวจสอบจำนวน disk ในเครื่อง',
+            'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',           
         ];
 
         return $this->validate($data, $rules, $messages);

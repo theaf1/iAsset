@@ -71,18 +71,28 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                 <label for="section">หน่วยงาน</label>
-                                    <select class="form-control" name="section" id="section">
+                                    <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('section')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                    <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999">
+                                    <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999">
+                                    @error('tel_no')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -90,7 +100,12 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                    <input type="text" class="form-control" id="response_person" name="response_person">
+                                    <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person">
+                                    @error('response_person')
+                                        <div class="invalid-response">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
@@ -109,23 +124,33 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_status" id="asset_status">
+                                <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="colsm-12 col-lg-6">
                             <div class="form-group">
                             <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_use_status" id="asset_status">
+                                <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_use_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -140,13 +165,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand">ยี่ห้อ</label>
-                                    <input class="form-control" name="brand" id="brand" type="text">
+                                    <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text">
+                                    @error('brand')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                                 <div class="form-group">
                                     <label for="model">รุ่น</label>
-                                    <input class="form-control" name="model" id="model" type="text">
+                                    <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text">
+                                    @error('model')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -165,7 +200,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                    <input class="form-control" name="serial_no" id="serial_no" type="text">
+                                    <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                    @error('serial_no')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -173,7 +213,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--cpu model-->
                                 <div class="form-group">
                                     <label for="cpu_model">CPU Model</label>
-                                    <input class="form-control" name="cpu_model" id="cpu_model" type="text">
+                                    <input class="form-control @error('cpu_model') is-invalid @enderror" name="cpu_model" id="cpu_model" type="text">
+                                    @error('cpu_model')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
