@@ -224,7 +224,12 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="cpu_speed">CPU Speed (GHz)</label>
-                                    <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0">
+                                    <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0">
+                                    @error('cpu_speed')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -254,7 +259,12 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
-                                    <input class="form-control" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" min="2" default="2">
+                                    <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" min="2">
+                                    @error('no_of_physical_drive_max')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
