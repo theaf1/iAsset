@@ -7,6 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\ServerOS;
+use App\ServerRoleClass;
 
 class ServerController extends Controller
 {
@@ -21,12 +22,14 @@ class ServerController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $ServerOSes = ServerOS::all();
+        $ServerRoleClass = ServerRoleclass::all();
 
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'server_oses'=>$ServerOSes,
+            'server_role_classes'=>$ServerRoleClass,
         ]);
     }
 
@@ -113,7 +116,9 @@ class ServerController extends Controller
             'serial_no' => 'required',
             'cpu_model' => 'required',
             'cpu_speed' => 'required',
-            'no_of_physical_drive_max' => 'required_if:is_raid,1',
+            'cpu_socket_no' => 'required|gte:1',
+            'ram_size' => 'required',
+            'no_of_physical_drive_max' => 'required_if:is_raid,1|gte:2',
             'no_of_physical_drive_populated' => 'required_if:is_raid,1|lte:no_of_physical_drive_max',
             'lun_count' => 'required_if:is_raid,1',
             'hdd_total_cap' => 'required',
@@ -134,7 +139,11 @@ class ServerController extends Controller
             'serial_no.required' =>'กรุณาใส่ Serial No.',
             'cpu_model.required' => 'กรุณาระบุรุ่น CPU',
             'cpu_speed.required' => 'กรุณาระบุความเร็ว CPU',
+            'cpu_socket_no.required' => 'โปรดระบุจำนวน socket CPU',
+            'cpu_socket_no.gte' => 'โปรดตรวจสอบจำนวน socket CPU',
+            'ram_size.required' => 'กรุณาใส่จำนวน RAM',
             'no_of_physical_drive_max.required_if' => 'กรุณาระบุจำนวน disk สูงสุด',
+            'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
             'no_of_physical_drive_populated.required_if' => 'กรุณาระบุจำนวน disk ที่มีอยู่',
             'no_of_physical_drive_populated.lte' => 'โปรดตรวจสอบจำนวน disk ในเครื่อง',
             'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',           

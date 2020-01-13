@@ -237,13 +237,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--socket-->
                                 <div class="form-group">
                                     <label for="cpu_socket_no">จำนวน Socket CPU</label>
-                                    <input class="form-control" name="cpu_socket_no" id="cpu_socket_no" type="number" min="1" value="1">
+                                <input class="form-control @error('cpu_socket_no') is-invalid @enderror" name="cpu_socket_no" id="cpu_socket_no" type="number" min="0" value="{{ old('cpu_socket_no') }}">
+                                    @error('cpu_socket_no')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
                                     <label for="ram_size">RAM Size (GB)</label>
-                                    <input class="form-control" name="ram_size" id="ram_size" type="number" min="0" step="0.1">
+                                    <input class="form-control @error('ram_size') is-invalid @enderror" name="ram_size" id="ram_size" type="number" min="0" step="0.1">
+                                    @error('ram_size')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -259,7 +269,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
-                                    <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" min="2">
+                                    <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max') }}">
                                     @error('no_of_physical_drive_max')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -272,13 +282,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk ที่มีอยู่-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
-                                    <input class="form-control" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="2" default="2">
+                                    <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="2" value="{{ old('no_of_physical_drive_populated') }}">
+                                    @error('no_of_physical_drive_populated')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน disk จำลองที่มีอยู่-->
                                 <div class="form-group">
                                     <label for="lun_count">จำนวน disk จำลองที่มีอยู่</label>
-                                    <input class="form-control" name="lun_count" id="lun_count" type="number" min="1" default="1">
+                                <input class="form-control @error('lun_count') is-invalid @enderror" name="lun_count" id="lun_count" type="number" min="1" value="{{ old('lun_count') }}">
+                                    @error('lun_count')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -363,9 +383,9 @@
                                     <label for="role_class">กลุ่มของบทบาท</label>
                                     <select class="form-control" name="role_class" id="role_class">
                                         <option value="" hidden selected></option>
-                                        <option value="1">Infrastructure</option>
-                                        <option value="2">Application</option>
-                                        <option value="3">Monitoring and security</option>
+                                        @foreach($server_role_classes as $server_role_class)
+                                            <option value="{{ $server_role_class['id'] }}">{{ $server_role_class['name'] }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
