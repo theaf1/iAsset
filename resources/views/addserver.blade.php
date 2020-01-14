@@ -3,6 +3,12 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="/add-server" method="post">
+                @if ( $message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ $message }}
+                    </div>
+                @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลทั่วไปของครุภัณฑ์</h4>
@@ -224,7 +230,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="cpu_speed">CPU Speed (GHz)</label>
-                                    <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0">
+                                <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
                                     @error('cpu_speed')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -248,7 +254,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
                                     <label for="ram_size">RAM Size (GB)</label>
-                                    <input class="form-control @error('ram_size') is-invalid @enderror" name="ram_size" id="ram_size" type="number" min="0" step="0.1">
+                                <input class="form-control @error('ram_size') is-invalid @enderror" name="ram_size" id="ram_size" type="number" min="0" step="0.1" value="{{ old('ram_size') }}">
                                     @error('ram_size')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -262,7 +268,7 @@
                                 <div class="form-group">
                                     <label for="is_raid">RAID</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="1"><label for="is_raid">RAID</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="1" {{ old('other_software') == 1 ? 'checked' : ''}}><label for="is_raid">RAID</label></label>
                                     </div>
                                 </div>
                             </div>
@@ -321,7 +327,7 @@
                                 <div class="form-group">
                                     <label for="is_headless">จอภาพ</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1"><label for="is_headless">ไม่มีจอภาพ</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless') == 1 ? 'checked' : ''}}><label for="is_headless">ไม่มีจอภาพ</label></label>
                                     </div>
                                 </div>
                             </div>
@@ -375,7 +381,7 @@
                                         </div>
                                         <div class="form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1"><label for="64_bit"> 64 bit</label>
+                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1" checked><label for="64_bit"> 64 bit</label>
                                             </label>
                                         </div>
                                     </div>
@@ -415,7 +421,7 @@
                                     <label for="other_software">Software อื่นๆ</label><br>
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" name="other_software" id="other_software" value="1"><label for="other_software">มี Software อื่นๆ</label>
+                                            <input type="checkbox" class="form-check-input" name="other_software" id="other_software" value="1" {{ old('other_software') == 1 ? 'checked' : ''}}><label for="other_software">มี Software อื่นๆ</label>
                                         </label>
                                     </div>
                                 </div>
@@ -423,7 +429,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--other software details-->
                                 <div class="form-group">
                                     <label for="other_software_detail">โปรดกรอกรายชื่อ Software</label>
-                                    <textarea class="form-control" name="other_software_detail" id="other_software_detail" rows="1"></textarea>
+                                <textarea class="form-control @error('other_software_detail') is-invalid @enderror" name="other_software_detail" id="other_software_detail" rows="1">{{ old('other_software_detail') }}</textarea>
+                                @error('other_software_detail')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 </div>
                             </div>
                         </div>
@@ -440,7 +451,7 @@
                                     <label for="owner">ประเภทเครือข่าย</label><br>
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0"><label for="no_internet"> ไม่เชื่อมต่อ</label>
+                                            <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0" checked><label for="no_internet"> ไม่เชื่อมต่อ</label>
                                         </label>
                                     </div>
                                     <div class="form-check-inline">

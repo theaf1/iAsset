@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\Servers;
 use App\ServerOS;
 use App\ServerRoleClass;
 
@@ -52,7 +53,9 @@ class ServerController extends Controller
     public function store(Request $request)
     {
         $this->validateData($request);
-        return $request->all();
+        //return $request->all();
+        $Servers = Servers::create($request->all());
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -125,6 +128,7 @@ class ServerController extends Controller
             'display_sapid' => 'nullable',
             'display_pid' => 'nullable',
             'os'=>'required',
+            'other_software_detail' => 'required_if:other_software,1',
             'ip_address' => 'required|ipv4',
             'mac_address' => 'required|regex:/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/'
         ];
@@ -151,6 +155,7 @@ class ServerController extends Controller
             'no_of_physical_drive_populated.lte' => 'โปรดตรวจสอบจำนวน disk ในเครื่อง',
             'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',
             'os.required' => 'กรุณาเลือกระบบปฏิบัติการ',
+            'other_software_detail.required_if' => '1',
             'ip_address.required' =>'กรุณาใส่ IP Address',
             'ip_address.ipv4' =>'โปรดตรวจสอบ IP Address',
             'mac_address.required'=>'กรุณาใส่ MAC Address',
