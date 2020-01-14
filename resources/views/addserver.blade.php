@@ -351,12 +351,17 @@
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
                                     <label for="os">OS</label>
-                                    <select class="form-control" name="os" id="os">
+                                    <select class="form-control @error('os') is-invalid @enderror" name="os" id="os">
                                         <option value="" hidden></option>
                                         @foreach($server_oses as $server_os)
                                             <option value="{{ $server_os['id'] }}">{{ $server_os['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('os')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--os architecture-->
@@ -471,13 +476,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address">IP Address</label>
-                                    <input class="form-control" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1">
+                                    <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_address') }}">
+                                    @error('ip_address')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--mac address-->
                                 <div class="form-group">
                                     <label for="mac_address">MAC Address</label>
-                                    <input class="form-control" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB">
+                                    <input class="form-control @error('mac_address') is-invalid @enderror" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB" value="{{ old('mac_address') }}">
+                                    @error('mac_address')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

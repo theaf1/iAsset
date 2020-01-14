@@ -124,6 +124,9 @@ class ServerController extends Controller
             'hdd_total_cap' => 'required',
             'display_sapid' => 'nullable',
             'display_pid' => 'nullable',
+            'os'=>'required',
+            'ip_address' => 'required|ipv4',
+            'mac_address' => 'required|regex:/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/'
         ];
 
         $messages = [
@@ -146,7 +149,12 @@ class ServerController extends Controller
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
             'no_of_physical_drive_populated.required_if' => 'กรุณาระบุจำนวน disk ที่มีอยู่',
             'no_of_physical_drive_populated.lte' => 'โปรดตรวจสอบจำนวน disk ในเครื่อง',
-            'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',           
+            'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',
+            'os.required' => 'กรุณาเลือกระบบปฏิบัติการ',
+            'ip_address.required' =>'กรุณาใส่ IP Address',
+            'ip_address.ipv4' =>'โปรดตรวจสอบ IP Address',
+            'mac_address.required'=>'กรุณาใส่ MAC Address',
+            'mac_address.regex'=>'โปรดตรวจสอบ MAC Address',       
         ];
 
         return $this->validate($data, $rules, $messages);
