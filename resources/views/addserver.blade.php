@@ -30,7 +30,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="pid">รหัสครุภัณฑ์</label>
-                                    <input type="text" class="form-control" id="pid" name="pid">
+                                    <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}">
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                     <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
-                                            <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                            <option value="{{ $section['id'] }}" {{ old('section') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('section')
@@ -93,7 +93,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                    <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999">
+                                <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
                                     @error('tel_no')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -106,7 +106,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                    <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person">
+                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
                                     @error('response_person')
                                         <div class="invalid-response">
                                             {{ $message }}
@@ -133,7 +133,7 @@
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status') == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_status')
@@ -149,7 +149,7 @@
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')
@@ -171,7 +171,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand">ยี่ห้อ</label>
-                                    <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text">
+                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand') }}">
                                     @error('brand')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -182,7 +182,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                                 <div class="form-group">
                                     <label for="model">รุ่น</label>
-                                    <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text">
+                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model') }}">
                                     @error('model')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -206,7 +206,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                    <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                     @error('serial_no')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -219,7 +219,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--cpu model-->
                                 <div class="form-group">
                                     <label for="cpu_model">CPU Model</label>
-                                    <input class="form-control @error('cpu_model') is-invalid @enderror" name="cpu_model" id="cpu_model" type="text">
+                                <input class="form-control @error('cpu_model') is-invalid @enderror" name="cpu_model" id="cpu_model" type="text" value="{{ old('cpu_model') }}">
                                     @error('cpu_model')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -360,7 +360,7 @@
                                     <select class="form-control @error('os') is-invalid @enderror" name="os" id="os">
                                         <option value="" hidden></option>
                                         @foreach($server_oses as $server_os)
-                                            <option value="{{ $server_os['id'] }}">{{ $server_os['name'] }}</option>
+                                            <option value="{{ $server_os['id'] }}" {{ old('server_os') == $server_os['id'] ? 'selected' : '' }}>{{ $server_os['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('os')
@@ -395,7 +395,7 @@
                                     <select class="form-control" name="role_class" id="role_class">
                                         <option value="" hidden selected></option>
                                         @foreach($server_role_classes as $server_role_class)
-                                            <option value="{{ $server_role_class['id'] }}">{{ $server_role_class['name'] }}</option>
+                                            <option value="{{ $server_role_class['id'] }}" {{ old('server_role_class') == $server_role_class['id'] ? 'selected' : '' }}>{{ $server_role_class['name'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -479,7 +479,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
                                 <div class="form-group">
                                     <label for="lan_outlet_no">LAN outlet No</label>
-                                    <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text">
+                                <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text" value="{{ old('lan_outlet_no') }}">
                                 </div>
                             </div>
                         </div>
@@ -511,7 +511,7 @@
                             <div class="col sm-12 col-lg-6"><!--computer name-->
                                 <div class="form-group">
                                     <label for="computer_name">Computer Name</label>
-                                    <input class="form-control" name="computer_name" id="computer_name" type="text">
+                                    <input class="form-control" name="computer_name" id="computer_name" type="text" value="{{ old('computer_name') }}">
                                 </div>
                             </div>
                         </div>
@@ -526,13 +526,13 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
-                                    <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--issues-->
                                 <div class="form-group">
                                     <label for="issues">ปัญหาในการใช้งาน</label>
-                                    <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                    <textarea class="form-control" name="issues" id="issues" rows="2">{{ old('issuses') }}</textarea>
                                 </div>
                             </div>
                         </div>

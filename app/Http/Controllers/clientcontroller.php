@@ -119,4 +119,13 @@ class ClientController extends Controller
     {
         //
     }
+    private function validateData($data){
+        $rules = [
+            //
+        ];
+
+        $messages = [
+            //
+        ];
+    }
 }
