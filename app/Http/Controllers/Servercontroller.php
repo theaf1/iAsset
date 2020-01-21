@@ -9,6 +9,7 @@ use App\Section;
 use App\Servers;
 use App\ServerOS;
 use App\ServerRoleClass;
+use App\NetworkConnection;
 
 class ServerController extends Controller
 {
@@ -24,6 +25,7 @@ class ServerController extends Controller
         $Sections = Section::all();
         $ServerOSes = ServerOS::all();
         $ServerRoleClass = ServerRoleclass::all();
+        $NetworkConnections = NetworkConnection::all();
 
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -31,6 +33,7 @@ class ServerController extends Controller
             'sections'=>$Sections,
             'server_oses'=>$ServerOSes,
             'server_role_classes'=>$ServerRoleClass,
+            'network_connections'=>$NetworkConnections,
         ]);
     }
 

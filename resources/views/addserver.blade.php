@@ -448,32 +448,13 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
-                                    <label for="owner">ประเภทเครือข่าย</label><br>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0" checked><label for="no_internet"> ไม่เชื่อมต่อ</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="mucnet" value="1"><label for="mucnet"> MUCNET</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="internet_hospital" value="3"><label for="internet_hospital"> Internet โรงพยาบาล</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="hospital" value="4"><label for="hospital"> ระบบภายในโรงพยาบาล</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="more_than_1" value="5"><label for="more_than_1"> เชื่อมต่อมากกว่า 1 เครือข่ายในเวลาเดียวกัน</label>
-                                            </label>
-                                    </div>
+                                    <label for="lan_type">ประเภทเครือข่าย</label><br>
+                                    <select class="form-control" name="lan_type" id="lan_type">
+                                        <option value="" hidden></option>
+                                        @foreach($network_connections as $network_connection)
+                                            <option value="{{ $network_connection['id'] }}" {{ old('network_connection') == $network_connection['id'] ? 'selected' : '' }}>{{ $network_connection['name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
