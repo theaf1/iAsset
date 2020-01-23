@@ -450,7 +450,7 @@
                                 <div class="form-group">
                                     <label for="is_wireless">การใช้งานเครือข่ายไร้สาย</label>
                                     <div class="form-check">
-                                        <label class="checkbox"><input type="checkbox" name="is_wireless" value="1" {{ old('is_wireless') == 1 ? 'checked' : ''}} > ใช้เครืข่ายไร้สาย</label>
+                                        <label class="checkbox"><input type="checkbox" name="is_wireless" value="1" {{ old('is_wireless') == 1 ? 'checked' : ''}} > ใช้เครือข่ายไร้สาย</label>
                                     </div>
                                 </div>
                             </div>

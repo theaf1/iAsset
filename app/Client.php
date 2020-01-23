@@ -19,6 +19,7 @@ class Client extends Model
       // 'section_status',
       'function',
       'owner',
+      'tel_no',
       'permission',
       'asset_status',
       'asset_use_status',
@@ -54,6 +55,7 @@ class Client extends Model
       'mac_address',
       'lan_type',
       'computer_name',
+      'is_wireless',
       'issues',
    ];
    // public function gettype(){
