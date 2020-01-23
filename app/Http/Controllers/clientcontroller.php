@@ -169,6 +169,8 @@ class ClientController extends Controller
             'asset_status.required'=>'',
             'asset_use_status.required'=>'',
             'section.required'=>'',
+            'owner.required'=>'',
+            'tel_no.required'=>'',
         ];
     }
 }
