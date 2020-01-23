@@ -14,6 +14,7 @@
                                 <div class="form-group"> 
                                     <label for="type">ชนิด</label>
                                     <select class="form-control" id="type" name="type">
+                                        <option value="" hidden></option>
                                         @foreach($clienttypes as $clienttype)
                                             <option value="{{ $clienttype['id'] }}" {{ old('type') == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
                                         @endforeach
@@ -155,6 +156,12 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="tel_no">หมายเลขโทรศัพท์</label>
+                                    <input type="text" class="form-control" name="tel_no" value="{{ old('tel_no') }}">
+                                </div>
+                            </div>
                             <div class="col-sm-12 col-lg-6 pt-2"> <!-- สิทธิ์ Admin -->
                                 <div class="form-group">
                                     <label for="permission">สิทธิ์ Admin</label><br>
@@ -402,27 +409,13 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
-                                    <label for="owner">ประเภทเครือข่าย</label><br>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="no_internet" value="0" {{ old('lan_type') == 0 && old('lan_type') !== null ? 'checked' : ''}}><label for="no_internet"> ไม่เชื่อมต่อ</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="mucnet" value="1" {{ old('lan_type') == 1 ? 'checked' : ''}}><label for="mucnet"> MUCNET</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="internet_hospital" value="2" {{ old('lan_type') == 2 ? 'checked' : ''}}><label for="internet_hospital"> Internet โรงพยาบาล</label>
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="lan_type" id="hospital" value="3" {{ old('lan_type') == 3 ? 'checked' : ''}}><label for="hospital"> ระบบภายในโรงพยาบาล</label>
-                                        </label>
-                                    </div>
+                                    <label for="lan_type">ประเภทเครือข่าย</label><br>
+                                    <select name="lan_type" id="lan_type" class="form-control">
+                                        <option value="" hidden></option>
+                                        @foreach($networkconnections as $networkconnection)
+                                            <option value="{{ $networkconnection['id'] }}">{{ $networkconnection['name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
@@ -451,6 +444,14 @@
                                 <div class="form-group">
                                     <label for="computer_name">Computer Name</label>
                                     <input class="form-control" name="computer_name" id="computer_name" type="text" value="{{ old('computer_name') }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="is_wireless">การใช้งานเครือข่ายไร้สาย</label>
+                                    <div class="form-check">
+                                        <label class="checkbox"><input type="checkbox" name="is_wireless" value="1" {{ old('is_wireless') == 1 ? 'checked' : ''}} > ใช้เครืข่ายไร้สาย</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

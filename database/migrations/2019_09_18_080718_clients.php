@@ -23,6 +23,7 @@ class Clients extends Migration
             $table->integer('location_id');
             $table->string('user');
             $table->string('position');
+            $table->string('tel_no');
             // $table->integer('section_status');
             $table->integer('function');
             $table->integer('owner');
@@ -61,6 +62,7 @@ class Clients extends Migration
             $table->ipAddress('ip_address')->nullable();
             $table->macAddress('mac_address')->nullable();
             $table->string('computer_name')->nullable();
+            $table->boolean('is_wireless')->default(0);
             $table->string('issues')->nullable();
             $table->timestamps();  
           });

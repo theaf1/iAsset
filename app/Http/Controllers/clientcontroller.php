@@ -7,6 +7,7 @@ use App\Section;
 use App\Client;
 use App\Display;
 use App\Clienttype;
+use App\NetworkConnection;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -22,12 +23,14 @@ class ClientController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
+        $NetworkConnections = NetworkConnection::all();
 
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'clienttypes'=>$Clienttypes,
+            'networkconnections'=>$NetworkConnections,
         ]);
     }
 
@@ -121,7 +124,11 @@ class ClientController extends Controller
     }
     private function validateData($data){
         $rules = [
-            //
+            'type' =>'required',
+            'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
+            'pid' => 'nullable',
+            'location_id' => 'required',
+
         ];
 
         $messages = [
