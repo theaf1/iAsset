@@ -16,8 +16,8 @@ class Clients extends Migration
         Schema::create('clients', function (blueprint $table) {
             $table->bigincrements('id');
             $table->integer('type');
-            $table->string('sapid');
-            $table->string('pid');
+            $table->string('sapid')->nullable();
+            $table->string('pid')->nullable();
             $table->integer('section');
             $table->boolean('is_mobile')->default(0);
             $table->integer('location_id');
