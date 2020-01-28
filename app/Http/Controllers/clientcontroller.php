@@ -171,6 +171,19 @@ class ClientController extends Controller
             'section.required'=>'',
             'owner.required'=>'',
             'tel_no.required'=>'',
+            'function.required'=>'',
+            'brand.required'=>'',
+            'model.required'=>'',
+            'serial_no.required'=>'',
+            'cpu_model.required'=>'',
+            'cpu_speed.required'=>'',
+            'cpu_socket_number.required'=>'',
+            'hdd_no.required'=>'',
+            'hdd_total_cap.required'=>'',
+            'display_count.required'=>'',
+            'os.required'=>'',
+            'os_arch.required'=>'',
+            'ms_office_version'=>'',
         ];
     }
 }
