@@ -264,7 +264,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--cpu model-->
                                 <div class="form-group">
                                     <label for="cpu_model">CPU Model</label>
-                                    <input class="form-control" name="cpu_model" id="cpu_model" type="text" value="{{ old('cpu_model') }}">
+                                    <input class="form-control @error('cpu_model') is-invalid @enderror" name="cpu_model" id="cpu_model" type="text" value="{{ old('cpu_model') }}">
+                                    @error('cpu_model')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -272,27 +277,47 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="cpu_speed">CPU Speed</label>
-                                    <input class="form-control" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
+                                    <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
+                                    @error('cpu_speed')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--socket-->
                                 <div class="form-group">
                                     <label for="cpu_socket_number">จำนวน Socket CPU</label>
-                                    <input class="form-control" name="cpu_socket_number" id="cpu_socket_number" type="number" min="1"  value="{{ old('cpu_socket_number') }}">
+                                    <input class="form-control @error('cpu_socket_number') is-invalid @enderror" name="cpu_socket_number" id="cpu_socket_number" type="number" min="1"  value="{{ old('cpu_socket_number') }}">
+                                    @error('cpu_socket_number')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
-                                    <label for="ram_size">RAM Size</label>
-                                    <input class="form-control" name="ram_size" id="ram_size" type="number" min="0" step="0.1" value="{{ old('ram_size') }}">
+                                    <label for="ram_size">RAM Size (GB)</label>
+                                    <input class="form-control @error('ram_size') is-invalid @enderror" name="ram_size" id="ram_size" type="number" min="0" step="0.1" value="{{ old('ram_size') }}">
+                                    @error('ram_size')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--HDD-->
                                 <div class="form-group">
                                     <label for="hdd_no">จำนวน Hard Disk ในเครื่อง</label>
-                                    <input class="form-control" name="hdd_no" id="hdd_no" type="number" min="1" value="1" value="{{ old('hdd_no') }}">
+                                    <input class="form-control @error('hdd_no') is-invalid @enderror" name="hdd_no" id="hdd_no" type="number" min="1" value="{{ old('hdd_no') }}">
+                                    @error('hdd_no')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -300,19 +325,29 @@
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
                                     <label for=hdd_total_cap>ความจุรวมของ HDD</label>
-                                    <input class="form-control" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="{{ old('hdd_total_cap') }}">
+                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="{{ old('hdd_total_cap') }}">
+                                    @error('hdd_total_cap')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group"> 
                                     <label for="display_count">จำนวนจอที่ใช้งาน</label>
-                                    <select class="form-control" id="display_count" name="display_count" onchange="displayCountSelected(this)">
+                                    <select class="form-control @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
                                         <option value="" hidden></option>
                                         <option value="1" {{ old('display_count') == 1 ? 'selected' : ''}}>1</option>
                                         <option value="2" {{ old('display_count') == 2 ? 'selected' : ''}}>2</option>
                                         <option value="3" {{ old('display_count') == 3 ? 'selected' : ''}}>3</option>
                                         <option value="4" {{ old('display_count') == 4 ? 'selected' : ''}}>4</option>
                                     </select>
+                                    @error('display_count')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div> 
                             </div>
                         </div>
@@ -364,7 +399,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
                                     <label for="os">OS</label>
-                                    <input class="form-control" name="os" id="os" type="text" value="{{ old('os') }}">
+                                    <input class="form-control @error('os') is-invalid @enderror" name="os" id="os" type="text" value="{{ old('os') }}">
+                                    @error('os')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--os architecture-->
