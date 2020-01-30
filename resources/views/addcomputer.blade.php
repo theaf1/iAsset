@@ -412,14 +412,15 @@
                                     <label for="os_arch">OS architecture</label><br>
                                     <div class="form-check form-check-inline">
                                         <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0" {{ old('os_arch') == 0 ? 'checked' : ''}}><label for="32_bit"> 32 bit</label>
-                                            </label>
+                                            <input type="radio" class="form-check-input @error('os_arch') is-invalid @enderror" name="os_arch" id="32_bit" value="0" {{ old('os_arch') === 0 ? 'checked' : ''}}><label class="form-check-label @error('os_arch') is-invalid @enderror" for="32_bit"> 32 bit</label>
                                         </div>
                                         <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1" {{ old('os_arch') == 1 ? 'checked' : ''}}><label for="64_bit"> 64 bit</label>
-                                            </label>
+                                            <input type="radio" class="form-check-input  @error('os_arch') is-invalid @enderror" name="os_arch" id="64_bit" value="1" {{ old('os_arch') === 1 ? 'checked' : ''}}><label class="form-check-label @error('os_arch') is-invalid @enderror" for="64_bit"> 64 bit</label><br>
+                                            @error('os_arch')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -429,13 +430,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--office version-->
                                 <div class="form-group">
                                     <label for="ms_office_version">Microsoft Office Version</label>
-                                    <input type="text" class="form-control" name="ms_office_version" id="ms_office_version" value="{{ old('ms_office_version') }}">
+                                    <input type="text" class="form-control @error('ms_office_version') is-invalid @enderror" name="ms_office_version" id="ms_office_version" value="{{ old('ms_office_version') }}">
+                                    @error('ms_office_version')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--antivirus-->
                                 <div class="form-group">
                                     <label for="antivirus">Antivirus</label>
-                                    <input class="form-control" name="antivirus" id="antivirus" type="text" value="{{ old('antivirus') }}">
+                                    <input class="form-control @error('antivirus') is-invalid @enderror" name="antivirus" id="antivirus" type="text" value="{{ old('antivirus') }}">
+                                    @error('antivirus')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -443,13 +454,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--pdf reader-->
                                 <div class="form-group">
                                     <label for="pdf_reader">PDF reader</label>
-                                    <input class="form-control" name="pdf_reader" id="pdf_reader" type="text" value="{{ old('pdf_reader') }}">
+                                    <input class="form-control @error('pdf_reader') is-invalid @enderror" name="pdf_reader" id="pdf_reader" type="text" value="{{ old('pdf_reader') }}">
+                                    @error('pdf_reader')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ie version-->
                                 <div class="form-group">
                                     <label for="ie_version">IE version</label>
-                                    <input class="form-control" name="ie_version" id="ie_version" type="number" value="{{ old('ie_version') }}">
+                                    <input class="form-control @error('ie_version') is-invalid @enderror" name="ie_version" id="ie_version" type="number" value="{{ old('ie_version') }}">
+                                    @error('ie_version')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
