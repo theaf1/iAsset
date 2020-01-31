@@ -21,7 +21,8 @@ class Clients extends Migration
             $table->integer('section');
             $table->boolean('is_mobile')->default(0);
             $table->integer('location_id');
-            $table->string('user');
+            $table->string('user')->nullable();
+            $table->boolean('multi_user')->default(0);
             $table->string('position');
             $table->string('tel_no');
             // $table->integer('section_status');

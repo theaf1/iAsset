@@ -61,7 +61,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building">ตึก</label>
-                                    <input type="text" class="form-control" name="building" id="building" value="{{ old('building') }}" readonly/>
+                                    <output type="text" class="form-control" name="building" id="building" value="{{ old('building') }}" readonly/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
@@ -145,7 +145,16 @@
                             </div>
                         </div>
                         <div class="form-row"> 
-                            <div class="col-sm-12 col-lg-6">  <!-- ชื่อผู้ใช้งาน -->
+                            <div class="col-sm-12 col-lg-3">  <!-- ชื่อผู้ใช้งาน -->
+                                <div class="form-group">
+                                    <label for="multi_user">จำนวนผู้ใช้งาน</label>
+                                    <div class="form-check">
+                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="0" {{ old('multi_user') == 0 ? 'checked' : ''}} > ใช้งานคนเดียว</label>
+                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="1" {{ old('multi_user') == 1 ? 'checked' : ''}} > ใช้งานหลายคน</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-3">
                                 <div class="form-group">
                                     <label for="user">ชื่อผู้ใช้งาน</label><br>
                                     <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user') }}">
@@ -159,7 +168,12 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตำแหน่งผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้ใช้งาน</label> 
-                                    <input type="text" class="form-control" name="position" id="position" value="{{ old('position') }}">
+                                    <select class="form-control" name="position" id="position">
+                                        <option value="" hidden></option>
+                                        @foreach ($positions as $position)
+                                            <option value="{{ $position['id'] }}">{{ $position['name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -530,12 +544,17 @@
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type">ประเภทเครือข่าย</label><br>
-                                    <select name="lan_type" id="lan_type" class="form-control">
+                                    <select name="lan_type" id="lan_type" class="form-control @error('lan_type') is-invalid @enderror">
                                         <option value="" hidden></option>
                                         @foreach($networkconnections as $networkconnection)
-                                            <option value="{{ $networkconnection['id'] }}">{{ $networkconnection['name'] }}</option>
+                                            <option value="{{ $networkconnection['id'] }}" {{ old('lan_type') == $networkconnection['id'] ? 'selected' : ''}}>{{ $networkconnection['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('lan_type')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
@@ -549,13 +568,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address">IP Address</label>
-                                    <input class="form-control" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_addresss') }}">
+                                    <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_addresss') }}">
+                                    @error('ip_address')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--mac address-->
                                 <div class="form-group">
                                     <label for="mac_address">MAC Address</label>
-                                    <input class="form-control" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB" value="{{ old('mac_address') }}">
+                                    <input class="form-control @error('mac_address') is-invalid @enderror" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB" value="{{ old('mac_address') }}">
+                                    @error('mac_address')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror    
                                 </div>
                             </div>
                         </div>
@@ -563,7 +592,12 @@
                             <div class="col sm-12 col-lg-6"><!--computer name-->
                                 <div class="form-group">
                                     <label for="computer_name">Computer Name</label>
-                                    <input class="form-control" name="computer_name" id="computer_name" type="text" value="{{ old('computer_name') }}">
+                                    <input class="form-control @error('computer_name') is-invalid @enderror" name="computer_name" id="computer_name" type="text" value="{{ old('computer_name') }}">
+                                    @error('computer_name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
