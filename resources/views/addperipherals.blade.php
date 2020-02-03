@@ -19,12 +19,17 @@
                         <div class="col-sm-12 col-lg-6"> <!--ชนิดครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="type">ชนิด</label>
-                                <select class="form-control" id="type" name="type" required>
+                                <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
                                     <option value="" hidden selected></option>
                                     @foreach($peripheraltypes as $peripheraltype)
                                         <option value="{{ $peripheraltype['id'] }}">{{ $peripheraltype['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
@@ -178,13 +183,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand">ยี่ห้อ</label>
-                                <input class="form-control" name="brand" id="brand" type="text" required>
+                                <input class="form-control" name="brand" id="brand" type="text">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="model">รุ่น</label>
-                                <input class="form-control" name="model" id="model" type="text" required>
+                                <input class="form-control" name="model" id="model" type="text">
                             </div>
                         </div>
                     </div>
@@ -192,7 +197,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--serial number-->
                             <div class="form-group">
                                 <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                <input class="form-control" name="serial_no" id="serial_no" type="text" required>
+                                <input class="form-control" name="serial_no" id="serial_no" type="text">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--วัสดุสึกหรอสิ้นเปลือง-->
@@ -215,9 +220,9 @@
                                 <label for="connectivity">วิธีการเชื่อมต่อ</label>
                                 <select class="form-control" name="connectivity" id="connectivity" required>
                                     <option value="" hidden selected></option>
-                                    <option value="1">USB</option>
-                                    <option value="2">Paralell Port</option>
-                                    <option value="3">LAN</option>
+                                    @foreach ($peripheralconnections as $peripheralconnection)
+                                        <option value="{{ $peripheralconnection['id'] }}">{{ $peripheralconnection['name'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

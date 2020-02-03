@@ -22,12 +22,18 @@ class PeripheralsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
+        $PeripheralConnections = array([
+            ['id'=>'1', 'name'=>'USB'],
+            ['id'=>'2', 'name'=>'Paralell port'],
+            ['id'=>'3', 'name'=>'LAN'],
+        ]);
 
         return view('addperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'peripheraltypes'=>$Peripheraltypes,
+            'peripheralconnections'=>$PeripheralConnections,
         ]);
     }
 
@@ -97,5 +103,18 @@ class PeripheralsController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data){
+        $rules = [
+            'type'=>'required',
+            'sapid'=>'nullable',
+            'pid'=>'nullable',
+        ];
+
+        $messages =[
+            'type.required'=>'1',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }
