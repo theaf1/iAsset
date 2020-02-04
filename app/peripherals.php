@@ -32,6 +32,7 @@ class Peripherals extends Model
         'lan_outlet_no',
         'is_shared',
         'share_name',
+        'share_method',
         'issues',
     ];
     public function gettype(){

@@ -22,18 +22,30 @@ class PeripheralsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
-        $PeripheralConnections = array([
+        $Supplies = array(
+            ['id'=>'1', 'name'=>'เบิกได้'],
+            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
+            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
+        );
+        $PeripheralConnections = array(
             ['id'=>'1', 'name'=>'USB'],
             ['id'=>'2', 'name'=>'Paralell port'],
             ['id'=>'3', 'name'=>'LAN'],
-        ]);
+        );
+        $ShareMethods = array(
+            ['id'=>'1', 'name'=>'OS share'],
+            ['id'=>'2', 'name'=>'network share'],
+        );
 
         return view('addperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'peripheraltypes'=>$Peripheraltypes,
+            'supplies'=>$Supplies,
             'peripheralconnections'=>$PeripheralConnections,
+            'sharemethods'=>$ShareMethods,
+         
         ]);
     }
 
@@ -109,6 +121,24 @@ class PeripheralsController extends Controller
             'type'=>'required',
             'sapid'=>'nullable',
             'pid'=>'nullable',
+            'location_id'=>'required',
+            'is_mobile'=>'required',
+            'section'=>'required',
+            'user'=>'required',
+            'section_status'=>'required',
+            'tel_no'=>'required',
+            'function'=>'required',
+            'owner'=>'required',
+            'asset_status'=>'required',
+            'asset_use_status'=>'required',
+            'brand'=>'required',
+            'model'=>'required',
+            'serial_no'=>'required',
+            'supply_consumables'=>'required',
+            'connectivity'=>'required',
+            'ip_address'=>'nullable|ipv4',
+            'share_name'=>'required_if:is_shrared,1',
+            'share_method'=>'required_if:is_shrared,1',
         ];
 
         $messages =[

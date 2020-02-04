@@ -38,6 +38,7 @@ class Peripherals extends Migration
             $table->ipAddress('ip_address')->nullable();
             $table->string('lan_outlet_no');
             $table->boolean('is_shared')->default(0);
+            $table->integer('share_method');
             $table->string('share_name')->nullable();
             $table->string('issues')->nullable();
             $table->timestamps();

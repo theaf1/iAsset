@@ -204,12 +204,10 @@
                             <div class="form-group">
                                 <label for="supply_consumables">สามารถเบิกวัสดุสึกหรอสิ้นเปลืองได้</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="supply_consumables" id="suppy_consumables" value="1">
-                                    <label class="form-check-label" for="supply_consumables">เบิกได้</label><br>
-                                    <input class="form-check-input" type="radio" name="supply_consumables" id="supply_consumables" value="2">
-                                    <label class="form-check-label" for="supply_consumables">เบิกไม่ได้</label><br>
-                                    <input class="form-check-input" type="radio" name="supply_consumables" id="supply_consumables" value="3">
-                                    <label class="form-check-label" for="supply_consumables">ไม่จำเป็น</label><br>
+                                    @foreach($supplies as $supply)
+                                        <input class="form-check-input" type="radio" name="supply_consumables" id="suppy_consumables" value="{{ $supply['id'] }}">
+                                        <label class="form-check-label" for="supply_consumables">{{ $supply['name'] }}</label><br>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -217,7 +215,7 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                             <div class="form-group">
-                                <label for="connectivity">วิธีการเชื่อมต่อ</label>
+                                <label for="asset_use_status">วิธีการเชื่อมต่อ</label>
                                 <select class="form-control" name="connectivity" id="connectivity" required>
                                     <option value="" hidden selected></option>
                                     @foreach ($peripheralconnections as $peripheralconnection)
@@ -252,6 +250,15 @@
                             <div class="form-group">
                                 <label for="share_name">Share Name</label>
                                 <input type="text" class="form-control" id="share_name" name="share_name">
+                            </div>
+                        </div> 
+                        <div class="col-sm-12 col-lg-6">
+                            <label for="share_method">วิธีการ share</label>
+                            <div class="form-check">
+                                @foreach ($sharemethods as $sharemethod)
+                                    <input type="radio" class="form-check-input" name="share_method" id="share_method" value="{{ $sharemethod['id'] }}">
+                                    <label for="share_method" class="form-check-label">{{ $sharemethod['name'] }}</label><br>
+                                @endforeach
                             </div>
                         </div>
                     </div>
