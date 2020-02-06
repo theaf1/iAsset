@@ -29,6 +29,10 @@ class ClientController extends Controller
             ['id'=>'2','name'=>'พยาบาล'],
             ['id'=>'3','name'=>'เจ้าหน้าที่'],
         );
+        $DataUnit = array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB'],
+        );
 
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -37,6 +41,7 @@ class ClientController extends Controller
             'clienttypes'=>$Clienttypes,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
+            //'dataunits'=>$DataUnits,
         ]);
     }
 

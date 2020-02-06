@@ -41,3 +41,4 @@ Route::post('/add-server','ServerController@store');
 Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
 Route::post('/add-sp','StorageperipheralsController@store');
+Route::post('/add-peripheral','PeripheralsController@store');

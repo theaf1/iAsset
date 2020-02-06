@@ -49,7 +49,12 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
-                                <input type="text" class="form-control" name="room" placeholder="กรุณาระบุห้อง" id="room_autocomplete"/>
+                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" placeholder="กรุณาระบุห้อง" id="room_autocomplete"/>
+                                @error('location_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -73,11 +78,16 @@
                             <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1">
+                                    <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="1">
                                     <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
-                                    <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
+                                    <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
                                     <label class="form-check-label" for="is_mobile">เป็นเครื่องประจำที่</label><br>
                                 </div>
+                                @error('is_mobile')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div> 
                         </div>
                     </div>
@@ -85,18 +95,28 @@
                         <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                         <div class="form-group"> 
                             <label for="section">หน่วยงาน</label>
-                                <select class="form-control" name="section" id="section" required>
+                                <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
                                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('section')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--ชื่อผู้ใช้งาน-->
                             <div class="form-group">
                                 <label for="user">ชื่อผู้ใช้งาน</label><br>
-                                <input type="text" class="form-control" id="user" name="user">
+                                <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user">
+                                @error('user')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -109,20 +129,25 @@
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--ประเภทหน่วยงาน-->
                             <div class="form-group">
-                                <label for="section_status">ประเภทหน่วยงาน</label>
+                                {{-- <label for="section_status">ประเภทหน่วยงาน</label>
                                 <select class="form-control" name="section_status" id="section_status">
                                     <option value="1">สำนักงาน</option>
                                     <option value="2">หอผู้ป่วย</option>
                                     <option value="3">ห้องประชุม</option>
                                 </select>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999">
+                                <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999">
+                                @error('tel_no')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
@@ -152,18 +177,23 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_status" id="asset_status" required>
+                                <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
+                                @error('asset_status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control" name="asset_use_status" id="asset_status" required>
+                                <select class="form-control" name="asset_use_status" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
@@ -216,7 +246,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                             <div class="form-group">
                                 <label for="asset_use_status">วิธีการเชื่อมต่อ</label>
-                                <select class="form-control" name="connectivity" id="connectivity" required>
+                                <select class="form-control" name="connectivity" id="connectivity">
                                     <option value="" hidden selected></option>
                                     @foreach ($peripheralconnections as $peripheralconnection)
                                         <option value="{{ $peripheralconnection['id'] }}">{{ $peripheralconnection['name'] }}</option>

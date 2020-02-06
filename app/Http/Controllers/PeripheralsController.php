@@ -68,6 +68,7 @@ class PeripheralsController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
+        $this->validateData($request);
         $peripherals = Peripherals::create($request->all());
         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
@@ -119,30 +120,47 @@ class PeripheralsController extends Controller
     private function validateData($data){
         $rules = [
             'type'=>'required',
-            'sapid'=>'nullable',
-            'pid'=>'nullable',
-            'location_id'=>'required',
-            'is_mobile'=>'required',
-            'section'=>'required',
-            'user'=>'required',
-            'section_status'=>'required',
-            'tel_no'=>'required',
-            'function'=>'required',
-            'owner'=>'required',
-            'asset_status'=>'required',
-            'asset_use_status'=>'required',
-            'brand'=>'required',
-            'model'=>'required',
-            'serial_no'=>'required',
-            'supply_consumables'=>'required',
-            'connectivity'=>'required',
-            'ip_address'=>'nullable|ipv4',
-            'share_name'=>'required_if:is_shrared,1',
-            'share_method'=>'required_if:is_shrared,1',
+            // 'sapid'=>'nullable',
+            // 'pid'=>'nullable',
+            // 'location_id'=>'required',
+            // 'is_mobile'=>'required',
+            // 'section'=>'required',
+            // 'user'=>'required',
+            // // 'section_status'=>'required',
+            // 'tel_no'=>'required',
+            // 'function'=>'required',
+            // 'owner'=>'required',
+            // 'asset_status'=>'required',
+            // 'asset_use_status'=>'required',
+            // 'brand'=>'required',
+            // 'model'=>'required',
+            // 'serial_no'=>'required',
+            // 'supply_consumables'=>'required',
+            // 'connectivity'=>'required',
+            // 'ip_address'=>'nullable|ipv4',
+            // 'share_name'=>'required_if:is_shrared,1',
+            // 'share_method'=>'required_if:is_shrared,1',
         ];
 
         $messages =[
             'type.required'=>'1',
+            // 'location_id.required'=>'2',
+            // 'is_mobile.required'=>'3',
+            // 'section.required'=>'4',
+            // // 'section_status.required'=>'5',
+            // 'tel_no.required'=>'6',
+            // 'function.required'=>'7',
+            // 'owner.required'=>'8',
+            // 'asset_status.required'=>'9',
+            // 'asset_use_status.required'=>'10',
+            // 'brand.required'=>'11',
+            // 'model.required'=>'12',
+            // 'serial_no.required'=>'13',
+            // 'supply_consumables.required'=>'14',
+            // 'connectivity.required'=>'15',
+            // 'ip_address.ipv4'=>'16',
+            // 'share_name.required_if'=>'17',
+            // 'share_method.required_if'=>'18',
         ];
 
         return $this->validate($data, $rules, $messages);
