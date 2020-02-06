@@ -277,7 +277,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--cpu model-->
                                 <div class="form-group">
-                                    <label for="cpu_model">CPU Model1</label>
+                                    <label for="cpu_model">CPU Model</label>
                                     <input class="form-control @error('cpu_model') is-invalid @enderror" name="cpu_model" id="cpu_model" type="text" value="{{ old('cpu_model') }}">
                                     @error('cpu_model')
                                         <div class="invalid-feedback">
