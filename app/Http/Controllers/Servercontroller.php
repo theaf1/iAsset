@@ -26,6 +26,10 @@ class ServerController extends Controller
         $ServerOSes = ServerOS::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
+        $DataUnits = array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB'],
+        );
 
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -34,6 +38,7 @@ class ServerController extends Controller
             'server_oses'=>$ServerOSes,
             'server_role_classes'=>$ServerRoleClass,
             'network_connections'=>$NetworkConnections,
+            'dataunits'=>$DataUnits,
         ]);
     }
 

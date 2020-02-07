@@ -38,6 +38,7 @@ class Servers extends Migration
             $table->integer('no_of_physical_drive_populated');
             $table->integer('lun_count');
             $table->integer('hdd_total_cap');
+            $table->integer('data_unit');
             $table->integer('display_no');
             $table->boolean('is_headless')->default(0);
             $table->string('display_sapid')->nullable();

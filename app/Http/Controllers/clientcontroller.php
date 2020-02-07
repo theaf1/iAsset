@@ -29,7 +29,7 @@ class ClientController extends Controller
             ['id'=>'2','name'=>'พยาบาล'],
             ['id'=>'3','name'=>'เจ้าหน้าที่'],
         );
-        $DataUnit = array(
+        $DataUnits = array(
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
         );
@@ -41,7 +41,7 @@ class ClientController extends Controller
             'clienttypes'=>$Clienttypes,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
-            //'dataunits'=>$DataUnits,
+            'dataunits'=>$DataUnits,
         ]);
     }
 
