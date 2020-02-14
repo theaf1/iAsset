@@ -98,7 +98,7 @@
                                 <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
-                                        <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                        <option value="{{ $section['id'] }} {{ old('section') == $section['id'] ? 'selected' : '' }}">{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('section')
@@ -111,7 +111,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ชื่อผู้ใช้งาน-->
                             <div class="form-group">
                                 <label for="user">ชื่อผู้ใช้งาน</label><br>
-                                <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user">
+                                <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user') }}">
                                 @error('user')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -130,7 +130,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999">
+                                <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" value="{{ old('tel_no') }}" placeholder="9-9999">
                                 @error('tel_no')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -180,7 +180,7 @@
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}"{{ old('asset_status') == $asset_status['id'] ? 'selected' : ''}}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_status')
@@ -196,7 +196,7 @@
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}"{{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')
@@ -218,7 +218,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand">ยี่ห้อ</label>
-                                <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text">
+                            <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand') }}">
                                 @error('brand')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -229,7 +229,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                             <div class="form-group">
                                 <label for="model">รุ่น</label>
-                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text">
+                                <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model') }}">
                                 @error('model')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -242,7 +242,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--serial number-->
                             <div class="form-group">
                                 <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                 @error('serial_no')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -274,7 +274,7 @@
                                 <select class="form-control @error('connectivity') is-invalid @enderror" name="connectivity" id="connectivity">
                                     <option value="" hidden selected></option>
                                     @foreach ($peripheralconnections as $peripheralconnection)
-                                        <option value="{{ $peripheralconnection['id'] }}">{{ $peripheralconnection['name'] }}</option>
+                                        <option value="{{ $peripheralconnection['id'] }}"{{ old('connectivity') == $peripheralconnection['id'] ? 'selected' : ''}}>{{ $peripheralconnection['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('connectivity')
@@ -287,7 +287,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ip address-->
                             <div class="form-group">
                                 <label for="ip_address">IP adress ของเครื่อง</label>
-                                <input type="text" class="form-control @error('ip_address') is-invalid @enderror" id="ip_address" name="ip_address">
+                                <input type="text" class="form-control @error('ip_address') is-invalid @enderror" id="ip_address" name="ip_address" value="{{ old('ip_address') }}">
                                 @error('ip_address')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -300,7 +300,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--Lan outlet-->
                             <div class="form-group">
                                 <label for="share_name">Lan Outlet No.</label>
-                                <input type="text" class="form-control" id="lan_outlet_no" name="lan_outlet_no">
+                                <input type="text" class="form-control" id="lan_outlet_no" name="lan_outlet_no" value="{{ old('lan_outlet_no') }}">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
@@ -314,7 +314,7 @@
                         <div class="col-sm-12 col-lg-6"><!--share name-->
                             <div class="form-group">
                                 <label for="share_name">Share Name</label>
-                                <input type="text" class="form-control @error('share_name') is-invalid @enderror" id="share_name" name="share_name">
+                                <input type="text" class="form-control @error('share_name') is-invalid @enderror" id="share_name" name="share_name" value="{{ old('share_name') }}">
                                 @error('share_name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -348,13 +348,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
-                                <textarea class="form-control" name="remarks" id="remarks" rows="2" placeholder="หมายเหตุ"></textarea>
+                            <textarea class="form-control" name="remarks" id="remarks" rows="2" placeholder="หมายเหตุ">{{ old('remarks') }}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"><!--issues-->
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label>
-                                <textarea class="form-control" name="issues" id="issues" rows="2" placeholder="ปัญหาในการใช้งาน"></textarea>
+                                <textarea class="form-control" name="issues" id="issues" rows="2" placeholder="ปัญหาในการใช้งาน">{{ old('issues')}}</textarea>
                             </div>
                         </div>
                     </div>
