@@ -34,6 +34,7 @@ class CreateStorageperipheralsTable extends Migration
             $table->integer('connectivity');
             $table->boolean('is_hotswap')->default(0);
             $table->float('total_capacity');
+            $table->integer('data_unit');
             $table->integer('no_of_physical_drive_max');
             $table->integer('no_of_physical_drive_populated');
             $table->integer('lun_count');

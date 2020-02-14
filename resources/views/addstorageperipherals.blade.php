@@ -236,6 +236,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--ความจุข้อมูล-->
                                 <div class="form-group">
                                     <label for="total_capacity">ความจุข้อมูล</label>
+                                    @foreach ($dataunits as $dataunit)
+                                        <div class="form-check-inline pl-1">
+                                            <input type="radio" name="data_unit" id="dataunit" value="{{ $dataunit['id'] }}">
+                                            <label for="dataunit" class="form-check-label">{{ $dataunit['name'] }} </label>
+                                        </div>
+                                    @endforeach
                                     <input class="form-control @error('total_capacity') is-invalid @enderror" name="total_capacity" id="total_capacity" type="number" min="0" step="0.01">
                                     @error('total_capacity')
                                         <div class="invalid-feedback">
