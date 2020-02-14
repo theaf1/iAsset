@@ -16,14 +16,13 @@ class Peripherals extends Migration
         Schema::create('peripherals', function (Blueprint $table){
             $table->bigincrements('id');
             $table->integer('type');
-            $table->string('sapid');
-            $table->string('pid');
+            $table->string('sapid')->nullable();
+            $table->string('pid')->nullable();
             $table->integer('location_id');
             $table->boolean('is_mobile')->default(0);
             $table->string('user');
             $table->string('position');
             $table->integer('section');
-            $table->integer('section_status');
             $table->string('tel_no');
             $table->integer('function');
             $table->integer('owner');
@@ -36,7 +35,7 @@ class Peripherals extends Migration
             $table->integer('supply_consumables');
             $table->integer('connectivity');
             $table->ipAddress('ip_address')->nullable();
-            $table->string('lan_outlet_no');
+            $table->string('lan_outlet_no')->nullable();
             $table->boolean('is_shared')->default(0);
             $table->integer('share_method');
             $table->string('share_name')->nullable();

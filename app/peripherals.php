@@ -16,7 +16,6 @@ class Peripherals extends Model
         'user',
         'position',
         'section',
-        'section_status',
         'tel_no',
         'function',
         'owner',

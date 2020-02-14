@@ -78,9 +78,9 @@
                             <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="1">
+                                    <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="1" {{ old('is_mobile') == 0 && old('is_mobile') !== null ? 'checked' : ''}}>
                                     <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
-                                    <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
+                                    <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="0" {{ old('is_mobile') == 1 ? 'checked' : ''}}>
                                     <label class="form-check-label" for="is_mobile">เป็นเครื่องประจำที่</label><br>
                                     @error('is_mobile')
                                         <div class="invalid-feedback">
@@ -144,9 +144,9 @@
                             <div class="form-group">
                                 <label for="function">ระบบงาน</label><br>
                                 <div class="form-check">
-                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="function" id="function" value="1">
+                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="function" id="function" value="1" {{ old('function') == 1 && old('function') !== null ? 'checked' : '' }}>
                                     <label for="function" class="form-check-label">สำนักงาน</label><br>
-                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="function" id="function" value="2">
+                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="function" id="function" value="2" {{ old('function') == 2 ? 'checked' : ''}}>
                                     <label for="function" class="form-check-label">โรงพยาบาล</label>
                                     @error('function')
                                         <div class="invalid-feedback">
@@ -160,9 +160,9 @@
                             <div class="form-group">
                                 <label for="owner">เจ้าของเครื่อง</label>
                                 <div class="form-check">
-                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="owner" id="owner" value="1" >
+                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="owner" id="owner" value="1" {{ old('owner') == 1 && old('owner') !== null ? 'checked' : '' }}>
                                     <label class="form-check-label" for="owner">คณะ</label><br>
-                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="owner" id="owner" value="2">
+                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="owner" id="owner" value="2" {{ old('owner') == 2 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="owner">ภาควิชา</label>
                                     @error('owner')
                                         <div class="invalid-feedback">
@@ -306,7 +306,7 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="is_shared">สถานะการใช้งานร่วมกัน</label><br>
-                                <input type="checkbox" name="is_shared" value="1">เป็นเครื่องใช้งานร่วมกัน<br>
+                                <input type="checkbox" name="is_shared" value="1" {{ old('is_shared') == 1 && old('is_shared') !== null ? 'checked' : '' }}>เป็นเครื่องใช้งานร่วมกัน<br>
                             </div>
                         </div>
                     </div>
