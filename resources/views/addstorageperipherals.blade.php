@@ -32,7 +32,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
-                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/>
+                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/ value="{{ old('room') }}">
                                     @error('location_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                        <input hidden type="number" name="location_id" value="{{ old('loaction_id') }}"><!--ค่า location_id-->    
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
@@ -55,8 +55,8 @@
                                     <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
+                        
+                        
                             <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                                 <div class="form-group">
                                     <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
@@ -68,6 +68,8 @@
                                     </div><br>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
@@ -84,12 +86,10 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ชื่อผู้ใช้งาน-->
                                 <div class="form-group">
                                     <label for="user">ชื่อผู้ใช้งาน</label><br>
-                                    <input type="text" class="form-control @error('section') is-invalid @enderror" id="user" name="user">
+                                    <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user">
                                     @error('user')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -97,24 +97,16 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ตำแหน่งผู้ใช้งาน-->
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้ใช้งาน</label>
                                     <input type="text" class="form-control" name="position" id="position">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ประเภทหน่วยงาน-->
-                                <div class="form-group">
-                                    <label for="section_status">ประเภทหน่วยงาน</label>
-                                    <select class="form-control" name="section_status" id="section_status">
-                                        <option value="1">สำนักงาน</option>
-                                        <option value="2">หอผู้ป่วย</option>
-                                        <option value="3">ห้องประชุม</option>
-                                    </select>
-                                </div>
-                            </div>
+                        
+                        
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
@@ -126,10 +118,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
                                 <div class="form-group">
                                     <label for="function">ระบบงาน</label>
-                                    <select class="form-control" name="function" id="function">
-                                        <option value="1">สำนักงาน</option>
-                                        <option value="2">หอผู้ป่วย</option>
-                                    </select>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="function" id="office" value="1">
+                                        <label for="office" class="form-check-label">สำนักงาน</label><br>
+                                        <input type="radio" name="function" id="hospital" class="form-check-input" value="2">
+                                        <label for="hospital" class="form-check-label">โรงพยาบาล</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->

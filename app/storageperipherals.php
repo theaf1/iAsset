@@ -26,6 +26,7 @@ class storageperipherals extends Model
         'serial_no',
         'connectivity',
         'is_hotswap',
+        'data_unit',
         'total_capacity',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',

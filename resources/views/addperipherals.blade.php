@@ -255,7 +255,7 @@
                                 <label for="supply_consumables">สามารถเบิกวัสดุสึกหรอสิ้นเปลืองได้</label>
                                 <div class="form-check">
                                     @foreach($supplies as $supply)
-                                        <input class="form-check-input @error('supply_consumables') is-invalid @enderror" type="radio" name="supply_consumables" id="suppy_consumables" value="{{ $supply['id'] }}">
+                                        <input class="form-check-input @error('supply_consumables') is-invalid @enderror" type="radio" name="supply_consumables" id="suppy_consumables" value="{{ $supply['id'] }}" {{ old('supply_consumables') == $supply['id'] && old('supply_consumables') !== null ? 'checked' : '' }}>
                                         <label class="form-check-label" for="supply_consumables">{{ $supply['name'] }}</label><br>
                                     @endforeach
                                     @error('supply_consumables')

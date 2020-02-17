@@ -20,11 +20,16 @@ class NetworkedstorageController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
+        $DataUnits =array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB']
+        );
 
         return view('addnetworkedstorage')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
         ]);
     }
 
