@@ -55,8 +55,12 @@ class Servers extends Model
         'issues',
         'remarks',
     ];
-    public function gettype(){
-        $this->belongsTo(sections::class);
-        $this->hasMany(Displays::class);
+    public function section ()
+    {
+        return $this->hasOne(Section::class);
+    }
+    public function assetstatus ()
+    {
+        return $this->hasOne(Asset_statuses::class);
     }
 }

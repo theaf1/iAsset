@@ -25,7 +25,7 @@ class CreateNetSubtypesTable extends Migration
             ['name'=>'Managed Switch'],
             ['name'=>'Router'],
             ['name'=>'Wireless Access Point'],
-            ['name'=>'อื่นๆ'],
+            ['name'=>'อุปกรณเครือข่ายอื่นๆ'],
         );
         foreach($netsubtypes as $netsubtype){
             Netsubtype::create($netsubtype);

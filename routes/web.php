@@ -42,6 +42,4 @@ Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
 Route::post('/add-sp','StorageperipheralsController@store');
 Route::post('/add-peripheral','PeripheralsController@store');
-Route::get('/search', function () {
-    return view('search');
-});
+Route::get('/search', 'SearchController@index');
