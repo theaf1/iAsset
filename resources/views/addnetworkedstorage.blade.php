@@ -215,6 +215,12 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="hdd_total_cap">ความจุข้อมูลรวม</label>
+                                    @foreach ($dataunits as $dataunit)
+                                        <div class="form-check-inline pl-1">
+                                            <input type="radio" name="data_unit" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input">
+                                            <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
+                                        </div>
+                                    @endforeach
                                     <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">
