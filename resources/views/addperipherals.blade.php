@@ -140,22 +140,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
-                            <div class="form-group">
-                                <label for="function">ระบบงาน</label><br>
-                                <div class="form-check">
-                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="function" id="function" value="1" {{ old('function') == 1 && old('function') !== null ? 'checked' : '' }}>
-                                    <label for="function" class="form-check-label">สำนักงาน</label><br>
-                                    <input class="form-check-input @error('function') is-invalid @enderror" type="radio" name="function" id="function" value="2" {{ old('function') == 2 ? 'checked' : ''}}>
-                                    <label for="function" class="form-check-label">โรงพยาบาล</label>
-                                    @error('function')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                             <div class="form-group">
                                 <label for="owner">เจ้าของเครื่อง</label>

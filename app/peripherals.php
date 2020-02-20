@@ -34,7 +34,5 @@ class Peripherals extends Model
         'share_method',
         'issues',
     ];
-    public function gettype(){
-        $this->belongsTo(sections::class);
-    }
+    
 }

@@ -31,10 +31,17 @@ class Upses extends Model
         'issues',
         'remarks',
     ];
-    function gettype(){
-        $this->belongsTo(Section::class);
+
+    public function section ()
+    {
+        $this->hasOne(Section::class);
+    }
+    public function assetstatus ()
+    {
         $this->hasOne(Asset_statuses::class);
+    }
+    public function assetusestatus ()
+    {
         $this->hasOne(Asset_use_statuses::class);
     }
-    
 }

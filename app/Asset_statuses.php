@@ -10,7 +10,8 @@ class Asset_statuses extends Model
         'id',
         'name',
     ];
-    public function gettype(){
-        $this->belongsTo(clients::class);
+    public function client()
+    {
+        $this->belongsTo(Client::class);
     }
 }

@@ -194,24 +194,24 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="form-factor">ลักษณะของเครื่อง</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="1" checked>
-                                        <label class="form-check-label" for="form_factor">Tower</label><br>
-                                        <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="2">
-                                        <label class="form-check-label" for="owner">Rack Mounted</label><br>
-                                    </div>
-                                </div>
-                            </div>              
-                            <div class="col-sm-12 col-lg-6"> <!--serial no.-->
-                                <div class="form-group">
                                     <label for="serial_no">Serial Number จากผู้ผลิต</label>
-                                <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
+                                    <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                     @error('serial_no')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                </div>
+                            </div>              
+                            <div class="col-sm-12 col-lg-6"> <!--serial no.-->
+                                <div class="form-group">
+                                    <label for="form-factor">ลักษณะของเครื่อง</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="1" checked>
+                                        <label class="form-check-label" for="form_factor">Tower</label><br>
+                                        <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="2">
+                                        <label class="form-check-label" for="owner">Rack Mounted</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -312,12 +312,12 @@
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
                                     <label for=hdd_total_cap>ความจุรวมของ HDD</label>
-                                    <div class="form-check-inline">
                                         @foreach ($dataunits as $dataunit)
-                                            <input type="radio" class="form-check-input" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}">
-                                            <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
+                                            <div class="form-check-inline pl-1">
+                                                <input type="radio" class="form-check-input" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}">
+                                                <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
+                                            </div>
                                         @endforeach
-                                    </div>
                                     <input class="form-control" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="1">
                                 </div>
                             </div>
@@ -333,7 +333,7 @@
                                 <div class="form-group">
                                     <label for="is_headless">จอภาพ</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless') == 1 ? 'checked' : ''}}><label for="is_headless">ไม่มีจอภาพ</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless') == 1 ? 'checked' : ''}}><label for="is_headless">มีจอภาพ</label></label>
                                     </div>
                                 </div>
                             </div>
@@ -435,7 +435,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--other software details-->
                                 <div class="form-group">
                                     <label for="other_software_detail">โปรดกรอกรายชื่อ Software</label>
-                                <textarea class="form-control @error('other_software_detail') is-invalid @enderror" name="other_software_detail" id="other_software_detail" rows="1">{{ old('other_software_detail') }}</textarea>
+                                <textarea class="form-control @error('other_software_detail') is-invalid @enderror" name="other_software_detail" id="other_software_detail" rows="2">{{ old('other_software_detail') }}</textarea>
                                 @error('other_software_detail')
                                     <div class="invalid-feedback">
                                         {{ $message }}

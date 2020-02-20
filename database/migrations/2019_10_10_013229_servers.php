@@ -15,8 +15,8 @@ class Servers extends Migration
     {
         Schema::create('servers', function (Blueprint $table) {
             $table->bigincrements('id');
-            $table->string('sapid');
-            $table->string('pid');
+            $table->string('sapid')->nullable();
+            $table->string('pid')->nullable();
             $table->integer('location_id');
             $table->integer('section');
             $table->boolean('is_mobile')->default(0);
@@ -39,7 +39,6 @@ class Servers extends Migration
             $table->integer('lun_count');
             $table->integer('hdd_total_cap');
             $table->integer('data_unit');
-            $table->integer('display_no');
             $table->boolean('is_headless')->default(0);
             $table->string('display_sapid')->nullable();
             $table->string('display_pid')->nullable();

@@ -33,7 +33,8 @@ class storageperipherals extends Model
         'lun_count',
         'issues',
     ];
-    function getType(){
-        $this->belongsTo(Sections::class);
+    public function section ()
+    {
+        $this->belongsTo(Section::class);
     }
 }

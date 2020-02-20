@@ -55,6 +55,10 @@ class Servers extends Model
         'issues',
         'remarks',
     ];
+    public function location ()
+    {
+        return $this->hasOne(location::class);
+    }
     public function section ()
     {
         return $this->hasOne(Section::class);
@@ -62,5 +66,9 @@ class Servers extends Model
     public function assetstatus ()
     {
         return $this->hasOne(Asset_statuses::class);
+    }
+    public function assetusestatus ()
+    {
+        $this->hasOne(Asset_use_statuses::class);
     }
 }

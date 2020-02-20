@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input hidden type="number" name="location_id" value="{{ old('loaction_id') }}"><!--ค่า location_id-->    
+                        <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">

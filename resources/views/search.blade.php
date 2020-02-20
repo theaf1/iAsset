@@ -49,6 +49,18 @@
                             <label for="search_arg">ด้วย</label>
                             <input type="search" name="search_arg" id="search_arg" class="form-control">
                         </div>
+                    </div>                
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="form-group">
+                            <label for="ops"></label>
+                            <select class="form-control" id="ops">
+                                <option value="1">></option>
+                                <option value="2"><</option>
+                                <option value="3">=</option>
+                                <option value="4">>=</option>
+                                <option value="5"><=</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </form>

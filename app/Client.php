@@ -81,4 +81,19 @@ class Client extends Model
    {
       return $this->hasOne(Clienttype::class);
    }
+
+   public function location ()
+   {
+      $this->hasOne(location::class);
+   }
+
+   public function assetstatus ()
+   {
+      $this->hasOne(Asset_statuses::class);
+   }
+
+   public function assetusestatus ()
+   {
+      $this->hasOne(Asset_use_statuses::class);
+   }
 }

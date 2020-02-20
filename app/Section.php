@@ -10,7 +10,7 @@ class Section extends Model
        'id',
        'name',
    ];
-   public function gettype(){
+    public function gettype(){
        $this->hasMany(clients::class);
        $this->hasMany(peripherals::class);
        $this->hasMany(displays::class);

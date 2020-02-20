@@ -24,7 +24,6 @@ class Peripherals extends Migration
             $table->string('position');
             $table->integer('section');
             $table->string('tel_no');
-            $table->integer('function');
             $table->integer('owner');
             $table->integer('asset_status');
             $table->integer('asset_use_status');
