@@ -15,13 +15,12 @@ class CreateStorageperipheralsTable extends Migration
     {
         Schema::create('storageperipherals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('sap_id');
-            $table->string('pid');
+            $table->string('sapid')->nullable();
+            $table->string('pid')->nullable();
             $table->string('location_id');
             $table->boolean('is_mobile');
             $table->integer('section');
             $table->string('user');
-            $table->integer('section_status');
             $table->string('tel_no');
             $table->integer('function');
             $table->integer('owner');
@@ -35,9 +34,9 @@ class CreateStorageperipheralsTable extends Migration
             $table->boolean('is_hotswap')->default(0);
             $table->float('total_capacity');
             $table->integer('data_unit');
-            $table->integer('no_of_physical_drive_max');
-            $table->integer('no_of_physical_drive_populated');
-            $table->integer('lun_count');
+            $table->integer('no_of_physical_drive_max')->nullable();
+            $table->integer('no_of_physical_drive_populated')->nullable();
+            $table->integer('lun_count')->nullable();
             $table->string('issues')->nullable();
             $table->timestamps();
         });

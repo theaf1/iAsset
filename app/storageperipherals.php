@@ -14,7 +14,6 @@ class storageperipherals extends Model
         'is_mobile',
         'section',
         'user',
-        'section_status',
         'tel_no',
         'function',
         'owner',

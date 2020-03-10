@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\storageperipherals;
 
 class StorageperipheralsController extends Controller
 {
@@ -50,8 +51,10 @@ class StorageperipheralsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request); 
-        return $request->all();
+        $this->validateData($request);
+        $storagepheriperals = storageperipherals::create($request->all());
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        //return $request->all();
     }
 
     /**

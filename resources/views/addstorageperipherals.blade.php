@@ -3,6 +3,12 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="/add-sp" method="post">
+                @if ( $message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ $message }}
+                    </div>
+                @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
@@ -55,17 +61,17 @@
                                     <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
-                        
-                        
                             <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                                 <div class="form-group">
                                     <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1">
                                         <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
+                                    </div>
+                                    <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
                                         <label class="form-check-label" for="is_mobile">เป็นเครื่องประจำที่</label><br>
-                                    </div><br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -218,8 +224,8 @@
                             <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                                 <div class="form-group">
                                     <label for="connectivity">วิธีการเชื่อมต่อ</label>
-                                    <select class="form-control" id="connectivity">
-                                        <option value="1">USB</option>
+                                    <select class="form-control" name="connectivity" id="connectivity">
+                                        <option value="1" selected>USB</option>
                                         <option value="2">eSATA</option>
                                         <option value="3">SAS</option>
                                     </select>
@@ -246,9 +252,9 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เป็นอุปกรณ์ hotswap-->
                                 <div class="form-group">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check" type="checkbox" name="is_hotswap" id="is_hotswap" value="1">
-                                        <label class="form-check-label" for="is_hotswap">เป็นอุปกรณ์ hotswap</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="is_hotswap" id="is_hotswap" value="1">
+                                        <label class="form-check-label" for="is_hotswap">เป็นอุปกรณ์ hotswap</label><br>
                                     </div>
                                 </div>
                             </div>
