@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\Owner;
 use App\Upses;
 
 class UpsController extends Controller
@@ -20,11 +21,13 @@ class UpsController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
+        $Owners = Owner::all();
 
         return view('addups')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
+            'owners'=>$Owners,
         ]);
     }
 
@@ -106,6 +109,7 @@ class UpsController extends Controller
             'response_person' => 'required',
             'section' => 'required',
             'tel_no' => 'required',
+            'owner' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'brand'=>'required',
@@ -121,6 +125,7 @@ class UpsController extends Controller
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
             'tel_no.required' => 'กรุณาใส่หมายเลขโทรศัพท์',
+            'owner.required' => 'กรุณาระบุที่มาของเครื่อง',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งาน',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',

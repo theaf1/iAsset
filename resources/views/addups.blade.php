@@ -4,10 +4,10 @@
         <div class="col-12 mx-auto">
             <form action="/add-ups" method="post">
             @if ( $message = Session::get('success'))
-            <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ $message }}
-            </div>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ $message }}
+                </div>
             @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                    <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                             <div class="form-group">
@@ -91,7 +91,7 @@
                                 <select class="form-control @error('section') is-invalid @enderror" id="section" name="section">
                                     <option value="" hidden selected>กรุณาเลือก</option>
                                     @foreach($sections as $section)
-                                        <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                        <option value="{{ $section['id'] }} {{ old('section') == $section['id']  ? 'selected' : ''}}">{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('section')
@@ -119,10 +119,15 @@
                             <div class="form-group">
                                 <label for="owner">เจ้าของเครื่อง</label><br>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="owner" id="owner" value="1" checked>
-                                    <label class="form-check-label" for="owner">คณะ</label><br>
-                                    <input class="form-check-input" type="radio" name="owner" id="owner" value="2">
-                                    <label class="form-check-label" for="owner">ภาควิชา</label><br>
+                                    @foreach ($owners as $owner)
+                                        <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}">
+                                        <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>
+                                    @endforeach
+                                    @error('owner')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -134,7 +139,7 @@
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden>กรุณาเลือก</option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status') == $asset_status['id']  ? 'selected' : ''}}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_status')
@@ -150,7 +155,7 @@
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror"name="asset_use_status" id="asset_use_status">
                                     <option value="" hidden>กรุณาเลือก</option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status') == $asset_use_status['id']  ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')
