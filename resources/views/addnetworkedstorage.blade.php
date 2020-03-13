@@ -24,7 +24,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="pid">รหัสครุภัณฑ์</label>
-                                    <input type="text" class="form-control" id="pid" name="pid"{{ old('pid') }}>
+                                    <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}">
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                        <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
@@ -58,7 +58,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check">
                                         <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1">
                                         <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
                                         <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
@@ -107,10 +107,15 @@
                                 <div class="form-group">
                                     <label for="owner">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="owner" id="owner" value="1" checked>
-                                        <label class="form-check-label" for="owner">คณะ</label><br>
-                                        <input class="form-check-input" type="radio" name="owner" id="owner" value="2">
-                                        <label class="form-check-label" for="owner">ภาควิชา</label><br>
+                                        @foreach ($owners as $owner)
+                                            <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}">
+                                            <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>    
+                                        @endforeach
+                                        @error('owner')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +209,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number</label>
-                                    <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text">
+                                    <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                     @error('serial_no')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -221,7 +226,7 @@
                                             <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
                                         </div>
                                     @endforeach
-                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap">
+                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap" value="{{ old('hdd_total_cap') }}">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -234,7 +239,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
-                                    <input type="number" class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" min="0">
+                                    <input type="number" class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" min="0" value="{{ old('no_of_physical_drive_max') }}">
                                 </div>
                                 @error('no_of_physical_drive_max')
                                     <div class="invalid-feedback">
@@ -245,7 +250,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
-                                    <input type="number" class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated">
+                                    <input type="number" class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" value="{{ old('no_of_physical_drive_populated') }}">
                                     @error('no_of_physical_drive_populated')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -258,7 +263,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="lun_count">จำนวน disk จำลองที่มีอยู่</label>
-                                    <input type="number" name="lun_count" id="lun_count" class="form-control @error('lun_count') is-invalid @enderror">
+                                    <input type="number" name="lun_count" id="lun_count" class="form-control @error('lun_count') is-invalid @enderror" value="{{ old('lun_count') }}">
                                     @error('lun_count')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -269,7 +274,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="device_name">ชื่อเครื่อง</label>
-                                    <input type="text" name="device_name" id="device_name" class="form-control">
+                                    <input type="text" name="device_name" id="device_name" class="form-control" value="{{ old('device_name') }}">
                                 </div>
                             </div>
                         </div>
@@ -277,13 +282,13 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="device_management_address">IP Address ที่ใช้ควบคุมเครื่อง</label>
-                                    <input type="text" name="device_management_address" id="device_management_address" class="form-control">
+                                    <input type="text" name="device_management_address" id="device_management_address" class="form-control" value="{{ old('device_management_address') }}">
                                 </div>                       
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="device_communication_address">Address ที่ใช้รับส่งข้อมูล</label>
-                                    <input type="text" name="device_communication_address" id="device_communication_address" class="form-control">
+                                    <input type="text" name="device_communication_address" id="device_communication_address" class="form-control" value="{{ old('device_communication_address') }}">
                                 </div>
                             </div>
                         </div>
@@ -291,10 +296,10 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="type">Protocol ที่ใช้รับส่งข้อมูล</label>
-                                    <div class="form-check-inline">
+                                    <div class="form-check form-check-inline pl-2">
                                         <label class="form-check-label"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="1"><label for="device_communication_protocol">SMB</label></label>
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="2"><label for="device_communication_protocol">Fiber Channel</label></label>
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="3"><label for="device_communication_protocol">iSCSI</label></label>
+                                        <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="2"><label for="device_communication_protocol">Fiber Channel</label></label>
+                                        <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="3"><label for="device_communication_protocol">iSCSI</label></label>
                                     </div> 
                                 </div>
                             </div>
@@ -306,17 +311,17 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                    <div class="form-row">
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
-                                    <textarea class="form-control" name="remarks" id="remarks" rows="2"></textarea>
+                                    <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--issues-->
                                 <div class="form-group">
                                     <label for="issues">ปัญหาในการใช้งาน</label>
-                                    <textarea class="form-control" name="issues" id="issues" rows="2"></textarea>
+                                    <textarea class="form-control" name="issues" id="issues" rows="2">{{ old('issues') }}</textarea>
                                 </div>
                             </div>
                         </div>

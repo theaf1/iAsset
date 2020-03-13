@@ -7,6 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\NetworkedStorage;
+use App\Owner;
 
 class NetworkedstorageController extends Controller
 {
@@ -24,12 +25,15 @@ class NetworkedstorageController extends Controller
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB']
         );
+        $Owners = Owner::all();
 
         return view('addnetworkedstorage')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+
         ]);
     }
 
@@ -109,6 +113,7 @@ class NetworkedstorageController extends Controller
             'location_id' => 'required',
             'section' => 'required',
             'response_person' => 'required',
+            'owner' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'type' => 'required',
@@ -126,6 +131,7 @@ class NetworkedstorageController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกหน่วยงาน',
             'response_person.required' => 'กรุณาระบุผู้รับผิดชอบ',
+            'owner.required' => 'กรุณาระบุที่มา',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'type.required' => 'กรุณาระบุชนิดของอุปกรณ์',
